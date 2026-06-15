@@ -1,0 +1,224 @@
+{
+    "game_version": "Season 1",
+    "analysis_date": "2026-06-09 16:45:39",
+    "theme": "Classic",
+	"is_base_game": true,
+    "special_spawns": {
+        "abominations": [
+            "Standard Abomination"
+        ],
+        "necromancers": []
+    },
+    "spawn_data": {
+        "blue": {
+            "extra_walker": {
+                "total_cards": 1,
+                "qty_distribution": {
+                    "0": 1
+                }
+            },
+            "fatty_standard": {
+                "total_cards": 3,
+                "qty_distribution": {
+                    "1": 3
+                }
+            },
+            "nothing": {
+                "total_cards": 8,
+                "qty_distribution": {
+                    "0": 8
+                }
+            },
+            "runner_standard": {
+                "total_cards": 2,
+                "qty_distribution": {
+                    "1": 2
+                }
+            },
+            "sewer_walker": {
+                "total_cards": 2,
+                "qty_distribution": {
+                    "1": 2
+                }
+            },
+            "walker_standard": {
+                "total_cards": 24,
+                "qty_distribution": {
+                    "1": 18,
+                    "2": 6
+                }
+            }
+        },
+        "yellow": {
+            "extra_fatty": {
+                "total_cards": 1,
+                "qty_distribution": {
+                    "0": 1
+                }
+            },
+            "extra_runner": {
+                "total_cards": 1,
+                "qty_distribution": {
+                    "0": 1
+                }
+            },
+            "extra_walker": {
+                "total_cards": 2,
+                "qty_distribution": {
+                    "0": 2
+                }
+            },
+            "fatty_standard": {
+                "total_cards": 1,
+                "qty_distribution": {
+                    "1": 1
+                }
+            },
+            "runner_standard": {
+                "total_cards": 9,
+                "qty_distribution": {
+                    "1": 5,
+                    "2": 4
+                }
+            },
+            "sewer_runner": {
+                "total_cards": 1,
+                "qty_distribution": {
+                    "1": 1
+                }
+            },
+            "sewer_walker": {
+                "total_cards": 1,
+                "qty_distribution": {
+                    "2": 1
+                }
+            },
+            "walker_standard": {
+                "total_cards": 25,
+                "qty_distribution": {
+                    "1": 6,
+                    "2": 6,
+                    "3": 8,
+                    "4": 5
+                }
+            }
+        },
+        "orange": {
+            "extra_fatty": {
+                "total_cards": 1,
+                "qty_distribution": {
+                    "0": 1
+                }
+            },
+            "extra_runner": {
+                "total_cards": 1,
+                "qty_distribution": {
+                    "0": 1
+                }
+            },
+            "extra_walker": {
+                "total_cards": 2,
+                "qty_distribution": {
+                    "0": 1,
+                    "2": 1
+                }
+            },
+            "fatty_standard": {
+                "total_cards": 5,
+                "qty_distribution": {
+                    "1": 2,
+                    "2": 2,
+                    "3": 1
+                }
+            },
+            "runner_standard": {
+                "total_cards": 14,
+                "qty_distribution": {
+                    "1": 2,
+                    "2": 5,
+                    "3": 6,
+                    "5": 1
+                }
+            },
+            "sewer_fatty": {
+                "total_cards": 1,
+                "qty_distribution": {
+                    "1": 1
+                }
+            },
+            "sewer_walkers": {
+                "total_cards": 1,
+                "qty_distribution": {
+                    "2": 1
+                }
+            },
+            "walker_standard": {
+                "total_cards": 15,
+                "qty_distribution": {
+                    "2": 3,
+                    "3": 2,
+                    "4": 6,
+                    "5": 1,
+                    "6": 3
+                }
+            }
+        },
+        "red": {
+            "extra_fatty": {
+                "total_cards": 1,
+                "qty_distribution": {
+                    "0": 1
+                }
+            },
+            "extra_runner": {
+                "total_cards": 1,
+                "qty_distribution": {
+                    "0": 1
+                }
+            },
+            "extra_walker": {
+                "total_cards": 2,
+                "qty_distribution": {
+                    "0": 2
+                }
+            },
+            "fatty_standard": {
+                "total_cards": 6,
+                "qty_distribution": {
+                    "2": 2,
+                    "3": 1,
+                    "4": 3
+                }
+            },
+            "runner_standard": {
+                "total_cards": 10,
+                "qty_distribution": {
+                    "2": 4,
+                    "3": 1,
+                    "4": 5
+                }
+            },
+            "sewer_fatty": {
+                "total_cards": 1,
+                "qty_distribution": {
+                    "1": 1
+                }
+            },
+            "sewer_runner": {
+                "total_cards": 1,
+                "qty_distribution": {
+                    "1": 1
+                }
+            },
+            "walker_standard": {
+                "total_cards": 19,
+                "qty_distribution": {
+                    "5": 9,
+                    "6": 1,
+                    "7": 8,
+                    "8": 1
+                }
+            }
+        }
+    }
+}

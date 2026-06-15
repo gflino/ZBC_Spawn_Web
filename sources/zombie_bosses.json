@@ -1,0 +1,24 @@
+{
+    "game_version": "Zombie Bosses",
+    "analysis_date": "2025-10-15 00:44:47",
+    "theme": "fantasy",
+    "is_base_game": false,
+    "special_spawns": {
+        "abominations": [
+            {
+                "display_name": "Ablobination",
+                "file_name": "ablobination"
+            },
+            {
+                "display_name": "Abominatroll",
+                "file_name": "abominatroll"
+            },
+            {
+                "display_name": "Abominotaur",
+                "file_name": "abominotaur"
+            }
+        ],
+        "necromancers": []
+    },
+    "spawn_data": {}
+}

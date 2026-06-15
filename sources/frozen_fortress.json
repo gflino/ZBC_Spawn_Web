@@ -1,0 +1,101 @@
+{
+    "game_version": "Frozen Fortress",
+    "analysis_date": "2025-10-15 00:44:47",
+    "theme": "fantasy",
+    "is_base_game": false,
+    "special_spawns": {
+        "abominations": [
+            {
+                "display_name": "Amaterasu",
+                "file_name": "amaterasu"
+            },
+            {
+                "display_name": "Asura",
+                "file_name": "asura"
+            },
+            {
+                "display_name": "Bishamon",
+                "file_name": "bishamon"
+            },
+            {
+                "display_name": "Chimimōryō",
+                "file_name": "chimimoryo"
+            },
+            {
+                "display_name": "Hachiman",
+                "file_name": "hachiman"
+            },
+            {
+                "display_name": "Kijin",
+                "file_name": "kijin"
+            },
+            {
+                "display_name": "Kumiho",
+                "file_name": "kumiho"
+            },
+            {
+                "display_name": "Nian",
+                "file_name": "nian"
+            },
+            {
+                "display_name": "Qilin",
+                "file_name": "qilin"
+            },
+            {
+                "display_name": "Red Hare",
+                "file_name": "red_hare"
+            },
+            {
+                "display_name": "Shakōki Dogū",
+                "file_name": "shakoki_dogu"
+            },
+            {
+                "display_name": "Sōjōbō",
+                "file_name": "sojobo"
+            },
+            {
+                "display_name": "Susano-wo",
+                "file_name": "susano_wo"
+            },
+            {
+                "display_name": "Takemikazuchi",
+                "file_name": "takemikazuchi"
+            },
+            {
+                "display_name": "Toyol",
+                "file_name": "toyol"
+            },
+            {
+                "display_name": "Yeti",
+                "file_name": "yeti"
+            }
+        ],
+        "necromancers": [
+            {
+                "display_name": "Bomoh",
+                "file_name": "bomoh"
+            },
+            {
+                "display_name": "Death Notes",
+                "file_name": "death_notes"
+            },
+            {
+                "display_name": "Hannya",
+                "file_name": "hannya"
+            },
+            {
+                "display_name": "Kaguya",
+                "file_name": "kaguya"
+            },
+            {
+                "display_name": "Tengu",
+                "file_name": "tengu"
+            },
+            {
+                "display_name": "Yuki-onna",
+                "file_name": "yuki_onna"
+            }
+        ]
+    },
+    "spawn_data": {}
+}

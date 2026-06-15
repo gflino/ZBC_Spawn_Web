@@ -1,0 +1,88 @@
+{
+    "game_version": "No Rest for the Wicked",
+    "analysis_date": "2025-10-15 00:44:47",
+    "theme": "fantasy",
+    "is_base_game": false,
+    "special_spawns": {
+        "abominations": [
+            {
+                "display_name": "Necromantic Dragon",
+                "file_name": "necromantic_dragon"
+            }
+        ],
+        "necromancers": []
+    },
+    "spawn_data": {
+        "blue": {
+            "spectral_walker": {
+                "total_cards": 12,
+                "qty_distribution": {
+                    "1": 10,
+                    "2": 2
+                }
+            },
+            "swarms_of_ratz": {
+                "total_cards": 12,
+                "qty_distribution": {
+                    "2": 12
+                }
+            }
+        },
+        "yellow": {
+            "spectral_walker": {
+                "total_cards": 12,
+                "qty_distribution": {
+                    "1": 5,
+                    "2": 3,
+                    "3": 2,
+                    "4": 2
+                }
+            },
+            "swarms_of_ratz": {
+                "total_cards": 12,
+                "qty_distribution": {
+                    "3": 12
+                }
+            }
+        },
+        "orange": {
+            "spectral_walker": {
+                "total_cards": 12,
+                "qty_distribution": {
+                    "1": 2,
+                    "2": 4,
+                    "3": 1,
+                    "4": 2,
+                    "5": 2,
+                    "6": 1
+                }
+            },
+            "swarms_of_ratz": {
+                "total_cards": 12,
+                "qty_distribution": {
+                    "4": 12
+                }
+            }
+        },
+        "red": {
+            "spectral_walker": {
+                "total_cards": 12,
+                "qty_distribution": {
+                    "1": 1,
+                    "2": 2,
+                    "3": 4,
+                    "5": 1,
+                    "6": 2,
+                    "7": 1,
+                    "8": 1
+                }
+            },
+            "swarms_of_ratz": {
+                "total_cards": 12,
+                "qty_distribution": {
+                    "5": 12
+                }
+            }
+        }
+    }
+}

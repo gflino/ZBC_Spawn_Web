@@ -1,0 +1,48 @@
+{
+    "game_version": "Berserk Walkers",
+    "analysis_date": "2025-10-15 00:44:47",
+    "theme": "fantasy",
+    "is_base_game": false,
+    "special_spawns": {
+        "abominations": [],
+        "necromancers": []
+    },
+    "spawn_data": {
+        "blue": {
+            "berserker_walker": {
+                "total_cards": 12,
+                "qty_distribution": {
+                    "2": 6,
+                    "4": 6
+                }
+            }
+        },
+        "yellow": {
+            "berserker_walker": {
+                "total_cards": 12,
+                "qty_distribution": {
+                    "4": 6,
+                    "6": 6
+                }
+            }
+        },
+        "orange": {
+            "berserker_walker": {
+                "total_cards": 12,
+                "qty_distribution": {
+                    "6": 6,
+                    "8": 6
+                }
+            }
+        },
+        "red": {
+            "berserker_walker": {
+                "total_cards": 12,
+                "qty_distribution": {
+                    "8": 6,
+                    "10": 6
+                }
+            }
+        }
+    }
+}

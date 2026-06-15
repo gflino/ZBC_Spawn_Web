@@ -1,0 +1,16 @@
+{
+    "game_version": "Warlords of the Rising Sun",
+    "analysis_date": "2025-10-15 00:44:47",
+    "theme": "fantasy",
+    "is_base_game": false,
+    "special_spawns": {
+        "abominations": [],
+        "necromancers": [
+            {
+                "display_name": "Fūma Kotarō",
+                "file_name": "fuma_kotaro"
+            }
+        ]
+    },
+    "spawn_data": {}
+}

@@ -1,0 +1,44 @@
+{
+    "game_version": "Murder of Crowz",
+    "analysis_date": "2025-10-15 00:44:47",
+    "theme": "fantasy",
+    "is_base_game": false,
+    "special_spawns": {
+        "abominations": [],
+        "necromancers": []
+    },
+    "spawn_data": {
+        "blue": {
+            "murder_of_crowz": {
+                "total_cards": 12,
+                "qty_distribution": {
+                    "2": 12
+                }
+            }
+        },
+        "yellow": {
+            "murder_of_crowz": {
+                "total_cards": 12,
+                "qty_distribution": {
+                    "3": 12
+                }
+            }
+        },
+        "orange": {
+            "murder_of_crowz": {
+                "total_cards": 12,
+                "qty_distribution": {
+                    "4": 12
+                }
+            }
+        },
+        "red": {
+            "murder_of_crowz": {
+                "total_cards": 12,
+                "qty_distribution": {
+                    "5": 12
+                }
+            }
+        }
+    }
+}

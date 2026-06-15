@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpawnMGR - Versão Web</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container" id="app-container">
+        <h1>SpawnMGR v2.0</h1>
+        
+        <div id="screen-theme" class="screen active">
+            <h2>Escolha a Era:</h2>
+            <div class="menu-grid">
+                <button class="btn-theme" data-theme="classico">Clássico / Moderno</button>
+                <button class="btn-theme" data-theme="fantasy">Fantasia</button>
+                <button class="btn-theme" data-theme="scifi">Sci-Fi (Invader)</button>
+                <button class="btn-theme" data-theme="velhooeste">Velho Oeste</button>
+                <button class="btn-theme" data-theme="marveldc">Marvel / DC</button>
+                <button class="btn-theme" data-theme="notld">Night of the Living Dead</button>
+            </div>
+        </div>
+
+        <div id="screen-expansion" class="screen">
+            <h2>Configure a Partida</h2>
+            
+            <div class="catalog-sections">
+                <div class="section-group">
+                    <h3>Jogos Base (Selecione ao menos um)</h3>
+                    <div id="list-base-games" class="checkbox-list"></div>
+                </div>
+                
+                <div class="section-group">
+                    <h3>Expansões / Caixas Extras</h3>
+                    <div id="list-expansions" class="checkbox-list"></div>
+                </div>
+            </div>
+
+            <button id="btn-confirm-load" class="btn-main">Confirmar e Carregar Decks</button>
+            <button class="btn-back" id="btn-back-to-theme">← Voltar</button>
+        </div>
+
+        <div id="screen-spawner" class="screen">
+            <h2 id="current-expansion-title">Expansão Ativa</h2>
+            
+            <div class="controls">
+                <label for="danger-level">Nível de Perigo:</label>
+                <select id="danger-level">
+                    <option value="blue">Azul</option>
+                    <option value="yellow">Amarelo</option>
+                    <option value="orange">Laranja</option>
+                    <option value="red">Vermelho</option>
+                </select>
+            </div>
+
+            <button id="btn-draw">Realizar Sorteio</button>
+
+            <div class="result-area">
+                <h2>Resultado:</h2>
+                <p id="result-text">Aguardando...</p>
+            </div>
+
+            <button class="btn-back" id="btn-back-to-expansions" style="margin-top: 30px; width: 100%;">← Escolher Outros Decks</button>
+        </div>
+
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

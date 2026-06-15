@@ -1,0 +1,57 @@
+{
+    "game_version": "Wulfsburg",
+    "analysis_date": "2025-10-15 00:44:47",
+    "theme": "Fantasy",
+    "is_base_game": false,
+    "special_spawns": {
+        "abominations": [
+            {
+                "display_name": "Wolfbomination",
+                "file_name": "wolfbomination"
+            }
+        ],
+        "necromancers": []
+    },
+    "spawn_data": {
+        "blue": {
+            "wolfz": {
+                "total_cards": 6,
+                "qty_distribution": {
+                    "1": 2,
+                    "2": 2,
+                    "3": 2
+                }
+            }
+        },
+        "yellow": {
+            "wolfz": {
+                "total_cards": 6,
+                "qty_distribution": {
+                    "2": 2,
+                    "3": 2,
+                    "4": 2
+                }
+            }
+        },
+        "orange": {
+            "wolfz": {
+                "total_cards": 6,
+                "qty_distribution": {
+                    "3": 2,
+                    "4": 2,
+                    "5": 2
+                }
+            }
+        },
+        "red": {
+            "wolfz": {
+                "total_cards": 6,
+                "qty_distribution": {
+                    "4": 2,
+                    "5": 2,
+                    "6": 2
+                }
+            }
+        }
+    }
+}

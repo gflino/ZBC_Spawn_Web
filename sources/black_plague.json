@@ -1,0 +1,204 @@
+{
+    "game_version": "Black Plague",
+    "analysis_date": "2025-10-15 00:44:47",
+    "theme": "Fantasy",
+    "is_base_game": true,
+    "special_spawns": {
+        "abominations": [
+            {
+                "display_name": "Abomination",
+                "file_name": "abomination"
+            }
+        ],
+        "necromancers": [
+            {
+                "display_name": "Necromancer",
+                "file_name": "necromancer"
+            }
+        ]
+    },
+    "spawn_data": {
+        "blue": {
+            "brute": {
+                "total_cards": 8,
+                "qty_distribution": {
+                    "1": 8
+                }
+            },
+            "double_spawn": {
+                "total_cards": 8,
+                "qty_distribution": {
+                    "0": 8
+                }
+            },
+            "nothing": {
+                "total_cards": 7,
+                "qty_distribution": {
+                    "0": 7
+                }
+            },
+            "runner": {
+                "total_cards": 6,
+                "qty_distribution": {
+                    "1": 6
+                }
+            },
+            "walker": {
+                "total_cards": 17,
+                "qty_distribution": {
+                    "1": 11,
+                    "2": 5,
+                    "3": 1
+                }
+            }
+        },
+        "yellow": {
+            "brute": {
+                "total_cards": 9,
+                "qty_distribution": {
+                    "1": 6,
+                    "2": 3
+                }
+            },
+            "double_spawn": {
+                "total_cards": 8,
+                "qty_distribution": {
+                    "0": 8
+                }
+            },
+            "extra_brute": {
+                "total_cards": 1,
+                "qty_distribution": {
+                    "0": 1
+                }
+            },
+            "extra_runner": {
+                "total_cards": 1,
+                "qty_distribution": {
+                    "0": 1
+                }
+            },
+            "extra_walker": {
+                "total_cards": 2,
+                "qty_distribution": {
+                    "0": 2
+                }
+            },
+            "runner": {
+                "total_cards": 9,
+                "qty_distribution": {
+                    "1": 6,
+                    "2": 3
+                }
+            },
+            "walker": {
+                "total_cards": 16,
+                "qty_distribution": {
+                    "2": 5,
+                    "3": 6,
+                    "4": 5
+                }
+            }
+        },
+        "orange": {
+            "brute": {
+                "total_cards": 9,
+                "qty_distribution": {
+                    "1": 3,
+                    "2": 3,
+                    "3": 3
+                }
+            },
+            "double_spawn": {
+                "total_cards": 8,
+                "qty_distribution": {
+                    "0": 8
+                }
+            },
+            "extra_brute": {
+                "total_cards": 1,
+                "qty_distribution": {
+                    "0": 1
+                }
+            },
+            "extra_runner": {
+                "total_cards": 1,
+                "qty_distribution": {
+                    "0": 1
+                }
+            },
+            "extra_walker": {
+                "total_cards": 2,
+                "qty_distribution": {
+                    "0": 2
+                }
+            },
+            "runner": {
+                "total_cards": 9,
+                "qty_distribution": {
+                    "1": 1,
+                    "2": 7,
+                    "3": 1
+                }
+            },
+            "walker": {
+                "total_cards": 16,
+                "qty_distribution": {
+                    "3": 2,
+                    "4": 6,
+                    "5": 6,
+                    "6": 2
+                }
+            }
+        },
+        "red": {
+            "brute": {
+                "total_cards": 9,
+                "qty_distribution": {
+                    "2": 3,
+                    "3": 6
+                }
+            },
+            "double_spawn": {
+                "total_cards": 8,
+                "qty_distribution": {
+                    "0": 8
+                }
+            },
+            "extra_brute": {
+                "total_cards": 1,
+                "qty_distribution": {
+                    "0": 1
+                }
+            },
+            "extra_runner": {
+                "total_cards": 1,
+                "qty_distribution": {
+                    "0": 1
+                }
+            },
+            "extra_walker": {
+                "total_cards": 2,
+                "qty_distribution": {
+                    "0": 2
+                }
+            },
+            "runner": {
+                "total_cards": 9,
+                "qty_distribution": {
+                    "2": 3,
+                    "3": 6
+                }
+            },
+            "walker": {
+                "total_cards": 16,
+                "qty_distribution": {
+                    "5": 6,
+                    "6": 6,
+                    "7": 2,
+                    "8": 2
+                }
+            }
+        }
+    }
+}

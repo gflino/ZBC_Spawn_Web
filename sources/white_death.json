@@ -1,0 +1,194 @@
+{
+    "game_version": "White Death",
+    "analysis_date": "2025-10-15 00:44:47",
+    "theme": "fantasy",
+    "is_base_game": true,
+    "special_spawns": {
+        "abominations": [
+            {
+                "display_name": "Khan Abomination",
+                "file_name": "khan_abomination"
+            }
+        ],
+        "necromancers": [
+            {
+                "display_name": "Defiler Necromancer",
+                "file_name": "defiler_necromancer"
+            }
+        ]
+    },
+    "spawn_data": {
+        "blue": {
+            "brute": {
+                "total_cards": 8,
+                "qty_distribution": {
+                    "2": 4,
+                    "4": 4
+                }
+            },
+            "nothing": {
+                "total_cards": 4,
+                "qty_distribution": {
+                    "0": 4
+                }
+            },
+            "runner": {
+                "total_cards": 8,
+                "qty_distribution": {
+                    "2": 4,
+                    "4": 4
+                }
+            },
+            "walker": {
+                "total_cards": 12,
+                "qty_distribution": {
+                    "2": 6,
+                    "4": 6
+                }
+            },
+            "zombie_siege": {
+                "total_cards": 9,
+                "qty_distribution": {
+                    "0": 9
+                }
+            }
+        },
+        "yellow": {
+            "brute": {
+                "total_cards": 8,
+                "qty_distribution": {
+                    "2": 4,
+                    "4": 4
+                }
+            },
+            "extra_brute": {
+                "total_cards": 1,
+                "qty_distribution": {
+                    "0": 1
+                }
+            },
+            "extra_runner": {
+                "total_cards": 1,
+                "qty_distribution": {
+                    "0": 1
+                }
+            },
+            "extra_walker": {
+                "total_cards": 2,
+                "qty_distribution": {
+                    "0": 2
+                }
+            },
+            "runner": {
+                "total_cards": 8,
+                "qty_distribution": {
+                    "2": 4,
+                    "4": 4
+                }
+            },
+            "walker": {
+                "total_cards": 12,
+                "qty_distribution": {
+                    "4": 6,
+                    "6": 6
+                }
+            },
+            "zombie_siege": {
+                "total_cards": 9,
+                "qty_distribution": {
+                    "0": 9
+                }
+            }
+        },
+        "orange": {
+            "brute": {
+                "total_cards": 8,
+                "qty_distribution": {
+                    "6": 8
+                }
+            },
+            "extra_brute": {
+                "total_cards": 1,
+                "qty_distribution": {
+                    "0": 1
+                }
+            },
+            "extra_runner": {
+                "total_cards": 1,
+                "qty_distribution": {
+                    "0": 1
+                }
+            },
+            "extra_walker": {
+                "total_cards": 2,
+                "qty_distribution": {
+                    "0": 2
+                }
+            },
+            "runner": {
+                "total_cards": 8,
+                "qty_distribution": {
+                    "6": 8
+                }
+            },
+            "walker": {
+                "total_cards": 12,
+                "qty_distribution": {
+                    "6": 6,
+                    "8": 6
+                }
+            },
+            "zombie_siege": {
+                "total_cards": 9,
+                "qty_distribution": {
+                    "0": 9
+                }
+            }
+        },
+        "red": {
+            "brute": {
+                "total_cards": 8,
+                "qty_distribution": {
+                    "8": 8
+                }
+            },
+            "extra_brute": {
+                "total_cards": 1,
+                "qty_distribution": {
+                    "0": 1
+                }
+            },
+            "extra_runner": {
+                "total_cards": 1,
+                "qty_distribution": {
+                    "0": 1
+                }
+            },
+            "extra_walker": {
+                "total_cards": 2,
+                "qty_distribution": {
+                    "0": 2
+                }
+            },
+            "runner": {
+                "total_cards": 8,
+                "qty_distribution": {
+                    "8": 8
+                }
+            },
+            "walker": {
+                "total_cards": 12,
+                "qty_distribution": {
+                    "8": 6,
+                    "10": 6
+                }
+            },
+            "zombie_siege": {
+                "total_cards": 9,
+                "qty_distribution": {
+                    "0": 9
+                }
+            }
+        }
+    }
+}

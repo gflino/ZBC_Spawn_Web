@@ -1,0 +1,21 @@
+{
+    "game_version": "Iron Maiden Pack 2-F",
+    "analysis_date": "2025-10-15 00:44:47",
+    "theme": "fantasy",
+    "is_base_game": false,
+    "special_spawns": {
+        "abominations": [
+            {
+                "display_name": "Mummy Eddie",
+                "file_name": "mummy_eddie"
+            }
+        ],
+        "necromancers": [
+            {
+                "display_name": "Shaman Eddie",
+                "file_name": "shaman_eddie"
+            }
+        ]
+    },
+    "spawn_data": {}
+}
