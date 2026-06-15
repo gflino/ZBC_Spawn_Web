@@ -16,10 +16,9 @@ const appContainer = document.getElementById('app-container');
 const dangerLevel = document.getElementById('danger-level');
 
 // --- SUA LISTA DE ARQUIVOS PARA TESTE ---
-// Quando criar um JSON novo, basta jogar o nome dele aqui dentro!
 const listaArquivosJson = [
     'classic_season1.json',
-    'classic_season2_prison_outbreak.json',
+    'classic_season2.json',
     'black_plague.json',
     'green_horde.json',
     'white_death.json',
@@ -37,8 +36,6 @@ const listaArquivosJson = [
     'berserk_walkers.json',
     'warlords_of_the_middle_kingdom.json',
     'warlords_of_the_rising_sun.json'
-    
-
 ];
 
 // Memória do App: Guardará todos os JSONs lidos com seus respectivos metadados
@@ -107,16 +104,26 @@ document.querySelectorAll('.btn-theme').forEach(botao => {
         listBaseGames.innerHTML = '';
         listExpansions.innerHTML = '';
 
-        // Filtra os arquivos carregados que pertencem a este tema lendo o INSIDE do JSON
-        const caixasDoTema = bancoDeDadosPreCarregado.filter(item => 
-            item.dados.theme && item.dados.theme.toLowerCase() === temaEscolhido
-        );
+        // Filtra os arquivos carregados com regra de tradução flexível
+        const caixasDoTema = bancoDeDadosPreCarregado.filter(item => {
+            // Se o JSON não tiver a chave theme, ignora
+            if (!item.dados.theme) return false;
+            
+            const temaDoJson = item.dados.theme.toLowerCase();
+            
+            // Regra especial: O botão "classico" captura "classic", "modern", ou "classico"
+            if (temaEscolhido === 'classico') {
+                return temaDoJson === 'classic' || temaDoJson === 'modern' || temaDoJson === 'classico' || temaDoJson === 'moderno';
+            }
+            
+            // Para os outros botões (fantasy, scifi, etc.), a palavra tem que bater exatamente
+            return temaDoJson === temaEscolhido;
+        });
 
-        // Separa dinamicamente Jogos Base de Expansões baseado na propriedade interna do JSON
-        // (Ajuste o termo "box_type" ou "base" se o seu JSON usar palavras diferentes)
         // Pega os itens onde is_base_game é verdadeiro
         const bases = caixasDoTema.filter(item => item.dados.is_base_game);
-            // Pega os itens onde is_base_game é falso (o ponto de exclamação inverte a checagem)
+        
+        // Pega os itens onde is_base_game é falso
         const expansoes = caixasDoTema.filter(item => !item.dados.is_base_game);
 
         // Renderiza os Jogos Base encontrados
@@ -127,9 +134,18 @@ document.querySelectorAll('.btn-theme').forEach(botao => {
         if (expansoes.length === 0) listExpansions.innerHTML = "<p>Nenhuma expansão encontrada para esta era.</p>";
         else expansoes.forEach(item => criarCheckbox(item, listExpansions));
         
+        // Bloqueia o botão de confirmar ao entrar na tela
+        btnConfirmLoad.disabled = true;
+        
         mostrarTela(screenExpansion);
     });
 });
+
+// --- FUNÇÃO PARA VIGIAR O BOTÃO ---
+function validarBotaoConfirmar() {
+    const basesMarcadas = listBaseGames.querySelectorAll('input[type="checkbox"]:checked');
+    btnConfirmLoad.disabled = basesMarcadas.length === 0;
+}
 
 // Cria visualmente o checkbox na tela usando os metadados do próprio JSON
 function criarCheckbox(item, containerAlvo) {
@@ -141,6 +157,9 @@ function criarCheckbox(item, containerAlvo) {
     checkbox.value = item.arquivo; // O ID do checkbox é o nome do arquivo
     checkbox.setAttribute('data-name', item.dados.game_version); // O nome visível vem de dentro do JSON
     
+    // Adiciona o ouvinte para checar a validação sempre que houver alteração
+    checkbox.addEventListener('change', validarBotaoConfirmar);
+    
     label.appendChild(checkbox);
     label.appendChild(document.createTextNode(item.dados.game_version));
     containerAlvo.appendChild(label);
@@ -150,8 +169,8 @@ function criarCheckbox(item, containerAlvo) {
 btnConfirmLoad.addEventListener('click', () => {
     const marcados = screenExpansion.querySelectorAll('input[type="checkbox"]:checked');
     
+    // Essa checagem extra se mantém por segurança, mas o botão disabled já previne o clique
     if (marcados.length === 0) {
-        alert("Por favor, selecione ao menos um deck para jogar!");
         return;
     }
 

@@ -101,6 +101,13 @@ button:active, .btn-main:active {
 }
 
 .btn-confirm-load { background-color: #2ecc71; }
+/* Estilo para quando o botão estiver bloqueado */
+#btn-confirm-load:disabled {
+    background-color: #555555; /* Cor cinza apagada */
+    color: #888888;
+    cursor: not-allowed; /* Muda o mouse para um símbolo de 'proibido' */
+    transform: none; /* Tira o efeito de clique */
+}
 .btn-confirm-load:active { background-color: #27ae60; }
 
 .btn-back { background-color: #7f8c8d; font-size: 14px; padding: 8px 16px; margin-top: 10px; }
