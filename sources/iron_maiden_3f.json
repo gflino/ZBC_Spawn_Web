@@ -1,10 +1,11 @@
 {
-    "game_version": "Iron_Maiden_3F",
+    "game_version": "Iron Maiden Pack 3-F",
     "analysis_date": "2025-10-15 00:44:47",
-    "theme": "Unknown",
+    "theme": "fantasy",
     "is_base_game": false,
     "special_spawns": {
-        "abominations": [{
+        "abominations": [
+            {
                 "display_name": "Fear Eddie",
                 "file_name": "fear_eddie"
             },
