@@ -18,7 +18,7 @@ const dangerLevel = document.getElementById('danger-level');
 // --- SUA LISTA DE ARQUIVOS PARA TESTE ---
 const listaArquivosJson = [
     'classic_season1.json',
-    'classic_season2.json',
+    'classic_season2 _prison_outbreak.json',
     'black_plague.json',
     'green_horde.json',
     'white_death.json',
