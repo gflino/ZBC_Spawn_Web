@@ -188,7 +188,7 @@
     "lethal": 1,
     "ap": 1,
     "rules_en": "Attack whenever they activate while having a Line Of Sight on a Survivor (or more) at Range 0-3. Then, they perform a standard Zombie Attack on the designated Zone. If several Zones are eligible, they choose their target according to these priorities: The Zone with the most Survivors. The noisiest Zone. If all eligible Zones have the same amount of Survivors and Noise, the players choose.",
-    "rules_pt": "Ataca sempre que ativar enquanto houver Lina de Visão de um Sobrevivente (ou mais) no Alcance 0-3. Então realizam um Ataque Comum de Zumbi na Zona alvo. Se houverem várias Zonas, eles escolhem de acordo com estas prioridades: A Zona com mais sobreviventes. A Zona mais barulhenta. Se todas as Zonas elegíveis possuírem a mesma quantidade de Sobreviventes e Barulho os jogadores decidem.",
+    "rules_pt": "Ataca sempre que ativar enquanto houver Linha de Visão de um Sobrevivente (ou mais) no Alcance 0-3. Então realizam um Ataque Comum de Zumbi na Zona alvo. Se houverem várias Zonas, eles escolhem de acordo com estas prioridades: A Zona com mais sobreviventes. A Zona mais barulhenta. Se todas as Zonas elegíveis possuírem a mesma quantidade de Sobreviventes e Barulho os jogadores decidem.",
     "image": "https://static.wikia.nocookie.net/zombicide/images/9/9b/DeadeyeWalker.png"
   },
   {
