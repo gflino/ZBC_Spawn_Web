@@ -1,0 +1,97 @@
+{
+  "files": [
+    "classic_season1.json",
+    "classic_season2 _prison_outbreak.json",
+    "climbers_terrorcotta_walkers.json",
+    "comic_book_extras_road_to_hell.json",
+    "crossfire_pack.json",
+    "deadeye_walkers.json",
+    "divine_beasts.json",
+    "erik_summoner_box.json",
+    "eternal_empire.json",
+    "fatty_bursters.json",
+    "friends_and_foes.json",
+    "frozen_fortress.json",
+    "green_horde.json",
+    "grin_and_scowl_box.json",
+    "horde_box.json",
+    "huntsman_pack.json",
+    "iron_maiden_1f.json",
+    "iron_maiden_2f.json",
+    "iron_maiden_3f.json",
+    "knight_pack.json",
+    "la_compagnia_della_forca.json",
+    "massive_darkness_2_crossover_pack.json",
+    "murder_of_crowz.json",
+    "no_rest_for_the_wicked.json",
+    "npc_1.json",
+    "npc_2.json",
+    "rat_king_swamp_troll.json",
+    "special_guest _carl_critchlow.json",
+    "special_guest_adrian_smith_2.json",
+    "special_guest_naïade.json",
+    "special_guest_paul_bonner_2.json",
+    "special_guest_sean_a_murray.json",
+    "special_guest_stefan_kopinski.json",
+    "thundercats_pack_3.json",
+    "tmnt_bebop_rocksteady.json",
+    "tmnt_timecrash.json",
+    "troy_and_evil_troy_box.json",
+    "warlords_of_the_middle_kingdom.json",
+    "warlords_of_the_rising_sun.json",
+    "white_death.json",
+    "wulfsburg.json",
+    "zombie_bosses.json",
+    "abominarat_and_dr_stormcrow_box.json",
+    "berserker_walkers.json",
+    "black_plague.json"
+  ],
+  "layout_fantasy": {
+    "base_order": ["Black Plague", "Green Horde", "White Death"],
+    "groups": [
+      {
+        "title": "Era Black Plague (2015)",
+        "items": [
+          "Wulfsburg", "Hero Box-1", "NPC-1", "NPC-2", "Zombie Bosses Abomination Pack",
+          "Deadeye Walkers", "Murder of Crowz", "Huntsman Pack", "Knight Pack",
+          "Grom and Thalia Box", "Troy and Evil Troy Box", "Erik the Summoner Box", "Benson Box",
+          "Homer Box", "Willow Box", "Special Guest Adrian Smith", "Special Guest Edouard Guiton",
+          "Special Guest Gipi", "Special Guest John Howe", "Special Guest Jovem Nerd",
+          "Special Guest Karl Kopinski", "Special Guest Marc Simonetti", "Special Guest Naïade",
+          "Special Guest Neal Adams", "Special Guest Paolo Parente", "Special Guest Paul Bonner",
+          "B-Sieged Crossover Pack", "Game Night Kit"
+        ]
+      },
+      {
+        "title": "Era Green Horde (2017)",
+        "items": [
+          "Friends and Foes", "No Rest for the Wicked", "Horde Box", "Fatty Bursters Box",
+          "Rat King & Swamp Troll", "Abominarat and Dr Stormcrow Box", "Grin and Scowl Box",
+          "Liam Box", "North the Halfling Box", "Special Guest Adrian Smith 2",
+          "Special Guest Carl Critchlow", "Special Guest Paul Bonner 2",
+          "Special Guest Sean A. Murray", "Special Guest Stefan Kopinski",
+          "Massive Darkness Crossover Pack", "Black Plague Ultimate Survivors", "Time Machine PNP"
+        ]
+      },
+      {
+        "title": "Crossovers e Pacotes Especiais (2019-2022)",
+        "items": [
+          "Massive Darkness 2 Crossover Pack", "Comic Book Extras (Road to Hell)",
+          "Thundercats Pack 1", "Thundercats Pack 2", "Thundercats Pack 3",
+          "Iron Maiden Pack 1", "Iron Maiden Pack 2", "Iron Maiden Pack 3",
+          "La Compagnia Della Forca"
+        ]
+      },
+      {
+        "title": "Era White Death (2023)",
+        "items": [
+          "Eternal Empire", "Frozen Fortress", "TMNT Timecrash", "Crossfire Pack",
+          "Divine Beasts", "Berserker Walkers", "Climbers & Terrorcotta Walkers",
+          "Celestial Knights", "Virtues of Bushido", "Warlords of the Middle Kingdom",
+          "Warlords of the Rising Sun", "Chang' E and Hou Yi Box", "Jennika Box",
+          "Usagi Yojimbo Box", "TMNT Bebop & Rocksteady"
+        ]
+      }
+    ]
+  }
+}

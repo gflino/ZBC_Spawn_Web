@@ -1,0 +1,31 @@
+# theme: fantasy,,
+# game_version: Crossfire Pack,,
+# is_base_game: false,,
+# abominations:,,
+# necromancers: ,,
+# ---,,
+danger,spawn,qty
+blue,deadbolt_walkers,2
+blue,deadbolt_walkers,2
+blue,deadbolt_walkers,2
+blue,deadbolt_walkers,4
+blue,deadbolt_walkers,4
+blue,deadbolt_walkers,4
+yellow,deadbolt_walkers,4
+yellow,deadbolt_walkers,4
+yellow,deadbolt_walkers,4
+yellow,deadbolt_walkers,6
+yellow,deadbolt_walkers,6
+yellow,deadbolt_walkers,6
+orange,deadbolt_walkers,6
+orange,deadbolt_walkers,6
+orange,deadbolt_walkers,6
+orange,deadbolt_walkers,8
+orange,deadbolt_walkers,8
+orange,deadbolt_walkers,8
+red,deadbolt_walkers,8
+red,deadbolt_walkers,8
+red,deadbolt_walkers,8
+red,deadbolt_walkers,10
+red,deadbolt_walkers,10
+red,deadbolt_walkers,10

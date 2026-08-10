@@ -1,0 +1,55 @@
+# theme: fantasy,,
+# game_version: NPC-2,,
+# is_base_game: false,,
+# abominations: ,,
+# necromancers: ,,
+# ---,,
+danger,spawn,qty
+blue,nothing,
+blue,npc_walker,1
+blue,npc_walker,1
+blue,npc_walker,2
+blue,nothing,
+blue,npc_walker,1
+blue,npc_walker,1
+blue,npc_walker,2
+blue,nothing,
+blue,npc_walker,1
+blue,npc_walker,1
+blue,npc_walker,2
+yellow,npc_walker,4
+yellow,npc_walker,1
+yellow,npc_walker,2
+yellow,npc_walker,3
+yellow,npc_walker,4
+yellow,npc_walker,1
+yellow,npc_walker,2
+yellow,npc_walker,3
+yellow,npc_walker,4
+yellow,npc_walker,1
+yellow,npc_walker,2
+yellow,npc_walker,3
+orange,npc_walker,4
+orange,npc_walker,6
+orange,npc_walker,2
+orange,npc_walker,4
+orange,npc_walker,4
+orange,npc_walker,6
+orange,npc_walker,2
+orange,npc_walker,4
+orange,npc_walker,4
+orange,npc_walker,6
+orange,npc_walker,2
+orange,npc_walker,4
+red,npc_walker,5
+red,npc_walker,7
+red,npc_walker,8
+red,npc_walker,4
+red,npc_walker,5
+red,npc_walker,7
+red,npc_walker,8
+red,npc_walker,4
+red,npc_walker,5
+red,npc_walker,7
+red,npc_walker,8
+red,npc_walker,4

@@ -1,0 +1,256 @@
+{
+    "game_version": "Frozen Fortress",
+    "analysis_date": "2026-08-09 14:29:48",
+    "theme": "fantasy",
+    "is_base_game": false,
+    "special_spawns": {
+        "abominations": [
+            {
+                "file_name": "amaterasu"
+            },
+            {
+                "file_name": "asura"
+            },
+            {
+                "file_name": "bishamon"
+            },
+            {
+                "file_name": "chimimōryō"
+            },
+            {
+                "file_name": "hachiman"
+            },
+            {
+                "file_name": "kijin"
+            },
+            {
+                "file_name": "kumiho"
+            },
+            {
+                "file_name": "nian"
+            },
+            {
+                "file_name": "qilin"
+            },
+            {
+                "file_name": "red_hare"
+            },
+            {
+                "file_name": "shakōki_dogū"
+            },
+            {
+                "file_name": "sōjōbō"
+            },
+            {
+                "file_name": "susano_wo"
+            },
+            {
+                "file_name": "takemikazuchi"
+            },
+            {
+                "file_name": "toyol"
+            },
+            {
+                "file_name": "yeti"
+            }
+        ],
+        "necromancers": [
+            {
+                "file_name": "bomoh"
+            },
+            {
+                "file_name": "death_notes"
+            },
+            {
+                "file_name": "hannya"
+            },
+            {
+                "file_name": "kaguya"
+            },
+            {
+                "file_name": "tengu"
+            },
+            {
+                "file_name": "yuki_onna"
+            }
+        ]
+    },
+    "spawn_data": {
+        "blue": {
+            "bake_danuki": {
+                "total_cards": 1,
+                "qty_distribution": {
+                    "1": 1
+                }
+            },
+            "kappa": {
+                "total_cards": 1,
+                "qty_distribution": {
+                    "1": 1
+                }
+            },
+            "meng_huo": {
+                "total_cards": 1,
+                "qty_distribution": {
+                    "1": 1
+                }
+            },
+            "onryō": {
+                "total_cards": 1,
+                "qty_distribution": {
+                    "1": 1
+                }
+            },
+            "rakshasa": {
+                "total_cards": 1,
+                "qty_distribution": {
+                    "1": 1
+                }
+            },
+            "yaksha": {
+                "total_cards": 1,
+                "qty_distribution": {
+                    "1": 1
+                }
+            },
+            "zhu_bajie": {
+                "total_cards": 1,
+                "qty_distribution": {
+                    "1": 1
+                }
+            }
+        },
+        "yellow": {
+            "bake_danuki": {
+                "total_cards": 1,
+                "qty_distribution": {
+                    "1": 1
+                }
+            },
+            "kappa": {
+                "total_cards": 1,
+                "qty_distribution": {
+                    "1": 1
+                }
+            },
+            "meng_huo": {
+                "total_cards": 1,
+                "qty_distribution": {
+                    "1": 1
+                }
+            },
+            "onryō": {
+                "total_cards": 1,
+                "qty_distribution": {
+                    "1": 1
+                }
+            },
+            "rakshasa": {
+                "total_cards": 1,
+                "qty_distribution": {
+                    "1": 1
+                }
+            },
+            "yaksha": {
+                "total_cards": 1,
+                "qty_distribution": {
+                    "1": 1
+                }
+            },
+            "zhu_bajie": {
+                "total_cards": 1,
+                "qty_distribution": {
+                    "1": 1
+                }
+            }
+        },
+        "orange": {
+            "bake_danuki": {
+                "total_cards": 1,
+                "qty_distribution": {
+                    "1": 1
+                }
+            },
+            "kappa": {
+                "total_cards": 1,
+                "qty_distribution": {
+                    "1": 1
+                }
+            },
+            "meng_huo": {
+                "total_cards": 1,
+                "qty_distribution": {
+                    "1": 1
+                }
+            },
+            "onryō": {
+                "total_cards": 1,
+                "qty_distribution": {
+                    "1": 1
+                }
+            },
+            "rakshasa": {
+                "total_cards": 1,
+                "qty_distribution": {
+                    "1": 1
+                }
+            },
+            "yaksha": {
+                "total_cards": 1,
+                "qty_distribution": {
+                    "1": 1
+                }
+            },
+            "zhu_bajie": {
+                "total_cards": 1,
+                "qty_distribution": {
+                    "1": 1
+                }
+            }
+        },
+        "red": {
+            "bake_danuki": {
+                "total_cards": 1,
+                "qty_distribution": {
+                    "1": 1
+                }
+            },
+            "kappa": {
+                "total_cards": 1,
+                "qty_distribution": {
+                    "1": 1
+                }
+            },
+            "meng_huo": {
+                "total_cards": 1,
+                "qty_distribution": {
+                    "1": 1
+                }
+            },
+            "onryō": {
+                "total_cards": 1,
+                "qty_distribution": {
+                    "1": 1
+                }
+            },
+            "rakshasa": {
+                "total_cards": 1,
+                "qty_distribution": {
+                    "1": 1
+                }
+            },
+            "yaksha": {
+                "total_cards": 1,
+                "qty_distribution": {
+                    "1": 1
+                }
+            },
+            "zhu_bajie": {
+                "total_cards": 1,
+                "qty_distribution": {
+                    "1": 1
+                }
+            }
+        }
+    }
+}

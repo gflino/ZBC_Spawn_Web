@@ -1,0 +1,31 @@
+# theme: fantasy,,
+# game_version: Deadeye Walkers,,
+# is_base_game: false,,
+# abominations: ,,
+# necromancers: ,,
+# ---,,
+danger,spawn,qty
+blue,deadeye_walker,1
+blue,deadeye_walker,2
+blue,deadeye_walker,3
+blue,deadeye_walker,1
+blue,deadeye_walker,2
+blue,deadeye_walker,3
+yellow,deadeye_walker,2
+yellow,deadeye_walker,3
+yellow,deadeye_walker,4
+yellow,deadeye_walker,2
+yellow,deadeye_walker,3
+yellow,deadeye_walker,4
+orange,deadeye_walker,3
+orange,deadeye_walker,4
+orange,deadeye_walker,5
+orange,deadeye_walker,3
+orange,deadeye_walker,4
+orange,deadeye_walker,5
+red,deadeye_walker,4
+red,deadeye_walker,5
+red,deadeye_walker,6
+red,deadeye_walker,4
+red,deadeye_walker,5
+red,deadeye_walker,6

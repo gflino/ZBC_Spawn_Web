@@ -1,0 +1,24 @@
+{
+    "game_version": "Divine Beasts",
+    "analysis_date": "2026-08-09 14:29:48",
+    "theme": "fantasy",
+    "is_base_game": false,
+    "special_spawns": {
+        "abominations": [
+            {
+                "file_name": "vermillion_bird"
+            },
+            {
+                "file_name": "white_tiger"
+            },
+            {
+                "file_name": "black_tortoise"
+            },
+            {
+                "file_name": "azure_dragon"
+            }
+        ],
+        "necromancers": []
+    },
+    "spawn_data": {}
+}

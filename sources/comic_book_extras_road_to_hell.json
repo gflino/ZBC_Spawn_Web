@@ -1,0 +1,22 @@
+{
+    "game_version": "Comic Book Extras (Road to Hell)",
+    "analysis_date": "2026-08-09 14:29:48",
+    "theme": "fantasy",
+    "is_base_game": false,
+    "special_spawns": {
+        "abominations": [
+            {
+                "file_name": "lord_janas"
+            },
+            {
+                "file_name": "marike_abomination"
+            }
+        ],
+        "necromancers": [
+            {
+                "file_name": "erinn"
+            }
+        ]
+    },
+    "spawn_data": {}
+}

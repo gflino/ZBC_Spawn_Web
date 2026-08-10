@@ -1,0 +1,15 @@
+{
+    "game_version": "Erik the Summoner Box",
+    "analysis_date": "2026-08-09 14:29:48",
+    "theme": "fantasy",
+    "is_base_game": false,
+    "special_spawns": {
+        "abominations": [],
+        "necromancers": [
+            {
+                "file_name": "erik_the_summoner"
+            }
+        ]
+    },
+    "spawn_data": {}
+}

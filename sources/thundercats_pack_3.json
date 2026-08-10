@@ -1,0 +1,19 @@
+{
+    "game_version": "Thundercats Pack 3",
+    "analysis_date": "2026-08-09 14:29:50",
+    "theme": "fantasy",
+    "is_base_game": false,
+    "special_spawns": {
+        "abominations": [
+            {
+                "file_name": "mumm_ra_abomination"
+            }
+        ],
+        "necromancers": [
+            {
+                "file_name": "mumm_ra_necromancer"
+            }
+        ]
+    },
+    "spawn_data": {}
+}

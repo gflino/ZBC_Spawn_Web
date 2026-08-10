@@ -1,0 +1,19 @@
+{
+    "game_version": "Warlords of the Middle Kingdom",
+    "analysis_date": "2026-08-09 14:29:50",
+    "theme": "fantasy",
+    "is_base_game": false,
+    "special_spawns": {
+        "abominations": [
+            {
+                "file_name": "dong_zhuo"
+            }
+        ],
+        "necromancers": [
+            {
+                "file_name": "zhang_jiao"
+            }
+        ]
+    },
+    "spawn_data": {}
+}

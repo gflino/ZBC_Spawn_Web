@@ -1,0 +1,18 @@
+{
+    "game_version": "TMNT Bebop & Rocksteady",
+    "analysis_date": "2026-08-09 14:29:50",
+    "theme": "fantasy",
+    "is_base_game": false,
+    "special_spawns": {
+        "abominations": [
+            {
+                "file_name": "bebop"
+            },
+            {
+                "file_name": "rocksteady"
+            }
+        ],
+        "necromancers": []
+    },
+    "spawn_data": {}
+}

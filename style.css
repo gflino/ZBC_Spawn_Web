@@ -1,23 +1,27 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #1e1e1e;
-    color: #ffffff;
+    background-color: #070707; /* Preto profundo */
+    color: #d1d1d1;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start; /* Permite rolar a página para baixo se a lista for longa */
     min-height: 100vh;
     margin: 0;
+    padding: 70px 0 40px 0; /* Espaço para não cobrir os botões fixos no topo */
+    box-sizing: border-box;
 }
 
 .container {
-    background-color: #2d2d2d;
+    background-color: #131313; /* Cinza muito escuro */
     padding: 30px 40px;
     border-radius: 12px;
     text-align: center;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.9);
     transition: background-color 0.1s ease, color 0.1s ease;
     width: 400px;
     max-width: 90%;
+    border: 1px solid #222;
+    margin: auto; /* Mantém centralizado na tela se o conteúdo for pequeno */
 }
 
 button, .btn-main {
@@ -26,20 +30,20 @@ button, .btn-main {
     font-weight: bold;
     cursor: pointer;
     margin: 15px 0;
-    background-color: #e74c3c;
+    background-color: #8b0000;
     color: white;
-    border: none;
+    border: 1px solid #550000;
     border-radius: 6px;
     width: 100%;
 }
 
 button:active, .btn-main:active {
-    background-color: #c0392b;
+    background-color: #5c0000;
 }
 
 .flash-effect {
-    background-color: #ffffff;
-    color: #000000;
+    background-color: #333333;
+    color: #ffffff;
 }
 
 /* --------------------------------------
@@ -60,7 +64,7 @@ button:active, .btn-main:active {
     margin-top: 20px;
 }
 
-.btn-theme { background-color: #34495e; margin: 0; }
+.btn-theme { background-color: #1c2833; margin: 0; border: 1px solid #333; }
 .btn-theme:hover { background-color: #2c3e50; }
 
 .catalog-sections {
@@ -82,12 +86,45 @@ button:active, .btn-main:active {
     gap: 10px;
     margin-top: 10px;
 }
+/* --- MENUS DROPDOWN DE ERAS (ACCORDION NATIVO) --- */
+.era-group {
+    background-color: #111111;
+    border: 1px solid #333;
+    border-radius: 6px;
+    margin-bottom: 12px;
+    overflow: hidden;
+}
 
-/* Customização dos itens com checkbox */
+.era-group summary {
+    background-color: #1a1a1a;
+    padding: 12px 15px;
+    font-size: 15px;
+    font-weight: bold;
+    color: #f1c40f; /* Dourado combinando com os títulos */
+    cursor: pointer;
+    user-select: none;
+    outline: none;
+    transition: background-color 0.2s;
+}
+
+.era-group summary:hover {
+    background-color: #222222;
+}
+
+.era-content {
+    padding: 15px 15px 5px 15px; /* Espaçamento interno da caixa suspensa */
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border-top: 1px solid #333;
+    background-color: #0f0f0f;
+}
+
 .checkbox-item {
     display: flex;
     align-items: center;
-    background-color: #3d3d3d;
+    background-color: #1a1a1a;
+    border: 1px solid #333;
     padding: 10px 15px;
     border-radius: 6px;
     cursor: pointer;
@@ -100,22 +137,282 @@ button:active, .btn-main:active {
     cursor: pointer;
 }
 
-.btn-confirm-load { background-color: #2ecc71; }
-/* Estilo para quando o botão estiver bloqueado */
+.btn-confirm-load { background-color: #1b4f2c; border: 1px solid #27ae60; }
 #btn-confirm-load:disabled {
-    background-color: #555555; /* Cor cinza apagada */
-    color: #888888;
-    cursor: not-allowed; /* Muda o mouse para um símbolo de 'proibido' */
-    transform: none; /* Tira o efeito de clique */
+    background-color: #222222;
+    border-color: #444;
+    color: #666;
+    cursor: not-allowed;
+    transform: none;
 }
-.btn-confirm-load:active { background-color: #27ae60; }
+.btn-confirm-load:active { background-color: #133a20; }
 
-.btn-back { background-color: #7f8c8d; font-size: 14px; padding: 8px 16px; margin-top: 10px; }
+.btn-back { background-color: #4a5152; font-size: 14px; padding: 8px 16px; margin-top: 10px; border: 1px solid #333; }
 
-#current-expansion-title {
-    color: #f1c40f;
-    font-size: 18px;
+/* --- CABEÇALHO --- */
+.header-bar {
     margin-bottom: 20px;
-    border-bottom: 1px solid #555;
-    padding-bottom: 10px;
+}
+
+/* --- SELETOR DE IDIOMA E HOME FIXOS --- */
+.home-btn-container {
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    z-index: 1000;
+}
+
+.btn-home {
+    background-color: #1a1a1a;
+    color: #aaaaaa;
+    border: 1px solid #333;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.6);
+    transition: all 0.2s;
+    width: auto;
+    margin: 0;
+}
+
+.btn-home:hover {
+    background-color: #2a2a2a;
+    color: #ffffff;
+    border-color: #555;
+}
+
+.language-selector {
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    z-index: 1000;
+}
+
+#lang-select {
+    background-color: #1a1a1a;
+    color: #aaaaaa;
+    border: 1px solid #333;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    outline: none;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.6);
+    appearance: none; 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+#lang-select:hover, #lang-select:focus {
+    background-color: #2a2a2a;
+    color: #ffffff;
+    border-color: #555;
+}
+
+/* --- CAIXA RETRÁTIL (DECKS ATIVOS) --- */
+.collapsible-container {
+    background-color: #111111;
+    border: 1px solid #333;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+.collapsible-header {
+    padding: 12px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    background-color: #1a1a1a;
+    font-size: 14px;
+    font-weight: bold;
+    color: #f1c40f;
+    user-select: none;
+    transition: background-color 0.2s;
+}
+
+.collapsible-header:hover {
+    background-color: #222222;
+}
+
+.collapsible-content {
+    display: none; 
+    padding: 15px;
+    border-top: 1px solid #333;
+}
+
+.collapsible-content.show {
+    display: block;
+    animation: fadeIn 0.2s ease-in-out;
+}
+
+#collapsible-arrow {
+    transition: transform 0.3s ease;
+}
+
+.collapsible-container.open #collapsible-arrow {
+    transform: rotate(180deg);
+}
+
+.discreet-subtitle {
+    color: #aaaaaa;
+    font-size: 13.5px;
+    margin: 0;
+    font-style: italic;
+    line-height: 1.4;
+    word-wrap: break-word;
+}
+
+/* --- BOTÕES DE NÍVEL DE PERIGO --- */
+.danger-container {
+    margin-bottom: 20px;
+}
+.danger-container p {
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+.danger-buttons {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+}
+.btn-danger {
+    flex: 1;
+    margin: 0;
+    padding: 10px 5px;
+    font-size: 14px;
+    opacity: 0.4;
+    transition: all 0.2s;
+    border: 2px solid transparent;
+}
+.btn-danger.active {
+    opacity: 1;
+    border: 2px solid #ffffff;
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(255,255,255,0.3);
+}
+
+/* --- CARD DO INIMIGO --- */
+.result-highlight {
+    font-size: 26px;
+    font-weight: bold;
+    color: #2ecc71;
+    margin: 10px 0 20px 0;
+    text-align: center;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+.enemy-card {
+    background-color: #0f0f0f;
+    border: 2px solid #333; 
+    border-radius: 8px;
+    padding: 20px;
+    margin-top: 15px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.7); 
+}
+
+.enemy-header {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.enemy-badge {
+    background-color: #a84700;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 13px;
+    font-weight: bold;
+    text-transform: uppercase;
+    display: inline-block;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+#enemy-image {
+    display: block;
+    margin: 0 auto 20px auto; 
+    max-width: 100%;
+    max-height: 220px;
+    border-radius: 6px;
+    object-fit: contain;
+}
+
+.enemy-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    background-color: transparent; 
+    padding: 0;
+    margin-bottom: 20px;
+}
+
+.stat-box {
+    background-color: #151515;
+    border: 1px solid #333;
+    border-radius: 6px;
+    padding: 8px 4px;
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.4);
+}
+
+.stat-label {
+    font-size: 11px;
+    color: #888888;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+}
+
+.stat-value {
+    font-size: 18px;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.enemy-rules {
+    font-size: 14.5px;
+    color: #dddddd;
+    font-style: italic;
+    line-height: 1.5;
+    padding: 15px;
+    background-color: #050505;
+    border-radius: 6px;
+    border: 1px solid #222;
+    margin: 0;
+    text-align: center;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.3); 
+}
+/* --- LINK DISCRETO DO BANCO DE DADOS --- */
+.db-link {
+    position: fixed;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #666666;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 6px 16px;
+    border-radius: 20px;
+    background-color: rgba(0, 0, 0, 0.4);
+    border: 1px solid transparent;
+    transition: all 0.3s ease;
+    z-index: 1000;
+    backdrop-filter: blur(2px); /* Efeito de vidro fosco no fundo */
+}
+
+.db-link:hover {
+    color: #cccccc;
+    border-color: #444444;
+    background-color: rgba(20, 20, 20, 0.9);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.8);
 }

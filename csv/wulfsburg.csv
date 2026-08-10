@@ -1,0 +1,31 @@
+# theme: Fantasy,,
+# game_version: Wulfsburg,,
+# is_base_game: false,,
+# abominations: wolfbomination,,
+# necromancers: ,,
+# ---,,
+danger,spawn,qty
+blue,zombie_wolfz,1
+blue,zombie_wolfz,2
+blue,zombie_wolfz,3
+blue,zombie_wolfz,1
+blue,zombie_wolfz,2
+blue,zombie_wolfz,3
+yellow,zombie_wolfz,2
+yellow,zombie_wolfz,3
+yellow,zombie_wolfz,4
+yellow,zombie_wolfz,2
+yellow,zombie_wolfz,3
+yellow,zombie_wolfz,4
+orange,zombie_wolfz,3
+orange,zombie_wolfz,4
+orange,zombie_wolfz,5
+orange,zombie_wolfz,3
+orange,zombie_wolfz,4
+orange,zombie_wolfz,5
+red,zombie_wolfz,4
+red,zombie_wolfz,5
+red,zombie_wolfz,6
+red,zombie_wolfz,4
+red,zombie_wolfz,5
+red,zombie_wolfz,6

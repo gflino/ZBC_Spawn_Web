@@ -1,0 +1,64 @@
+{
+    "game_version": "Deadeye Walkers",
+    "analysis_date": "2026-08-09 14:29:48",
+    "theme": "fantasy",
+    "is_base_game": false,
+    "special_spawns": {
+        "abominations": [],
+        "necromancers": []
+    },
+    "spawn_data": {
+        "blue": {
+            "deadeye_walker": {
+                "total_cards": 6,
+                "qty_distribution": {
+                    "1": 2,
+                    "2": 2,
+                    "3": 2,
+                    "4": 0,
+                    "5": 0,
+                    "6": 0
+                }
+            }
+        },
+        "yellow": {
+            "deadeye_walker": {
+                "total_cards": 6,
+                "qty_distribution": {
+                    "2": 2,
+                    "3": 2,
+                    "4": 2,
+                    "1": 0,
+                    "5": 0,
+                    "6": 0
+                }
+            }
+        },
+        "orange": {
+            "deadeye_walker": {
+                "total_cards": 6,
+                "qty_distribution": {
+                    "3": 2,
+                    "4": 2,
+                    "5": 2,
+                    "1": 0,
+                    "2": 0,
+                    "6": 0
+                }
+            }
+        },
+        "red": {
+            "deadeye_walker": {
+                "total_cards": 6,
+                "qty_distribution": {
+                    "4": 2,
+                    "5": 2,
+                    "6": 2,
+                    "1": 0,
+                    "2": 0,
+                    "3": 0
+                }
+            }
+        }
+    }
+}

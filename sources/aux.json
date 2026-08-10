@@ -1,0 +1,1012 @@
+[
+  {
+    "tags": "class",
+    "tags_en": "Class",
+    "tags_pt": "Classe"
+  },
+  {
+    "tags": "deck",
+    "tags_en": "Deck",
+    "tags_pt": "Baralho"
+  },
+  {
+    "tags": "type",
+    "tags_en": "Type",
+    "tags_pt": "Tipo"
+  },
+  {
+    "tags": "priority",
+    "tags_en": "Priority",
+    "tags_pt": "Prioridade"
+  },
+  {
+    "tags": "role",
+    "tags_en": "Role",
+    "tags_pt": "Função"
+  },
+  {
+    "tags": "yes",
+    "tags_en": "Yes",
+    "tags_pt": "Sim"
+  },
+  {
+    "tags": "no",
+    "tags_en": "No",
+    "tags_pt": "Não"
+  },
+  {
+    "tags": "name",
+    "tags_en": "Name",
+    "tags_pt": "Nome"
+  },
+  {
+    "tags": "body",
+    "tags_en": "Body",
+    "tags_pt": "Corpo"
+  },
+  {
+    "tags": "combat",
+    "tags_en": "Combat",
+    "tags_pt": "Combate"
+  },
+  {
+    "tags": "lethal",
+    "tags_en": "Lethal",
+    "tags_pt": "Letal"
+  },
+  {
+    "tags": "damage",
+    "tags_en": "Damage",
+    "tags_pt": "Dano"
+  },
+  {
+    "tags": "guard_action",
+    "tags_en": "Guard Action",
+    "tags_pt": "Ação de Guarda"
+  },
+  {
+    "tags": "actions",
+    "tags_en": "Actions",
+    "tags_pt": "Ações"
+  },
+  {
+    "tags": "ap",
+    "tags_en": "AP",
+    "tags_pt": "PA"
+  },
+  {
+    "tags": "meditation",
+    "tags_en": "Meditation",
+    "tags_pt": "Meditação"
+  },
+  {
+    "tags": "move",
+    "tags_en": "Move",
+    "tags_pt": "Movimento"
+  },
+  {
+    "tags": "support",
+    "tags_en": "Support",
+    "tags_pt": "Suporte"
+  },
+  {
+    "tags": "magic",
+    "tags_en": "Magic",
+    "tags_pt": "Magia"
+  },
+  {
+    "tags": "melee",
+    "tags_en": "Melee",
+    "tags_pt": "Corpo a Corpo"
+  },
+  {
+    "tags": "ranged",
+    "tags_en": "Ranged",
+    "tags_pt": "Longo Alcance"
+  },
+  {
+    "tags": "search",
+    "tags_en": "Search",
+    "tags_pt": "Procura"
+  },
+  {
+    "tags": "starter",
+    "tags_en": "Starter",
+    "tags_pt": "Inicial"
+  },
+  {
+    "tags": "vault",
+    "tags_en": "Vault",
+    "tags_pt": "Cripta"
+  },
+  {
+    "tags": "ultimate",
+    "tags_en": "Ultimate",
+    "tags_pt": "Ultimate"
+  },
+  {
+    "tags": "item",
+    "tags_en": "Item",
+    "tags_pt": "Item"
+  },
+  {
+    "tags": "enchantment",
+    "tags_en": "Enchantment",
+    "tags_pt": "Encantamento"
+  },
+  {
+    "tags": "armor",
+    "tags_en": "Armor",
+    "tags_pt": "Armadura"
+  },
+  {
+    "tags": "familiar",
+    "tags_en": "Familiar",
+    "tags_pt": "Familiar"
+  },
+  {
+    "tags": "shield",
+    "tags_en": "Shield",
+    "tags_pt": "Escudo"
+  },
+  {
+    "tags": "weapon",
+    "tags_en": "Weapon",
+    "tags_pt": "Arma"
+  },
+  {
+    "tags": "combat_spell",
+    "tags_en": "Combat Spell",
+    "tags_pt": "Feitiço de Combate"
+  },
+  {
+    "tags": "melee_weapon",
+    "tags_en": "Melee Weapon",
+    "tags_pt": "Arma Corpo a Corpo"
+  },
+  {
+    "tags": "ranged_weapon",
+    "tags_en": "Ranged Weapon",
+    "tags_pt": "Arma de Longa Distância"
+  },
+  {
+    "tags": "mixed_weapon",
+    "tags_en": "Mixed Weapon",
+    "tags_pt": "Arma Mista"
+  },
+  {
+    "tags": "range",
+    "tags_en": "Range",
+    "tags_pt": "Alcance"
+  },
+  {
+    "tags": "dice",
+    "tags_en": "Dice",
+    "tags_pt": "Dados"
+  },
+  {
+    "tags": "accuracy",
+    "tags_en": "Accuracy",
+    "tags_pt": "Precisão"
+  },
+  {
+    "tags": "danger",
+    "tags_en": "Danger",
+    "tags_pt": "Perigo"
+  },
+  {
+    "tags": "dual",
+    "tags_en": "Dual",
+    "tags_pt": "Dupla"
+  },
+  {
+    "tags": "noise",
+    "tags_en": "Noise",
+    "tags_pt": "Barulho"
+  },
+  {
+    "tags": "door",
+    "tags_en": "Door",
+    "tags_pt": "Porta"
+  },
+  {
+    "tags": "blue",
+    "tags_en": "Blue",
+    "tags_pt": "Azul"
+  },
+  {
+    "tags": "yellow",
+    "tags_en": "Yellow",
+    "tags_pt": "Amarelo"
+  },
+  {
+    "tags": "orange",
+    "tags_en": "Orange",
+    "tags_pt": "Laranja"
+  },
+  {
+    "tags": "red",
+    "tags_en": "Red",
+    "tags_pt": "Vermelho"
+  },
+  {
+    "tags": "aprils_harp",
+    "tags_en": "April's Harp",
+    "tags_pt": "Harpa da April"
+  },
+  {
+    "tags": "axe",
+    "tags_en": "Axe",
+    "tags_pt": "Machado"
+  },
+  {
+    "tags": "dagger",
+    "tags_en": "Dagger",
+    "tags_pt": "Adaga"
+  },
+  {
+    "tags": "donatellos_bo_staff",
+    "tags_en": "Donatello's Bo Staff",
+    "tags_pt": "Cajado Bô do Donatello"
+  },
+  {
+    "tags": "dragon_aura",
+    "tags_en": "Dragon Aura",
+    "tags_pt": "Aura Dracônica"
+  },
+  {
+    "tags": "dwarven_hammer",
+    "tags_en": "Dwarven Hammer",
+    "tags_pt": "Martelo dos Anões"
+  },
+  {
+    "tags": "caseys_hockey_stick",
+    "tags_en": "Casey's Hockey Stick",
+    "tags_pt": "Taco de Hóquei do Casey"
+  },
+  {
+    "tags": "crocca",
+    "tags_en": "Crocca",
+    "tags_pt": "Crocca"
+  },
+  {
+    "tags": "crossbow",
+    "tags_en": "Crossbow",
+    "tags_pt": "Besta"
+  },
+  {
+    "tags": "curved_dagger",
+    "tags_en": "Curved Dagger",
+    "tags_pt": "Adaga Curva"
+  },
+  {
+    "tags": "flaming_great_sword",
+    "tags_en": "Flaming Great Sword",
+    "tags_pt": "Espada Larga Flamejante"
+  },
+  {
+    "tags": "great_sword",
+    "tags_en": "Great Sword",
+    "tags_pt": "Espada Larga"
+  },
+  {
+    "tags": "hammer",
+    "tags_en": "Hammer",
+    "tags_pt": "Martelo"
+  },
+  {
+    "tags": "healing",
+    "tags_en": "Healing",
+    "tags_pt": "Cura"
+  },
+  {
+    "tags": "hell_goat",
+    "tags_en": "Hell Goat",
+    "tags_pt": "Cabra do Inferno"
+  },
+  {
+    "tags": "jennikas_tekko_kagi",
+    "tags_en": "Jennika's Tekko-Kagi",
+    "tags_pt": "Tekko-Kagi da Jennika"
+  },
+  {
+    "tags": "katana",
+    "tags_en": "Katana",
+    "tags_pt": "Katana"
+  },
+  {
+    "tags": "leonardos_ninjatos",
+    "tags_en": "Leonardo's Ninjatos",
+    "tags_pt": "Ninjatos do Leonardo"
+  },
+  {
+    "tags": "lightning_ball",
+    "tags_en": "Lightning Ball",
+    "tags_pt": "Bola de Raios"
+  },
+  {
+    "tags": "longbow",
+    "tags_en": "Longbow",
+    "tags_pt": "Arco Longo"
+  },
+  {
+    "tags": "michelangelos_nunchakus",
+    "tags_en": "Michelangelo's Nunchakus",
+    "tags_pt": "Nunchaku do Michelangelo"
+  },
+  {
+    "tags": "norse_shield",
+    "tags_en": "Norse Shield",
+    "tags_pt": "Escudo Nórdico"
+  },
+  {
+    "tags": "raphaels_sai",
+    "tags_en": "Raphael's Sai",
+    "tags_pt": "Sai do Rafael"
+  },
+  {
+    "tags": "splinters_cane",
+    "tags_en": "Splinter's Cane",
+    "tags_pt": "Bengala do Splinter"
+  },
+  {
+    "tags": "sword",
+    "tags_en": "Sword",
+    "tags_pt": "Espada"
+  },
+  {
+    "tags": "abomination",
+    "tags_en": "Abomination",
+    "tags_pt": "Abominação"
+  },
+  {
+    "tags": "dragon",
+    "tags_en": "Dragon",
+    "tags_pt": "Dragão"
+  },
+  {
+    "tags": "brute",
+    "tags_en": "Brute",
+    "tags_pt": "Bruto"
+  },
+  {
+    "tags": "murder_of_crowz",
+    "tags_en": "Murder of Crowz",
+    "tags_pt": "Bando de Corvoz"
+  },
+  {
+    "tags": "necromancer",
+    "tags_en": "Necromancer",
+    "tags_pt": "Necromante"
+  },
+  {
+    "tags": "runner",
+    "tags_en": "Runner",
+    "tags_pt": "Corredor"
+  },
+  {
+    "tags": "swarm_of_ratz",
+    "tags_en": "Swarms of Ratz",
+    "tags_pt": "Enxame de Ratoz"
+  },
+  {
+    "tags": "walker",
+    "tags_en": "Walker",
+    "tags_pt": "Lerdo"
+  },
+  {
+    "tags": "walker_runner",
+    "tags_en": "Walker and Runner",
+    "tags_pt": "Lerdo e Corredor"
+  },
+  {
+    "tags": "wolfz",
+    "tags_en": "Zombie Wolfz",
+    "tags_pt": "Loboz Zumbis"
+  },
+  {
+    "tags": "zombie_giant",
+    "tags_en": "Zombie Giant",
+    "tags_pt": "Gigante Zumbi"
+  },
+  {
+    "tags": "plus_1_action",
+    "tags_en": "+1 Action",
+    "tags_pt": "+1 Ação"
+  },
+  {
+    "tags": "plus_1_damage_[action]",
+    "tags_en": "+1 Damage: [Action]",
+    "tags_pt": "+1 de Dano: [Ação]"
+  },
+  {
+    "tags": "plus_1_roll_[action]",
+    "tags_en": "+1 to Dice Roll: [Action]",
+    "tags_pt": "+1 no Resultado: [Ação]"
+  },
+  {
+    "tags": "plus_1_die_[action]",
+    "tags_en": "+1 Die: [Action]",
+    "tags_pt": "+1 Dado: [Ação]"
+  },
+  {
+    "tags": "plus_1_free_[action]_action",
+    "tags_en": "+1 Free [Action] Action",
+    "tags_pt": "+1 Ação [Ação] gratuita"
+  },
+  {
+    "tags": "plus_1_max_range",
+    "tags_en": "+1 max Range",
+    "tags_pt": "+1 no Alcance máximo"
+  },
+  {
+    "tags": "plus_1_zone_move",
+    "tags_en": "+1 Zone per Move",
+    "tags_pt": "+1 Zona por Movimento"
+  },
+  {
+    "tags": "plus_2_dice_[action]",
+    "tags_en": "+ 2 Dice: [Action]",
+    "tags_pt": "+2 Dados: [Ação]"
+  },
+  {
+    "tags": "plus_2_dice_roll_[action]",
+    "tags_en": "+2 to Dice Roll: [Action]",
+    "tags_pt": "+2 no Resultado: [Ação]"
+  },
+  {
+    "tags": "plus_3_dice_[action]",
+    "tags_en": "+3 Dice: [Action]",
+    "tags_pt": "+3 Dados: [Ação]"
+  },
+  {
+    "tags": "two_zones_move",
+    "tags_en": "2 Zones per Move Action",
+    "tags_pt": "2 Zonas por Ação de Movimento"
+  },
+  {
+    "tags": "three_zones_move",
+    "tags_en": "3 Zones per Move Action",
+    "tags_pt": "3 Zonas por Ação de Movimento"
+  },
+  {
+    "tags": "ambidextrous",
+    "tags_en": "Ambidextrous",
+    "tags_pt": "Ambidestro"
+  },
+  {
+    "tags": "barbarian",
+    "tags_en": "Barbarian",
+    "tags_pt": "Bárbaro"
+  },
+  {
+    "tags": "battle_rage",
+    "tags_en": "Battle rage",
+    "tags_pt": "Fúria de Batalha"
+  },
+  {
+    "tags": "birds_eye_view",
+    "tags_en": "Bird's-eye View",
+    "tags_pt": "Visão Aérea"
+  },
+  {
+    "tags": "blitz",
+    "tags_en": "Blitz",
+    "tags_pt": "Blitz"
+  },
+  {
+    "tags": "bloodlust_[action]",
+    "tags_en": "Bloodlust: [Action]",
+    "tags_pt": "Sede de sangue: [Ação] / Louco por Sangue [Ação]"
+  },
+  {
+    "tags": "born_leader",
+    "tags_en": "Born leader",
+    "tags_pt": "Líder Nato"
+  },
+  {
+    "tags": "break_in",
+    "tags_en": "Break-in",
+    "tags_pt": "Arrombar / Invasor"
+  },
+  {
+    "tags": "bridge_walker",
+    "tags_en": "Bridge Walker",
+    "tags_pt": "Perito em Pontes"
+  },
+  {
+    "tags": "brother_in_arms_[game_effect]",
+    "tags_en": "Brother in Arms: [game effect]",
+    "tags_pt": "Irmão de Armas: [efeito de jogo]"
+  },
+  {
+    "tags": "can_search_more_than_once",
+    "tags_en": "Can Search More Than Once",
+    "tags_pt": "Pode Procurar Mais de Uma Vez"
+  },
+  {
+    "tags": "carries_kirag",
+    "tags_en": "Carries Kirag",
+    "tags_pt": "Carrega Kirag"
+  },
+  {
+    "tags": "charge",
+    "tags_en": "Charge",
+    "tags_pt": "Carga / Atacar"
+  },
+  {
+    "tags": "choose_any_skill",
+    "tags_en": "Choose Any Skill",
+    "tags_pt": "Escolha Qualquer Habilidade"
+  },
+  {
+    "tags": "chi_[skill]",
+    "tags_en": "Chi [Skill]",
+    "tags_pt": "Chi [Habilidade]"
+  },
+  {
+    "tags": "close_quarter_master",
+    "tags_en": "Close-Quarter Master",
+    "tags_pt": "Mestre da Curta Distância"
+  },
+  {
+    "tags": "collector_[zombie]",
+    "tags_en": "Collector: [Zombie type]",
+    "tags_pt": "Colecionador: [tipo de Zumbi]"
+  },
+  {
+    "tags": "combat_reflexes",
+    "tags_en": "Combat Reflexes",
+    "tags_pt": "Reflexos de Combate"
+  },
+  {
+    "tags": "corruption_searcher",
+    "tags_en": "Corruption Searcher",
+    "tags_pt": "Escarafunchador da Corrupção"
+  },
+  {
+    "tags": "corruption_walker",
+    "tags_en": "Corruption Walker",
+    "tags_pt": "Andarilho da Corrupção"
+  },
+  {
+    "tags": "damage_2_[action]",
+    "tags_en": "Damage 2: [Action]",
+    "tags_pt": "Dano 2: [Ação]"
+  },
+  {
+    "tags": "damage_3_[action]",
+    "tags_en": "Damage 3: [Action]",
+    "tags_pt": "Dano 3: [Ação]"
+  },
+  {
+    "tags": "dance_of_death",
+    "tags_en": "Dance of Death",
+    "tags_pt": "Dance of Death"
+  },
+  {
+    "tags": "death_or_glory",
+    "tags_en": "Death or Glory",
+    "tags_pt": "Death or Glory"
+  },
+  {
+    "tags": "destiny",
+    "tags_en": "Destiny",
+    "tags_pt": "Destino"
+  },
+  {
+    "tags": "double_casting",
+    "tags_en": "Double Casting",
+    "tags_pt": "Duplamente Encantador"
+  },
+  {
+    "tags": "dual_expert",
+    "tags_en": "Dual Expert",
+    "tags_pt": "Especialista Duplo"
+  },
+  {
+    "tags": "escalation_[action]",
+    "tags_en": "Escalation: [Action]",
+    "tags_pt": "Reação em Cadeia: [Ação]"
+  },
+  {
+    "tags": "flash_of_the_blade",
+    "tags_en": "Flash of the Blade",
+    "tags_pt": "Flash of the Blade"
+  },
+  {
+    "tags": "free_reload",
+    "tags_en": "Free reload",
+    "tags_pt": "Recarga Gratuita / Recarga Grátis"
+  },
+  {
+    "tags": "freeze_[action]",
+    "tags_en": "Freeze: [Action]",
+    "tags_pt": "Congelar: [Ação]"
+  },
+  {
+    "tags": "frenzy_[action]",
+    "tags_en": "Frenzy: [Action]",
+    "tags_pt": "Furor: [Ação]"
+  },
+  {
+    "tags": "ghost_sight",
+    "tags_en": "Ghost Sight",
+    "tags_pt": "Visão de Fantasma"
+  },
+  {
+    "tags": "giant",
+    "tags_en": "Giant",
+    "tags_pt": "Gigante"
+  },
+  {
+    "tags": "guards_[skill]",
+    "tags_en": "Guards: [Skill]",
+    "tags_pt": "Guardas: [Habilidade]"
+  },
+  {
+    "tags": "guards_evade",
+    "tags_en": "Guards: Evade",
+    "tags_pt": "Guardas: Esquivar"
+  },
+  {
+    "tags": "guards_push",
+    "tags_en": "Guards: Push",
+    "tags_pt": "Guardas: Empurrar"
+  },
+  {
+    "tags": "guards_warden_killers",
+    "tags_en": "Guards: Warden Killers",
+    "tags_pt": "Guardas: Matadores de Vigias"
+  },
+  {
+    "tags": "heaven_can_wait",
+    "tags_en": "Heaven Can Wait",
+    "tags_pt": "Heaven Can Wait"
+  },
+  {
+    "tags": "hit_run",
+    "tags_en": "Hit & run",
+    "tags_pt": "Bate & Corre"
+  },
+  {
+    "tags": "hoard",
+    "tags_en": "Hoard",
+    "tags_pt": "Acumulador"
+  },
+  {
+    "tags": "hold_your_nose",
+    "tags_en": "Hold your nose",
+    "tags_pt": "Raspa do Tacho / Prenda a Respiração"
+  },
+  {
+    "tags": "ice_walker",
+    "tags_en": "Ice Walker",
+    "tags_pt": "Andarilho do Gelo"
+  },
+  {
+    "tags": "ice_warrior",
+    "tags_en": "Ice Warrior",
+    "tags_pt": "Guerreiro do Gelo"
+  },
+  {
+    "tags": "improvised_weapon_[action]",
+    "tags_en": "Improvised Weapon: [Action]",
+    "tags_pt": "Arma Improvisada: [Ação]"
+  },
+  {
+    "tags": "inner_god",
+    "tags_en": "Inner God",
+    "tags_pt": "Deus Interior"
+  },
+  {
+    "tags": "ironclad_[zombie]",
+    "tags_en": "Ironclad: [Zombie type]",
+    "tags_pt": "Encouraçado: [tipo de Zumbi]"
+  },
+  {
+    "tags": "iron_hide",
+    "tags_en": "Iron hide",
+    "tags_pt": "Pele de Ferro"
+  },
+  {
+    "tags": "iron_rain",
+    "tags_en": "Iron rain",
+    "tags_pt": "Chuva de Ferro"
+  },
+  {
+    "tags": "is_that_all_youve_got",
+    "tags_en": "Is that all you’ve got?",
+    "tags_pt": "Isso é Tudo?"
+  },
+  {
+    "tags": "jump",
+    "tags_en": "Jump",
+    "tags_pt": "Salto / Pulo"
+  },
+  {
+    "tags": "lifesaver",
+    "tags_en": "Lifesaver",
+    "tags_pt": "Salva-vidas"
+  },
+  {
+    "tags": "lock_it_down",
+    "tags_en": "Lock it down",
+    "tags_pt": "Trancar"
+  },
+  {
+    "tags": "loud",
+    "tags_en": "Loud",
+    "tags_pt": "Barulhento"
+  },
+  {
+    "tags": "low_profile",
+    "tags_en": "Low profile",
+    "tags_pt": "Esguio / Escondido"
+  },
+  {
+    "tags": "lucky",
+    "tags_en": "Lucky",
+    "tags_pt": "Sorte / Sortudo"
+  },
+  {
+    "tags": "mana_rain",
+    "tags_en": "Mana rain",
+    "tags_pt": "Chuva de Mana"
+  },
+  {
+    "tags": "marksman",
+    "tags_en": "Marksman",
+    "tags_pt": "Atirador"
+  },
+  {
+    "tags": "matching_set",
+    "tags_en": "Matching set",
+    "tags_pt": "Dupla Letal!"
+  },
+  {
+    "tags": "medic",
+    "tags_en": "Medic",
+    "tags_pt": "Médico"
+  },
+  {
+    "tags": "no_move_actions",
+    "tags_en": "No Move Action. Moves with Thorg",
+    "tags_pt": "Sem Ação de Movimento. Mova com Thorg"
+  },
+  {
+    "tags": "one_free_turtle_power",
+    "tags_en": "1 Free Turtle Power",
+    "tags_pt": "1 Poder de Tartaruga Gratuito"
+  },
+  {
+    "tags": "once_per_turn_[skill]",
+    "tags_en": "Once per Turn: [Skill]",
+    "tags_pt": "Uma Vez Por Turno: [Habilidade]"
+  },
+  {
+    "tags": "point_blank",
+    "tags_en": "Point-blank",
+    "tags_pt": "À queima-roupa"
+  },
+  {
+    "tags": "powerslave",
+    "tags_en": "Powerslave",
+    "tags_pt": "Powerslave"
+  },
+  {
+    "tags": "range_plus_2_[skill]",
+    "tags_en": "Range 2+: [Skill]",
+    "tags_pt": "Alcance 2+: [Habilidade]"
+  },
+  {
+    "tags": "reach",
+    "tags_en": "Reach",
+    "tags_pt": "Extensão"
+  },
+  {
+    "tags": "reaper_[action]",
+    "tags_en": "Reaper: [Action]",
+    "tags_pt": "Ceifador: [Ação] / Letal: [Ação]"
+  },
+  {
+    "tags": "regeneration",
+    "tags_en": "Regeneration",
+    "tags_pt": "Regeneração"
+  },
+  {
+    "tags": "roll_1_equals_6",
+    "tags_en": "Roll 1 = 6",
+    "tags_pt": "Roll 1 = 6"
+  },
+  {
+    "tags": "roll_6_plus_1_chi",
+    "tags_en": "Roll 6: +1 Chi",
+    "tags_pt": "Resultado 6: +1 Chi"
+  },
+  {
+    "tags": "roll_6_plus_1_damage_[action]",
+    "tags_en": "Roll 6: +1 Damage [Action]",
+    "tags_pt": "Resultado 6: +1 Dano [Ação]"
+  },
+  {
+    "tags": "roll_6_plus_1_die_[action]",
+    "tags_en": "Roll 6: +1 Die [Action]",
+    "tags_pt": "Resultado 6: +1 Dado [Ação]"
+  },
+  {
+    "tags": "roll_6_plus_1_dice_roll_[action]",
+    "tags_en": "Roll 6: +1 to dice roll: [Action]",
+    "tags_pt": "Resultado 6: +1 no Resultado: [Ação]"
+  },
+  {
+    "tags": "rotten",
+    "tags_en": "Rotten",
+    "tags_pt": "Apodrecido"
+  },
+  {
+    "tags": "ruin_searcher",
+    "tags_en": "Ruin Searcher",
+    "tags_pt": "Escarafunchador de Ruínas"
+  },
+  {
+    "tags": "ruin_sight",
+    "tags_en": "Ruin Sight",
+    "tags_pt": "Visão das Ruínas"
+  },
+  {
+    "tags": "safe_search",
+    "tags_en": "Safe Search",
+    "tags_pt": "Vasculhada Segura"
+  },
+  {
+    "tags": "scavenger",
+    "tags_en": "Scavenger",
+    "tags_pt": "Catador"
+  },
+  {
+    "tags": "search_plus_1_card",
+    "tags_en": "Search: +1 card",
+    "tags_pt": "Procura: +1 carta"
+  },
+  {
+    "tags": "search_2_cards",
+    "tags_en": "Search: 2 Cards",
+    "tags_pt": "Procurar: 2 Cartas"
+  },
+  {
+    "tags": "shove",
+    "tags_en": "Shove",
+    "tags_pt": "Empurrão"
+  },
+  {
+    "tags": "sidestep",
+    "tags_en": "Sidestep",
+    "tags_pt": "Evasão"
+  },
+  {
+    "tags": "slippery",
+    "tags_en": "Slippery",
+    "tags_pt": "Liso"
+  },
+  {
+    "tags": "spellbook",
+    "tags_en": "Spellbook",
+    "tags_pt": "Livro de Feitiços"
+  },
+  {
+    "tags": "spellcaster",
+    "tags_en": "Spellcaster",
+    "tags_pt": "Conjurador / Feiticeiro"
+  },
+  {
+    "tags": "sprint",
+    "tags_en": "Sprint",
+    "tags_pt": "Corrida"
+  },
+  {
+    "tags": "starts_with_2_AP",
+    "tags_en": "Starts with 2 AP",
+    "tags_pt": "Começa com 2 PA"
+  },
+  {
+    "tags": "steady_hand",
+    "tags_en": "Steady Hand",
+    "tags_pt": "Mão Firme"
+  },
+  {
+    "tags": "super_strength",
+    "tags_en": "Super strength",
+    "tags_pt": "Superforça"
+  },
+  {
+    "tags": "starts_with_[equipment]",
+    "tags_en": "Starts with a [Equipment]",
+    "tags_pt": "Começa com um(a) [Equipamento]"
+  },
+  {
+    "tags": "swordmaster",
+    "tags_en": "Swordmaster",
+    "tags_pt": "Mestre Espadachim"
+  },
+  {
+    "tags": "tactician",
+    "tags_en": "Tactician",
+    "tags_pt": "Estrategista"
+  },
+  {
+    "tags": "taunt",
+    "tags_en": "Taunt",
+    "tags_pt": "Provocação / Provocar"
+  },
+  {
+    "tags": "throw",
+    "tags_en": "Throw",
+    "tags_pt": "Arremesso"
+  },
+  {
+    "tags": "tough",
+    "tags_en": "Tough",
+    "tags_pt": "Durão"
+  },
+  {
+    "tags": "trasform_werewolf",
+    "tags_en": "Transform into Lotas (Werewolf)",
+    "tags_pt": "Transforma em Lotas (Lobisomem)"
+  },
+  {
+    "tags": "transmutation",
+    "tags_en": "Transmutation",
+    "tags_pt": "Transmutação"
+  },
+  {
+    "tags": "trick_shot",
+    "tags_en": "Trick shot",
+    "tags_pt": "Agilidade"
+  },
+  {
+    "tags": "turtle_bonus_[skill]",
+    "tags_en": "Turtle Bonus [Skill]",
+    "tags_pt": "Bônus de Tartaruga: [Habilidade]"
+  },
+  {
+    "tags": "turtle_focus_plus_2_dice_roll_combat",
+    "tags_en": "Turtle Focus: +2 to Dice Roll: Combat",
+    "tags_pt": "Foco de Tartaruga: +2 no Resultado: Combate"
+  },
+  {
+    "tags": "turtle_focus_plus_3_dice_combat",
+    "tags_en": "Turtle Focus:+3 Dice: Combat",
+    "tags_pt": "Foco de Tartaruga: +3 Dados: Combate"
+  },
+  {
+    "tags": "turtle_focus_damage_3_combat",
+    "tags_en": "Turtle Focus: Damage 3: Combat",
+    "tags_pt": "Foco de Tartaruga: Dano 3: Combate"
+  },
+  {
+    "tags": "turtle_power_2_for_1",
+    "tags_en": "Turtle Power: 2 for 1",
+    "tags_pt": "Poder de Tartaruga: 2 por 1"
+  },
+  {
+    "tags": "vault_picker",
+    "tags_en": "Vault Picker",
+    "tags_pt": "Trapeiro de Cripta"
+  },
+  {
+    "tags": "wall_climber",
+    "tags_en": "Wall Climber",
+    "tags_pt": "Escalador de Muralhas"
+  },
+  {
+    "tags": "warden_killers",
+    "tags_en": "Warden Killers",
+    "tags_pt": "Matador de Brutos"
+  },
+  {
+    "tags": "zombie_link",
+    "tags_en": "Zombie link",
+    "tags_pt": "Conexão Zumbi"
+  }
+]

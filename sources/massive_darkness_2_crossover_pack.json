@@ -1,0 +1,33 @@
+{
+    "game_version": "Massive Darkness 2 Crossover Pack",
+    "analysis_date": "2026-08-09 14:29:48",
+    "theme": "fantasy",
+    "is_base_game": false,
+    "special_spawns": {
+        "abominations": [
+            {
+                "file_name": "the_reaper"
+            },
+            {
+                "file_name": "baalberith"
+            },
+            {
+                "file_name": "horseman"
+            },
+            {
+                "file_name": "queen_caenedra"
+            },
+            {
+                "file_name": "hugbear"
+            },
+            {
+                "file_name": "banshee"
+            },
+            {
+                "file_name": "cerberus"
+            }
+        ],
+        "necromancers": []
+    },
+    "spawn_data": {}
+}

@@ -1,0 +1,244 @@
+{
+    "game_version": "Green Horde",
+    "analysis_date": "2026-08-09 14:29:48",
+    "theme": "fantasy",
+    "is_base_game": true,
+    "special_spawns": {
+        "abominations": [
+            {
+                "file_name": "orc_abomination"
+            }
+        ],
+        "necromancers": [
+            {
+                "file_name": "orc_necromancer"
+            }
+        ]
+    },
+    "spawn_data": {
+        "blue": {
+            "enter_the_horde": {
+                "total_cards": 8,
+                "qty_distribution": {
+                    "0": 8
+                }
+            },
+            "nothing": {
+                "total_cards": 7,
+                "qty_distribution": {
+                    "0": 7
+                }
+            },
+            "orc_brute": {
+                "total_cards": 8,
+                "qty_distribution": {
+                    "2": 8,
+                    "3": 0,
+                    "1": 0,
+                    "4": 0
+                }
+            },
+            "orc_runner": {
+                "total_cards": 6,
+                "qty_distribution": {
+                    "3": 6,
+                    "5": 0,
+                    "4": 0,
+                    "7": 0,
+                    "6": 0,
+                    "8": 0
+                }
+            },
+            "orc_walker": {
+                "total_cards": 17,
+                "qty_distribution": {
+                    "2": 11,
+                    "3": 5,
+                    "4": 1,
+                    "5": 0,
+                    "6": 0,
+                    "7": 0,
+                    "9": 0,
+                    "8": 0
+                }
+            }
+        },
+        "yellow": {
+            "enter_the_horde": {
+                "total_cards": 8,
+                "qty_distribution": {
+                    "0": 8
+                }
+            },
+            "orc_brute": {
+                "total_cards": 9,
+                "qty_distribution": {
+                    "3": 3,
+                    "1": 1,
+                    "2": 5,
+                    "4": 0
+                }
+            },
+            "orc_brute_extra": {
+                "total_cards": 1,
+                "qty_distribution": {
+                    "0": 1
+                }
+            },
+            "orc_runner": {
+                "total_cards": 9,
+                "qty_distribution": {
+                    "5": 3,
+                    "4": 6,
+                    "3": 0,
+                    "7": 0,
+                    "6": 0,
+                    "8": 0
+                }
+            },
+            "orc_runner_extra": {
+                "total_cards": 1,
+                "qty_distribution": {
+                    "0": 1
+                }
+            },
+            "orc_walker": {
+                "total_cards": 16,
+                "qty_distribution": {
+                    "5": 5,
+                    "3": 5,
+                    "4": 6,
+                    "2": 0,
+                    "6": 0,
+                    "7": 0,
+                    "9": 0,
+                    "8": 0
+                }
+            },
+            "orc_walker_extra": {
+                "total_cards": 2,
+                "qty_distribution": {
+                    "0": 2
+                }
+            }
+        },
+        "orange": {
+            "enter_the_horde": {
+                "total_cards": 8,
+                "qty_distribution": {
+                    "0": 8
+                }
+            },
+            "orc_brute": {
+                "total_cards": 9,
+                "qty_distribution": {
+                    "4": 3,
+                    "2": 3,
+                    "3": 3,
+                    "1": 0
+                }
+            },
+            "orc_brute_extra": {
+                "total_cards": 1,
+                "qty_distribution": {
+                    "0": 1
+                }
+            },
+            "orc_runner": {
+                "total_cards": 9,
+                "qty_distribution": {
+                    "7": 1,
+                    "5": 1,
+                    "6": 7,
+                    "3": 0,
+                    "4": 0,
+                    "8": 0
+                }
+            },
+            "orc_runner_extra": {
+                "total_cards": 1,
+                "qty_distribution": {
+                    "0": 1
+                }
+            },
+            "orc_walker": {
+                "total_cards": 16,
+                "qty_distribution": {
+                    "6": 6,
+                    "5": 6,
+                    "4": 2,
+                    "7": 2,
+                    "2": 0,
+                    "3": 0,
+                    "9": 0,
+                    "8": 0
+                }
+            },
+            "orc_walker_extra": {
+                "total_cards": 2,
+                "qty_distribution": {
+                    "0": 2
+                }
+            }
+        },
+        "red": {
+            "enter_the_horde": {
+                "total_cards": 8,
+                "qty_distribution": {
+                    "0": 8
+                }
+            },
+            "orc_brute": {
+                "total_cards": 9,
+                "qty_distribution": {
+                    "3": 3,
+                    "4": 6,
+                    "2": 0,
+                    "1": 0
+                }
+            },
+            "orc_brute_extra": {
+                "total_cards": 1,
+                "qty_distribution": {
+                    "0": 1
+                }
+            },
+            "orc_runner": {
+                "total_cards": 9,
+                "qty_distribution": {
+                    "7": 3,
+                    "8": 6,
+                    "3": 0,
+                    "5": 0,
+                    "4": 0,
+                    "6": 0
+                }
+            },
+            "orc_runner_extra": {
+                "total_cards": 1,
+                "qty_distribution": {
+                    "0": 1
+                }
+            },
+            "orc_walker": {
+                "total_cards": 16,
+                "qty_distribution": {
+                    "6": 6,
+                    "7": 6,
+                    "9": 2,
+                    "8": 2,
+                    "2": 0,
+                    "3": 0,
+                    "4": 0,
+                    "5": 0
+                }
+            },
+            "orc_walker_extra": {
+                "total_cards": 2,
+                "qty_distribution": {
+                    "0": 2
+                }
+            }
+        }
+    }
+}

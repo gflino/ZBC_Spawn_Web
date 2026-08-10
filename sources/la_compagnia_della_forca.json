@@ -1,0 +1,18 @@
+{
+    "game_version": "La Compagnia Della Forca",
+    "analysis_date": "2026-08-09 14:29:48",
+    "theme": "fantasy",
+    "is_base_game": false,
+    "special_spawns": {
+        "abominations": [],
+        "necromancers": [
+            {
+                "file_name": "grand_vizier"
+            },
+            {
+                "file_name": "the_sparrow"
+            }
+        ]
+    },
+    "spawn_data": {}
+}

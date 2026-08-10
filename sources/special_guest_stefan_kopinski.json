@@ -1,0 +1,15 @@
+{
+    "game_version": "Special Guest Stefan Kopinski",
+    "analysis_date": "2026-08-09 14:29:50",
+    "theme": "fantasy",
+    "is_base_game": false,
+    "special_spawns": {
+        "abominations": [],
+        "necromancers": [
+            {
+                "file_name": "the_blackheart"
+            }
+        ]
+    },
+    "spawn_data": {}
+}

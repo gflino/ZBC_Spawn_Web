@@ -7,65 +7,136 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+    <!-- Botões Fixos Soltos no Topo da Tela -->
+    <div class="home-btn-container">
+        <button id="btn-home" class="btn-home">🏠 <span data-i18n="btnHome">Início</span></button>
+    </div>
+
+    <div class="language-selector">
+        <select id="lang-select">
+            <option value="pt">🇧🇷 PT-BR</option>
+            <option value="en">🇺🇸 EN-US</option>
+        </select>
+    </div>
+    <!-- ================================== -->
+
+    <!-- Container Principal do Aplicativo -->
     <div class="container" id="app-container">
-        <h1>Zombicide Spawn</h1>
         
+        <div class="header-bar">
+            <h1 data-i18n="appTitle">Zombicide Spawn</h1>
+        </div>
+        
+        <!-- Tela 1: Temas -->
         <div id="screen-theme" class="screen active">
-            <h2>Escolha a Era:</h2>
+            <h2 data-i18n="chooseEra">Escolha o Cenário:</h2>
             <div class="menu-grid">
-                <button class="btn-theme" data-theme="classico">Clássico / Moderno</button>
-                <button class="btn-theme" data-theme="fantasy">Fantasia</button>
-                <button class="btn-theme" data-theme="scifi">Sci-Fi (Invader)</button>
-                <button class="btn-theme" data-theme="velhooeste">Velho Oeste</button>
+                <button class="btn-theme" data-theme="classico" data-i18n="eraClassic">Clássico / Moderno</button>
+                <button class="btn-theme" data-theme="fantasy" data-i18n="eraFantasy">Fantasia</button>
+                <button class="btn-theme" data-theme="scifi">Sci-Fi</button>
+                <button class="btn-theme" data-theme="velhooeste" data-i18n="eraWest">Velho Oeste</button>
                 <button class="btn-theme" data-theme="marveldc">Marvel Zombies</button>
                 <button class="btn-theme" data-theme="dc">DCEASED</button>
                 <button class="btn-theme" data-theme="notld">Night of the Living Dead</button>
             </div>
         </div>
 
+        <!-- Tela 2: Expansões -->
         <div id="screen-expansion" class="screen">
-            <h2>Configure a Partida</h2>
+            <h2 data-i18n="configMatch">Configure a Partida</h2>
             
             <div class="catalog-sections">
                 <div class="section-group">
-                    <h3>Jogos Base*</h3>
+                    <h3 data-i18n="baseGames">Jogos Base*</h3>
                     <div id="list-base-games" class="checkbox-list"></div>
                 </div>
                 
                 <div class="section-group">
-                    <h3>Expansões</h3>
+                    <h3 data-i18n="expansions">Expansões</h3>
                     <div id="list-expansions" class="checkbox-list"></div>
                 </div>
             </div>
 
-            <button id="btn-confirm-load" class="btn-main">Confirmar e Carregar Decks</button>
-            <button class="btn-back" id="btn-back-to-theme">← Voltar</button>
+            <button id="btn-confirm-load" class="btn-main" data-i18n="btnConfirm">Confirmar e Carregar Decks</button>
+            <button class="btn-back" id="btn-back-to-theme" data-i18n="btnBack">← Voltar</button>
         </div>
 
+        <!-- Tela 3: Sorteador -->
         <div id="screen-spawner" class="screen">
-            <h2 id="current-expansion-title">Expansão Ativa</h2>
             
-            <div class="controls">
-                <label for="danger-level">Nível de Perigo:</label>
-                <select id="danger-level">
-                    <option value="blue">Azul</option>
-                    <option value="yellow">Amarelo</option>
-                    <option value="orange">Laranja</option>
-                    <option value="red">Vermelho</option>
-                </select>
+            <!-- Caixa Retrátil (Accordion) para os Decks Ativos -->
+            <div class="collapsible-container" id="decks-collapsible">
+                <div class="collapsible-header" id="btn-toggle-decks">
+                    <span data-i18n="activeDecks">Decks Ativos</span>
+                    <span id="collapsible-arrow">▼</span>
+                </div>
+                <div class="collapsible-content" id="active-decks-content">
+                    <p id="current-expansion-title" class="discreet-subtitle">Expansão Ativa</p>
+                </div>
+            </div>
+            
+            <!-- Botões de Nível de Perigo -->
+            <div class="danger-container">
+                <p data-i18n="dangerLevel">Nível de Perigo:</p>
+                <div class="danger-buttons">
+                    <button class="btn-danger active" data-level="blue" style="background-color: #173854;" data-i18n="blue">Azul</button>
+                    <button class="btn-danger" data-level="yellow" style="background-color: #5c4d0b;" data-i18n="yellow">Amarelo</button>
+                    <button class="btn-danger" data-level="orange" style="background-color: #63320c;" data-i18n="orange">Laranja</button>
+                    <button class="btn-danger" data-level="red" style="background-color: #5e1610;" data-i18n="red">Vermelho</button>
+                </div>
             </div>
 
-            <button id="btn-draw">Realizar Sorteio</button>
+            <button id="btn-draw" class="btn-main" data-i18n="btnDraw">Realizar Sorteio</button>
 
             <div class="result-area">
-                <h2>Resultado:</h2>
-                <p id="result-text">Aguardando...</p>
+                <!-- <h2 data-i18n="resultLabel">Resultado:</h2> -->
+                <p id="result-text" class="result-highlight">Aguardando...</p>
+                
+                <!-- Card do Inimigo -->
+                <div id="enemy-card" class="enemy-card" style="display: none;">
+                    <div class="enemy-header">
+                        <span id="enemy-class" class="enemy-badge"></span>
+                    </div>
+                    
+                    <img id="enemy-image" src="" alt="Imagem do Inimigo" onerror="this.style.display='none'">
+                    
+                    <div class="enemy-stats">
+                        <div class="stat-box">
+                            <span class="stat-label" id="label-actions">Ações</span>
+                            <span class="stat-value" id="stat-actions">1</span>
+                        </div>
+                        <div class="stat-box">
+                            <span class="stat-label" id="label-range">Alcance</span>
+                            <span class="stat-value" id="stat-range">0</span>
+                        </div>
+                        <div class="stat-box">
+                            <span class="stat-label" id="label-damage">Dano</span>
+                            <span class="stat-value" id="stat-damage">1</span>
+                        </div>
+                        <div class="stat-box">
+                            <span class="stat-label" id="label-move">Movimento</span>
+                            <span class="stat-value" id="stat-move">1</span>
+                        </div>
+                        <div class="stat-box">
+                            <span class="stat-label" id="label-lethal">Letal</span>
+                            <span class="stat-value" id="stat-lethal">1</span>
+                        </div>
+                        <div class="stat-box">
+                            <span class="stat-label" id="label-ap">PA</span>
+                            <span class="stat-value" id="stat-ap">1</span>
+                        </div>
+                    </div>
+                    
+                    <p id="enemy-rules" class="enemy-rules"></p>
+                </div>
             </div>
-
-            <button class="btn-back" id="btn-back-to-expansions" style="margin-top: 30px; width: 100%;">← Escolher Outros Decks</button>
         </div>
-
     </div>
+
+    
+<!-- NOVO: Link discreto flutuante para o Banco de Dados -->
+    <a href="https://gflino.github.io/ZBC_DB/" target="_blank" class="db-link" data-i18n="linkDB">🗃️ Zombicide DB</a>
 
     <script src="app.js"></script>
 </body>

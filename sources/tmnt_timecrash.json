@@ -1,0 +1,60 @@
+{
+    "game_version": "TMNT Timecrash",
+    "analysis_date": "2026-08-09 14:29:50",
+    "theme": "fantasy",
+    "is_base_game": false,
+    "special_spawns": {
+        "abominations": [],
+        "necromancers": [
+            {
+                "file_name": "shredder"
+            }
+        ]
+    },
+    "spawn_data": {
+        "blue": {
+            "foot_ninjas": {
+                "total_cards": 6,
+                "qty_distribution": {
+                    "1": 6,
+                    "2": 0,
+                    "3": 0,
+                    "4": 0
+                }
+            }
+        },
+        "yellow": {
+            "foot_ninjas": {
+                "total_cards": 6,
+                "qty_distribution": {
+                    "2": 6,
+                    "1": 0,
+                    "3": 0,
+                    "4": 0
+                }
+            }
+        },
+        "orange": {
+            "foot_ninjas": {
+                "total_cards": 6,
+                "qty_distribution": {
+                    "3": 6,
+                    "1": 0,
+                    "2": 0,
+                    "4": 0
+                }
+            }
+        },
+        "red": {
+            "foot_ninjas": {
+                "total_cards": 6,
+                "qty_distribution": {
+                    "4": 6,
+                    "1": 0,
+                    "2": 0,
+                    "3": 0
+                }
+            }
+        }
+    }
+}

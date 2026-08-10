@@ -1,0 +1,35 @@
+# theme: fantasy,,
+# game_version: Frozen Fortress,,
+# is_base_game: false,,
+# abominations: amaterasu; asura; bishamon; chimimōryō; hachiman; kijin; kumiho; nian; qilin; red_hare; shakōki_dogū; sōjōbō; susano_wo; takemikazuchi; toyol; yeti,,
+# necromancers: bomoh; death_notes; hannya; kaguya; tengu; yuki_onna,,
+# ---,,
+danger,spawn,qty
+blue,bake_danuki,1
+blue,kappa,1
+blue,rakshasa,1
+blue,yaksha,1
+blue,onryō,1
+blue,meng_huo,1
+blue,zhu_bajie,1
+yellow,bake_danuki,1
+yellow,kappa,1
+yellow,rakshasa,1
+yellow,yaksha,1
+yellow,onryō,1
+yellow,meng_huo,1
+yellow,zhu_bajie,1
+orange,bake_danuki,1
+orange,kappa,1
+orange,rakshasa,1
+orange,yaksha,1
+orange,onryō,1
+orange,meng_huo,1
+orange,zhu_bajie,1
+red,bake_danuki,1
+red,kappa,1
+red,rakshasa,1
+red,yaksha,1
+red,onryō,1
+red,meng_huo,1
+red,zhu_bajie,1

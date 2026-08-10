@@ -1,0 +1,19 @@
+{
+    "game_version": "Rat King & Swamp Troll",
+    "analysis_date": "2026-08-09 14:29:48",
+    "theme": "fantasy",
+    "is_base_game": false,
+    "special_spawns": {
+        "abominations": [
+            {
+                "file_name": "swamp_troll"
+            }
+        ],
+        "necromancers": [
+            {
+                "file_name": "rat_king"
+            }
+        ]
+    },
+    "spawn_data": {}
+}

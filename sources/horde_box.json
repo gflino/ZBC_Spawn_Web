@@ -1,0 +1,85 @@
+{
+    "game_version": "Horde Box",
+    "analysis_date": "2026-08-09 14:29:48",
+    "theme": "fantasy",
+    "is_base_game": false,
+    "special_spawns": {
+        "abominations": [
+            {
+                "file_name": "abominabunny"
+            },
+            {
+                "file_name": "chromatiz"
+            },
+            {
+                "file_name": "gorgomination"
+            },
+            {
+                "file_name": "horde_brother"
+            },
+            {
+                "file_name": "siege_breaker"
+            },
+            {
+                "file_name": "swamp_lurker"
+            },
+            {
+                "file_name": "the_magenta_covfefe_of_aargh"
+            },
+            {
+                "file_name": "vault_warden"
+            },
+            {
+                "file_name": "werezombie"
+            },
+            {
+                "file_name": "zombie_giant"
+            },
+            {
+                "file_name": "feral_dragon"
+            }
+        ],
+        "necromancers": [
+            {
+                "file_name": "count_temeraire"
+            },
+            {
+                "file_name": "queen_severa"
+            }
+        ]
+    },
+    "spawn_data": {
+        "blue": {
+            "Nothing": {
+                "total_cards": 6,
+                "qty_distribution": {
+                    "0": 6
+                }
+            }
+        },
+        "yellow": {
+            "fatty_bursters": {
+                "total_cards": 6,
+                "qty_distribution": {
+                    "1": 6
+                }
+            }
+        },
+        "orange": {
+            "fatty_bursters": {
+                "total_cards": 6,
+                "qty_distribution": {
+                    "1": 6
+                }
+            }
+        },
+        "red": {
+            "fatty_bursters": {
+                "total_cards": 6,
+                "qty_distribution": {
+                    "1": 6
+                }
+            }
+        }
+    }
+}

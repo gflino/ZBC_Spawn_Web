@@ -1,0 +1,59 @@
+# theme: fantasy,,
+# game_version: Friends and Foes,,
+# is_base_game: false,,
+# abominations: tainted_abomination,,
+# necromancers: ,,
+# ---,,
+danger,spawn,qty
+blue,tainted_walker,3
+blue,tainted_walker,3
+blue,tainted_walker,2
+blue,tainted_walker,2
+blue,tainted_walker,2
+blue,tainted_walker,2
+blue,tainted_walker,2
+blue,tainted_walker,2
+blue,tainted_walker,2
+blue,tainted_walker,2
+blue,tainted_walker,2
+blue,enter_the_horde,0
+blue,enter_the_horde,0
+yellow,tainted_walker,2
+yellow,tainted_walker,2
+yellow,tainted_walker,4
+yellow,tainted_walker,3
+yellow,tainted_walker,2
+yellow,tainted_walker,5
+yellow,tainted_walker,2
+yellow,tainted_walker,3
+yellow,tainted_walker,3
+yellow,tainted_walker,5
+yellow,tainted_walker,4
+yellow,enter_the_horde,0
+yellow,enter_the_horde,0
+orange,tainted_walker,6
+orange,tainted_walker,2
+orange,tainted_walker,3
+orange,tainted_walker,4
+orange,tainted_walker,5
+orange,tainted_walker,3
+orange,tainted_walker,7
+orange,tainted_walker,3
+orange,tainted_walker,3
+orange,tainted_walker,5
+orange,tainted_walker,6
+orange,enter_the_horde,0
+orange,enter_the_horde,0
+red,tainted_walker,2
+red,tainted_walker,4
+red,tainted_walker,7
+red,tainted_walker,7
+red,tainted_walker,6
+red,tainted_walker,4
+red,tainted_walker,3
+red,tainted_walker,9
+red,tainted_walker,8
+red,tainted_walker,4
+red,tainted_walker,4
+red,enter_the_horde,0
+red,enter_the_horde,0
