@@ -12,16 +12,16 @@ body {
 }
 
 .container {
-    background-color: #131313; /* Cinza muito escuro */
-    padding: 30px 40px;
+    background-color: #131313;
+    padding: 20px 25px; /* Reduzido o espaço interno (antes era 30px 40px) */
     border-radius: 12px;
     text-align: center;
     box-shadow: 0 4px 20px rgba(0,0,0,0.9);
     transition: background-color 0.1s ease, color 0.1s ease;
-    width: 400px;
-    max-width: 90%;
+    width: 480px; /* Aumentado para dar mais espaço lateral (antes era 400px) */
+    max-width: 95%; /* Permite ocupar mais espaço em telas de celular */
     border: 1px solid #222;
-    margin: auto; /* Mantém centralizado na tela se o conteúdo for pequeno */
+    margin: auto;
 }
 
 button, .btn-main {
@@ -29,7 +29,7 @@ button, .btn-main {
     font-size: 18px;
     font-weight: bold;
     cursor: pointer;
-    margin: 15px 0;
+    margin: 10px 0; /* Distância vertical reduzida (antes era 15px) */
     background-color: #8b0000;
     color: white;
     border: 1px solid #550000;
@@ -270,10 +270,10 @@ button:active, .btn-main:active {
 
 /* --- BOTÕES DE NÍVEL DE PERIGO --- */
 .danger-container {
-    margin-bottom: 20px;
+    margin-bottom: 10px; /* Reduzido (antes era 20px) */
 }
 .danger-container p {
-    margin-bottom: 8px;
+    margin-bottom: 5px; /* Reduzido (antes era 8px) */
     font-weight: bold;
 }
 .danger-buttons {
@@ -302,7 +302,7 @@ button:active, .btn-main:active {
     font-size: 26px;
     font-weight: bold;
     color: #2ecc71;
-    margin: 10px 0 20px 0;
+    margin: 5px 0 10px 0; /* Margens espremidas (antes era 10px 0 20px 0) */
     text-align: center;
     text-shadow: 0 2px 4px rgba(0,0,0,0.5);
 }
@@ -311,33 +311,21 @@ button:active, .btn-main:active {
     background-color: #0f0f0f;
     border: 2px solid #333; 
     border-radius: 8px;
-    padding: 20px;
-    margin-top: 15px;
+    padding: 15px; /* Menos preenchimento para as regras terem mais espaço */
+    margin-top: 5px; /* Bem mais colado no texto de resultado */
     box-shadow: 0 6px 15px rgba(0,0,0,0.7); 
 }
 
 .enemy-header {
     text-align: center;
-    margin-bottom: 15px;
-}
-
-.enemy-badge {
-    background-color: #a84700;
-    color: white;
-    padding: 6px 12px;
-    border-radius: 4px;
-    font-size: 13px;
-    font-weight: bold;
-    text-transform: uppercase;
-    display: inline-block;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    margin-bottom: 10px; /* Reduzido */
 }
 
 #enemy-image {
     display: block;
-    margin: 0 auto 20px auto; 
+    margin: 0 auto 10px auto; /* Distância inferior reduzida (antes era 20px) */
     max-width: 100%;
-    max-height: 220px;
+    max-height: 200px;
     border-radius: 6px;
     object-fit: contain;
 }
@@ -348,14 +336,22 @@ button:active, .btn-main:active {
     gap: 10px;
     background-color: transparent; 
     padding: 0;
-    margin-bottom: 20px;
+    margin-bottom: 15px; /* Distância para a caixa de regras reduzida */
+}.enemy-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px; /* Espaço entre as caixas um pouco menor (antes era 10px) */
+    background-color: transparent; 
+    padding: 0;
+    margin-bottom: 15px;
 }
 
+/* Os containers restaurados e mais finos */
 .stat-box {
     background-color: #151515;
     border: 1px solid #333;
     border-radius: 6px;
-    padding: 8px 4px;
+    padding: 4px 2px; /* AQUI: Preenchimento vertical cortado pela metade (antes era 8px) */
     display: flex;
     flex-direction: column; 
     align-items: center;
@@ -367,7 +363,7 @@ button:active, .btn-main:active {
     font-size: 11px;
     color: #888888;
     text-transform: uppercase;
-    margin-bottom: 4px;
+    margin-bottom: 2px; /* Margem reduzida para aproximar o texto do número */
     font-weight: bold;
     letter-spacing: 0.5px;
 }
@@ -378,12 +374,13 @@ button:active, .btn-main:active {
     color: #ffffff;
 }
 
+/* Caixa de regras também levemente mais compacta */
 .enemy-rules {
     font-size: 14.5px;
     color: #dddddd;
     font-style: italic;
-    line-height: 1.5;
-    padding: 15px;
+    line-height: 1.4; /* Reduzido de 1.5 */
+    padding: 12px; /* Reduzido de 15px */
     background-color: #050505;
     border-radius: 6px;
     border: 1px solid #222;
@@ -391,6 +388,7 @@ button:active, .btn-main:active {
     text-align: center;
     box-shadow: inset 0 2px 4px rgba(0,0,0,0.3); 
 }
+
 /* --- LINK DISCRETO DO BANCO DE DADOS --- */
 .db-link {
     position: fixed;
@@ -407,7 +405,7 @@ button:active, .btn-main:active {
     border: 1px solid transparent;
     transition: all 0.3s ease;
     z-index: 1000;
-    backdrop-filter: blur(2px); /* Efeito de vidro fosco no fundo */
+    backdrop-filter: blur(2px);
 }
 
 .db-link:hover {
