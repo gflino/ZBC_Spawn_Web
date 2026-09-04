@@ -8,7 +8,9 @@
 </head>
 <body>
 
-    <!-- Botões Fixos Soltos no Topo da Tela -->
+    <!-- ==========================================
+         CABEÇALHO FIXO E NAVEGAÇÃO
+         ========================================== -->
     <div class="home-btn-container">
         <button id="btn-home" class="btn-home">🏠 <span data-i18n="btnHome">Início</span></button>
     </div>
@@ -19,16 +21,17 @@
             <option value="en">🇺🇸 EN-US</option>
         </select>
     </div>
-    <!-- ================================== -->
 
-    <!-- Container Principal do Aplicativo -->
+    <!-- ==========================================
+         CONTAINER PRINCIPAL DO APLICATIVO
+         ========================================== -->
     <div class="container" id="app-container">
         
         <div class="header-bar">
             <h1 data-i18n="appTitle">Zombicide Spawn</h1>
         </div>
         
-        <!-- Tela 1: Temas -->
+        <!-- TELA 1: Seleção de Tema / Cenário -->
         <div id="screen-theme" class="screen active">
             <h2 data-i18n="chooseEra">Escolha o Cenário:</h2>
             <div class="menu-grid">
@@ -40,18 +43,65 @@
                 <button class="btn-theme" data-theme="dc">DCEASED</button>
                 <button class="btn-theme" data-theme="notld">Night of the Living Dead</button>
             </div>
+            <div class="split-buttons-grid">
+                <button id="btn-about" class="btn-theme btn-secondary" data-i18n="btnAbout">Sobre</button>
+                <button id="btn-db-home" class="btn-theme btn-secondary" data-i18n="linkDB">Zombicide DB</button>
+            </div>
         </div>
 
-        <!-- Tela 2: Expansões -->
+        <!-- TELA SECUNDÁRIA: Sobre o App -->
+        <div id="screen-about" class="screen">
+            <h2 data-i18n="btnAbout">Sobre</h2>
+            <div class="about-content">
+                <p><span data-i18n="aboutText1">O <strong>Zombicide Spawn</strong> é um gerenciador de cartas de aparecimento projetado para otimizar suas partidas.</span></p>
+                <p><span data-i18n="aboutText2">O algoritmo inteligente calcula as probabilidades de sorteio com base nas cartas físicas das expansões selecionadas. Ele agrupa tipos de inimigos e realiza os sorteios entre cada tipo independentemente, depois entre os inimigos do tipo sorteado e, por fim, a quantidade de inimigos. Ele também conta com um contador que segue a seguinte proporção:</span></p>
+                
+                <table class="spawn-table">
+                    <thead>
+                        <tr>
+                            <th data-i18n="dangerLevel">Nível</th>
+                            <th colspan="2" id="about-th-necro">Necromantes</th>
+                            <th colspan="2" id="about-th-abom">Abominações</th>
+                        </tr>
+                        <tr>
+                            <th></th>
+                            <th data-i18n="lblBase">Base</th>
+                            <th data-i18n="lblInc">Incr</th>
+                            <th data-i18n="lblBase">Base</th>
+                            <th data-i18n="lblInc">Incr</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td data-i18n="blue">Azul</td><td>1%</td><td>0,5%</td><td>0%</td><td>0,5%</td></tr>
+                        <tr><td data-i18n="yellow">Amarelo</td><td>2%</td><td>1%</td><td>1%</td><td>0,5%</td></tr>
+                        <tr><td data-i18n="orange">Laranja</td><td>3%</td><td>1,5%</td><td>2%</td><td>1%</td></tr>
+                        <tr><td data-i18n="red">Vermelho</td><td>4%</td><td>1,5%</td><td>3%</td><td>1%</td></tr>
+                    </tbody>
+                </table>
+
+                <p><span data-i18n="aboutText3">Configure sua partida escolhendo o cenário, mescle as expansões desejadas e controle o nível de perigo com facilidade. Selecione o modo padrão para seguir as regras básicas do manual ou o modo avançado para personalizar as chances dos inimigos individualmente.</span></p>
+            </div>
+            <button class="btn-back" id="btn-back-from-about" data-i18n="btnBack">← Voltar</button>
+        </div>
+
+        <!-- TELA 2: Seleção de Expansões -->
         <div id="screen-expansion" class="screen">
             <h2 data-i18n="configMatch">Configure a Partida</h2>
             
+            <div class="mode-toggle-container">
+                <label class="mode-label active" id="label-standard" for="game-mode-toggle" data-i18n="modeStandard">Padrão</label>
+                <label class="switch">
+                    <input type="checkbox" id="game-mode-toggle">
+                    <span class="slider round"></span>
+                </label>
+                <label class="mode-label" id="label-advanced" for="game-mode-toggle" data-i18n="modeAdvanced">Avançado</label>
+            </div>
+            
             <div class="catalog-sections">
                 <div class="section-group">
-                    <h3 data-i18n="baseGames">Jogos Base*</h3>
+                    <h3 data-i18n="baseGames">Jogos Base</h3>
                     <div id="list-base-games" class="checkbox-list"></div>
                 </div>
-                
                 <div class="section-group">
                     <h3 data-i18n="expansions">Expansões</h3>
                     <div id="list-expansions" class="checkbox-list"></div>
@@ -62,10 +112,36 @@
             <button class="btn-back" id="btn-back-to-theme" data-i18n="btnBack">← Voltar</button>
         </div>
 
-        <!-- Tela 3: Sorteador -->
+        <!-- TELA 2.5: Modo Avançado -->
+        <div id="screen-advanced" class="screen">
+            <h2 data-i18n="advancedSetup">Configurações Avançadas</h2>
+
+            <div class="advanced-section">
+                <h3 data-i18n="specialRules">Regras Especiais</h3>
+                <label class="checkbox-item special-rule-box">
+                    <input type="checkbox" id="check-cabal"> <span id="label-cabal">Necromancer Cabal</span>
+                </label>
+                <label class="checkbox-item special-rule-box">
+                    <input type="checkbox" id="check-abominafest"> <span data-i18n="ruleAbominafest">Abominafest</span>
+                </label>
+            </div>
+
+            <div class="advanced-section" style="padding: 0; border: none; background: transparent;">
+                <h3 data-i18n="spawnRatesAndWeights">Taxas e Pesos Individuais</h3>
+                <div class="advanced-table-container">
+                    <table class="spawn-table" id="advanced-table">
+                        <!-- Gerado por JS -->
+                    </table>
+                </div>
+            </div>
+
+            <button id="btn-confirm-advanced" class="btn-main" data-i18n="btnStartMatch">Ir para o Sorteio</button>
+            <button class="btn-back" id="btn-back-to-expansions-adv" data-i18n="btnBack">← Voltar</button>
+        </div>
+
+        <!-- TELA 3: Sorteador (Spawner) -->
         <div id="screen-spawner" class="screen">
             
-            <!-- Caixa Retrátil (Accordion) para os Decks Ativos -->
             <div class="collapsible-container" id="decks-collapsible">
                 <div class="collapsible-header" id="btn-toggle-decks">
                     <span data-i18n="activeDecks">Decks Ativos</span>
@@ -76,7 +152,6 @@
                 </div>
             </div>
             
-            <!-- Botões de Nível de Perigo -->
             <div class="danger-container">
                 <p data-i18n="dangerLevel">Nível de Perigo:</p>
                 <div class="danger-buttons">
@@ -87,13 +162,20 @@
                 </div>
             </div>
 
+            <div id="standard-controls" class="special-controls">
+                <label class="checkbox-item special-checkbox">
+                    <input type="checkbox" id="check-abom"> <span id="label-abom-check">Abominação em Jogo</span>
+                </label>
+                <label class="checkbox-item special-checkbox">
+                    <input type="checkbox" id="check-necro"> <span id="label-necro-check">Necromante em Jogo</span>
+                </label>
+            </div>
+            
             <button id="btn-draw" class="btn-main" data-i18n="btnDraw">Realizar Sorteio</button>
 
             <div class="result-area">
-                <!-- <h2 data-i18n="resultLabel">Resultado:</h2> -->
                 <p id="result-text" class="result-highlight">Aguardando...</p>
                 
-                <!-- Card do Inimigo -->
                 <div id="enemy-card" class="enemy-card" style="display: none;">
                     <div class="enemy-header">
                         <span id="enemy-class" class="enemy-badge"></span>
@@ -102,41 +184,34 @@
                     <img id="enemy-image" src="" alt="Imagem do Inimigo" onerror="this.style.display='none'">
                     
                     <div class="enemy-stats">
-                        <div class="stat-box">
-                            <span class="stat-label" id="label-actions">Ações</span>
-                            <span class="stat-value" id="stat-actions">1</span>
-                        </div>
-                        <div class="stat-box">
-                            <span class="stat-label" id="label-range">Alcance</span>
-                            <span class="stat-value" id="stat-range">0</span>
-                        </div>
-                        <div class="stat-box">
-                            <span class="stat-label" id="label-damage">Dano</span>
-                            <span class="stat-value" id="stat-damage">1</span>
-                        </div>
-                        <div class="stat-box">
-                            <span class="stat-label" id="label-move">Movimento</span>
-                            <span class="stat-value" id="stat-move">1</span>
-                        </div>
-                        <div class="stat-box">
-                            <span class="stat-label" id="label-lethal">Letal</span>
-                            <span class="stat-value" id="stat-lethal">1</span>
-                        </div>
-                        <div class="stat-box">
-                            <span class="stat-label" id="label-ap">PA</span>
-                            <span class="stat-value" id="stat-ap">1</span>
-                        </div>
+                        <div class="stat-box"><span class="stat-label" id="label-actions">Ações</span><span class="stat-value" id="stat-actions">1</span></div>
+                        <div class="stat-box"><span class="stat-label" id="label-range">Alcance</span><span class="stat-value" id="stat-range">0</span></div>
+                        <div class="stat-box"><span class="stat-label" id="label-damage">Dano</span><span class="stat-value" id="stat-damage">1</span></div>
+                        <div class="stat-box"><span class="stat-label" id="label-move">Movimento</span><span class="stat-value" id="stat-move">1</span></div>
+                        <div class="stat-box"><span class="stat-label" id="label-lethal">Letal</span><span class="stat-value" id="stat-lethal">1</span></div>
+                        <div class="stat-box"><span class="stat-label" id="label-ap">PA</span><span class="stat-value" id="stat-ap">1</span></div>
                     </div>
                     
                     <p id="enemy-rules" class="enemy-rules"></p>
                 </div>
             </div>
+            
+            <div class="collapsible-container" id="stats-collapsible" style="margin-top: 15px;">
+                <div class="collapsible-header" id="btn-toggle-stats">
+                    <span data-i18n="statsPanelTitle">Estatísticas Especiais</span>
+                    <span id="stats-arrow">▼</span>
+                </div>
+                <div class="collapsible-content" id="stats-content">
+                    <div id="stats-details" style="font-size: 14.5px; text-align: left; color: #ccc; line-height: 1.6;">
+                        <!-- JS vai preencher os dados aqui -->
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
-    
-<!-- NOVO: Link discreto flutuante para o Banco de Dados -->
-    <a href="https://gflino.github.io/ZBC_DB/" target="_blank" class="db-link" data-i18n="linkDB">🗃️ Zombicide DB</a>
+    <!-- RODAPÉ -->
+    <a href="https://gflino.github.io/ZBC_DB/" target="_blank" class="db-link" data-i18n="linkDB">Zombicide DB</a>
 
     <script src="app.js"></script>
 </body>

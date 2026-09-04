@@ -1,261 +1,268 @@
-// --- SISTEMA DE IDIOMA E DICIONÁRIO INTERNO ---
-let idiomaAtual = 'pt';
+/* ==========================================================================
+   1. CONFIGURAÇÕES GERAIS E VARIÁVEIS GLOBAIS
+   ========================================================================== */
+// Detecta idioma do navegador do usuário
+let idiomaAtual = navigator.language.startsWith('en') ? 'en' : 'pt';
+
 const dicionario = {
     pt: {
-        linkDB: "Zombicide DB",
-        btnHome: "Início",
-        activeDecks: "Decks Ativos",
+        statsPanelTitle: "Info", spawnRatesAndWeights: "Taxas de Aparecimento", advancedSetup: "Configurações Avançadas",
+        specialRules: "Regras Especiais", spawnRates: "Taxas de Aparecimento (%)", individualWeights: "Pesos Individuais das Cartas",
+        btnStartMatch: "Começar", linkDB: "Zombicide DB", btnHome: "Início", activeDecks: "Decks Ativos",
         appTitle: "Zombicide Spawn", chooseEra: "Escolha o Cenário:", eraClassic: "Clássico / Moderno", eraFantasy: "Fantasia", eraWest: "Velho Oeste",
-        configMatch: "Configure a Partida", baseGames: "Base", expansions: "Expansões",
-        btnConfirm: "Confirmar", btnBack: "← Voltar", dangerLevel: "Nível de Perigo:",
-        blue: "Azul", yellow: "Amarelo", orange: "Laranja", red: "Vermelho", btnDraw: "Entrada!",
-        resultLabel: "Resultado:", btnBackDecks: "← Escolher Outros Decks", waiting: "Aguardando...",
-        noEnemyData: "Nenhuma regra especial listada."
+        configMatch: "Configure a Partida", baseGames: "Base", expansions: "Expansões", btnConfirm: "Confirmar", btnBack: "← Voltar", 
+        dangerLevel: "Nível de Perigo:", blue: "Azul", yellow: "Amarelo", orange: "Laranja", red: "Vermelho", btnDraw: "Entrada!",
+        resultLabel: "Resultado:", btnBackDecks: "← Escolher Outros Decks", waiting: "Aguardando...", noEnemyData: "Nenhuma regra especial listada.",
+        btnAbout: "Sobre", gameMode: "Modo de Jogo:", modeStandard: "Padrão", modeAdvanced: "Avançado", inPlay: "em Jogo", drawn: "Sorteados", currentChance: "Chance Atual",
+        lblBase: "Base", lblInc: "Incremento", ruleAbominafest: "Abominafest", tableEnemy: "Inimigo",
+        aboutText1: "O Zombicide Spawn é um gerenciador de cartas de aparecimento projetado para otimizar suas partidas.",
+        aboutText2: "O algoritmo inteligente calcula as probabilidades de sorteio com base nas cartas físicas das expansões selecionadas. Ele agrupa tipos de inimigos e realiza os sorteios entre cada tipo independentemente, depois entre os inimigos do tipo sorteado e, por fim, a quantidade de inimigos. Ele também conta com um contador que segue a seguinte proporção:",
+        aboutText3: "Configure sua partida escolhendo o cenário, mescle as expansões desejadas e controle o nível de perigo com facilidade. Selecione o modo padrão para seguir as regras básicas do manual ou o modo avançado para personalizar as chances dos inimigos individualmente."
     },
     en: {
-        linkDB: "Zombicide DB",
-        btnHome: "Home",
-        activeDecks: "Active Decks",
+        statsPanelTitle: "Info", spawnRatesAndWeights: "Spawn Rates", advancedSetup: "Advanced Setup",
+        specialRules: "Special Rules", spawnRates: "Spawn Rates (%)", individualWeights: "Individual Card Weights",
+        btnStartMatch: "Start", linkDB: "Zombicide DB", btnHome: "Home", activeDecks: "Active Decks",
         appTitle: "Zombicide Spawn", chooseEra: "Choose Setting:", eraClassic: "Classic / Modern", eraFantasy: "Fantasy", eraWest: "Western",
-        configMatch: "Match Setup", baseGames: "Base", expansions: "Expansions",
-        btnConfirm: "Confirm", btnBack: "← Back", dangerLevel: "Danger Level:",
-        blue: "Blue", yellow: "Yellow", orange: "Orange", red: "Red", btnDraw: "Spawn!",
-        resultLabel: "Result:", btnBackDecks: "← Choose Other Decks", waiting: "Waiting...",
-        noEnemyData: "No special rules listed."
+        configMatch: "Setup", baseGames: "Base", expansions: "Expansions", btnConfirm: "Confirm", btnBack: "← Back", 
+        dangerLevel: "Danger Level:", blue: "Blue", yellow: "Yellow", orange: "Orange", red: "Red", btnDraw: "Spawn!",
+        resultLabel: "Result:", btnBackDecks: "← Choose Other Decks", waiting: "Waiting...", noEnemyData: "No special rules listed.",
+        btnAbout: "About", gameMode: "Game Mode:", modeStandard: "Standard", modeAdvanced: "Advanced", inPlay: "in game", drawn: "Spawn", currentChance: "Current Chance",
+        lblBase: "Base", lblInc: "Increment", ruleAbominafest: "Abominafest", tableEnemy: "Enemy",
+        aboutText1: "Zombicide Spawn is a spawn card manager designed to optimize your matches.",
+        aboutText2: "The smart algorithm calculates draw probabilities based on the physical cards of the selected expansions. It groups enemy types and performs draws between each type independently, then among enemies of the drawn type, and finally the amount of enemies. It also features a counter that follows this ratio:",
+        aboutText3: "Setup your match by choosing the scenario, merge desired expansions, and easily control the danger level. Select standard mode for basic rulebook rules, or advanced mode to customize individual enemy spawn rates."
     }
+};
+
+const configEspeciais = {
+    blue:   { abomBase: 0, abomInc: 0.5,   necroBase: 1, necroInc: 0.5 },
+    yellow: { abomBase: 1, abomInc: 0.5,   necroBase: 2, necroInc: 1 },
+    orange: { abomBase: 2, abomInc: 1,     necroBase: 3, necroInc: 1.5 },
+    red:    { abomBase: 3, abomInc: 1,     necroBase: 4, necroInc: 1.5 }
 };
 
 // Captura das Telas
 const screenTheme = document.getElementById('screen-theme');
 const screenExpansion = document.getElementById('screen-expansion');
+const screenAdvanced = document.getElementById('screen-advanced');
 const screenSpawner = document.getElementById('screen-spawner');
+const screenAbout = document.getElementById('screen-about');
 
-// Elementos Dinâmicos
+// Elementos Dinâmicos e de Sorteio
 const listBaseGames = document.getElementById('list-base-games');
 const listExpansions = document.getElementById('list-expansions');
 const currentExpansionTitle = document.getElementById('current-expansion-title');
 const btnConfirmLoad = document.getElementById('btn-confirm-load');
-
-// Elementos do Sorteador
 const btnDraw = document.getElementById('btn-draw');
 const resultText = document.getElementById('result-text');
 const appContainer = document.getElementById('app-container');
 
+// Estado do Jogo (State)
 let bancoDeDadosPreCarregado = []; 
 let baralhoZumbis = {}; 
 let tabelaInimigos = {};
-let tabelaAux = {}; // NOVO: Guarda o dicionário do aux.json 
+let tabelaAux = {};
 let perigoSelecionado = 'blue';
-let layoutFantasia = null; // NOVO: Guarda a configuração visual das Eras
+let layoutFantasia = null; 
+let bonusAbom = 0, bonusNecro = 0;
+let contAbom = 0, contNecro = 0;
+let temWhiteDeath = false;
 
-// --- ATUALIZADOR DE TEXTOS (LOCALIZATION) ---
-function atualizarTextos() {
-    document.querySelectorAll('[data-i18n]').forEach(elemento => {
-        const chave = elemento.getAttribute('data-i18n');
-        if (dicionario[idiomaAtual][chave]) {
-            elemento.textContent = dicionario[idiomaAtual][chave];
-        }
-    });
-}
 
-// Ouve quando o usuário escolhe um novo idioma na lista
-document.getElementById('lang-select').addEventListener('change', (e) => {
-    idiomaAtual = e.target.value; // 'pt' ou 'en'
-    atualizarTextos();
-});
-atualizarTextos();
-
-// --- INICIALIZAÇÃO AUTOMÁTICA OTIMIZADA ---
+/* ==========================================================================
+   2. INICIALIZAÇÃO DO APLICATIVO
+   ========================================================================== */
 async function inicializarApp() {
     try {
         resultText.textContent = "Carregando banco de dados...";
-        
-        // 1. Carrega primeiro o arquivo de configuração e índice
         let listaArquivosJson = [];
+        
         try {
             const resLista = await fetch('sources/deck_list.json');
             if (resLista.ok) {
                 const dadosConfig = await resLista.json();
-                listaArquivosJson = dadosConfig.files; // Puxa apenas a lista de arquivos
-                layoutFantasia = dadosConfig.layout_fantasy; // Puxa a configuração do menu
-            } else {
-                throw new Error("Arquivo deck_list.json não encontrado.");
-            }
+                listaArquivosJson = dadosConfig.files; 
+                layoutFantasia = dadosConfig.layout_fantasy; 
+            } else throw new Error("Arquivo deck_list.json não encontrado.");
         } catch (e) {
-            console.error("🚨 Falha ao ler o índice de expansões:", e);
             resultText.textContent = "Erro ao carregar a lista de decks.";
             return; 
         }
         
-        // 2. Faz o download de forma independente para cada arquivo da lista
         const requisicoes = listaArquivosJson.map(async (arq) => {
             try {
                 const resposta = await fetch(`sources/${arq}`);
                 if (!resposta.ok) return null; 
-                const dadosJson = await resposta.json();
-                return { arquivo: arq, dados: dadosJson };
-            } catch (erroArquivo) {
-                return null;
-            }
+                return { arquivo: arq, dados: await resposta.json() };
+            } catch (e) { return null; }
         });
         
-        // Espera todos terminarem
         const resultadosBrutos = await Promise.all(requisicoes);
         bancoDeDadosPreCarregado = resultadosBrutos.filter(item => item !== null);
         
-        // 3. Carrega a Tabela de Inimigos (Inteligente)
         try {
             const resInimigos = await fetch('sources/enemies.json');
             if (resInimigos.ok) {
                 const dados = await resInimigos.json();
-                // Se for um Array, converte usando a coluna "id" como chave
-                if (Array.isArray(dados)) {
-                    tabelaInimigos = dados.reduce((acc, item) => {
-                        acc[item.id] = item;
-                        return acc;
-                    }, {});
-                } else {
-                    tabelaInimigos = dados;
-                }
-                console.log("✅ Tabela de Inimigos carregada e indexada com sucesso.");
+                tabelaInimigos = Array.isArray(dados) ? dados.reduce((acc, item) => { acc[item.id] = item; return acc; }, {}) : dados;
             }
-        } catch (e) {
-            console.error("Aviso: enemies.json não encontrado ou inválido.");
-        }
+        } catch (e) { console.error("Aviso: enemies.json não encontrado."); }
 
-        // 4. Carrega a Tabela Auxiliar/Traduções (Inteligente)
         try {
             const resAux = await fetch('sources/aux.json');
             if (resAux.ok) {
                 const dados = await resAux.json();
-                // Se for um Array, converte usando a coluna "tags" como chave
-                if (Array.isArray(dados)) {
-                    tabelaAux = dados.reduce((acc, item) => {
-                        acc[item.tags] = item;
-                        return acc;
-                    }, {});
-                } else {
-                    tabelaAux = dados;
-                }
-                console.log("✅ Tabela Auxiliar carregada e indexada com sucesso.");
+                tabelaAux = Array.isArray(dados) ? dados.reduce((acc, item) => { acc[item.tags] = item; return acc; }, {}) : dados;
             }
-        } catch (e) {
-            console.error("Aviso: aux.json não encontrado ou inválido.");
-        }
+        } catch (e) { console.error("Aviso: aux.json não encontrado."); }
 
         resultText.textContent = dicionario[idiomaAtual].waiting;
-        console.log(`SUCESSO! ${bancoDeDadosPreCarregado.length} baralhos carregados.`);
-        
     } catch (erroFatal) {
         console.error("Erro fatal na inicialização:", erroFatal);
     }
 }
 inicializarApp();
 
-// --- CONTROLE DE NÍVEL DE PERIGO ---
-document.querySelectorAll('.btn-danger').forEach(botao => {
-    botao.addEventListener('click', (e) => {
-        document.querySelectorAll('.btn-danger').forEach(b => b.classList.remove('active'));
-        e.target.classList.add('active');
-        perigoSelecionado = e.target.getAttribute('data-level');
-    });
-});
 
-// --- NAVEGAÇÃO E FILTRAGEM DINÂMICA ---
+/* ==========================================================================
+   3. UTILITÁRIOS E CONTROLE DE INTERFACE (UI)
+   ========================================================================== */
+function atualizarTextos() {
+    document.querySelectorAll('[data-i18n]').forEach(elemento => {
+        const chave = elemento.getAttribute('data-i18n');
+        if (dicionario[idiomaAtual][chave]) elemento.innerHTML = dicionario[idiomaAtual][chave]; 
+    });
+
+    const abomText = tabelaAux['abomination'] ? (idiomaAtual === 'pt' ? tabelaAux['abomination'].tags_pt : tabelaAux['abomination'].tags_en) : 'Abomination';
+    const cabalText = tabelaAux['necromancer_cabal'] ? (idiomaAtual === 'pt' ? tabelaAux['necromancer_cabal'].tags_pt : tabelaAux['necromancer_cabal'].tags_en) : 'Necromancer Cabal';
+    const txtInPlay = dicionario[idiomaAtual].inPlay;
+
+    // Atualiza Abominação e Cabal normalmente
+    if(document.getElementById('label-abom-check')) document.getElementById('label-abom-check').textContent = `${abomText} ${txtInPlay}`;
+    if(document.getElementById('label-cabal')) document.getElementById('label-cabal').textContent = cabalText;
+    
+    // Atualiza os cabeçalhos da Tabela Sobre
+    const nomeNecro = tabelaAux['necromancer'] ? (idiomaAtual === 'pt' ? tabelaAux['necromancer'].tags_pt : tabelaAux['necromancer'].tags_en) : 'Necromantes';
+    const nomeAbom = tabelaAux['abomination'] ? (idiomaAtual === 'pt' ? tabelaAux['abomination'].tags_pt : tabelaAux['abomination'].tags_en) : 'Abominações';
+    if(document.getElementById('about-th-necro')) document.getElementById('about-th-necro').textContent = nomeNecro;
+    if(document.getElementById('about-th-abom')) document.getElementById('about-th-abom').textContent = nomeAbom;
+
+    // Para o Necromante/Defiler, chamamos a função oficial de regras (se ela já estiver carregada)
+    if (typeof atualizarVisibilidadeCaixas === 'function') {
+        atualizarVisibilidadeCaixas();
+    }
+}
+
+document.getElementById('lang-select').addEventListener('change', (e) => {
+    idiomaAtual = e.target.value; 
+    atualizarTextos();
+    atualizarEstatisticas(); // Atualiza o painel de status imediatamente se o idioma mudar no meio do jogo
+});
+atualizarTextos();
+
 function mostrarTela(telaAtiva) {
     screenTheme.classList.remove('active');
     screenExpansion.classList.remove('active');
     screenSpawner.classList.remove('active');
+    screenAbout.classList.remove('active');
+    if (screenAdvanced) screenAdvanced.classList.remove('active');
     telaAtiva.classList.add('active');
 }
 
+function triggerFlash() {
+    appContainer.classList.add('flash-effect');
+    setTimeout(() => { appContainer.classList.remove('flash-effect'); }, 150);
+}
+
+// Navegação Superior, Rodapé e Botões de Voltar
+document.getElementById('btn-home').addEventListener('click', () => {
+    baralhoZumbis = {};
+    bonusAbom = 0; bonusNecro = 0; contAbom = 0; contNecro = 0;
+    temWhiteDeath = false;
+    document.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = false);
+    btnConfirmLoad.disabled = true;
+    document.getElementById('enemy-card').style.display = 'none';
+    resultText.textContent = dicionario[idiomaAtual].waiting;
+    document.getElementById('current-expansion-title').textContent = dicionario[idiomaAtual].activeDecks;
+    mostrarTela(screenTheme);
+});
+
+document.getElementById('btn-about').addEventListener('click', () => mostrarTela(screenAbout));
+document.getElementById('btn-back-from-about').addEventListener('click', () => mostrarTela(screenTheme));
+document.getElementById('btn-db-home').addEventListener('click', () => window.open("https://gflino.github.io/ZBC_DB/", "_blank"));
+document.getElementById('btn-back-to-theme').addEventListener('click', () => mostrarTela(screenTheme));
+// NOVO: Adicionado o botão de voltar da tela avançada
+document.getElementById('btn-back-to-expansions-adv').addEventListener('click', () => mostrarTela(screenExpansion));
+
+// Chave Padrão/Avançado (Com sincronização inicial corrigida)
+const gameModeToggle = document.getElementById('game-mode-toggle');
+if(gameModeToggle) {
+    // 1. Sincroniza a cor ao carregar a página
+    if(gameModeToggle.checked) {
+        document.getElementById('label-standard').classList.remove('active');
+        document.getElementById('label-advanced').classList.add('active');
+    } else {
+        document.getElementById('label-standard').classList.add('active');
+        document.getElementById('label-advanced').classList.remove('active');
+    }
+    
+    // 2. Sincroniza a cor ao clicar
+    gameModeToggle.addEventListener('change', (e) => {
+        if(e.target.checked) {
+            document.getElementById('label-standard').classList.remove('active');
+            document.getElementById('label-advanced').classList.add('active');
+        } else {
+            document.getElementById('label-standard').classList.add('active');
+            document.getElementById('label-advanced').classList.remove('active');
+        }
+    });
+}
+
+
+/* ==========================================================================
+   4. LÓGICA DE MONTAGEM DOS DECKS E MODO AVANÇADO
+   ========================================================================== */
 document.querySelectorAll('.btn-theme').forEach(botao => {
     botao.addEventListener('click', () => {
         const temaEscolhido = botao.getAttribute('data-theme').toLowerCase();
-        
         listBaseGames.innerHTML = '';
         listExpansions.innerHTML = '';
 
         const caixasDoTema = bancoDeDadosPreCarregado.filter(item => {
             if (!item.dados.theme) return false;
             const temaDoJson = item.dados.theme.toLowerCase();
-            if (temaEscolhido === 'classico') {
-                return temaDoJson === 'classic' || temaDoJson === 'modern' || temaDoJson === 'classico' || temaDoJson === 'moderno';
-            }
+            if (temaEscolhido === 'classico') return ['classic', 'modern', 'classico', 'moderno'].includes(temaDoJson);
             return temaDoJson === temaEscolhido;
         });
 
         let bases = caixasDoTema.filter(item => item.dados.is_base_game);
         let expansoes = caixasDoTema.filter(item => !item.dados.is_base_game);
 
-        // --- ORDENAÇÃO DOS JOGOS BASE (VIA JSON) ---
         if (temaEscolhido === 'fantasy' && layoutFantasia) {
             const ordemBases = layoutFantasia.base_order;
             bases.sort((a, b) => {
                 let indexA = ordemBases.indexOf(a.dados.game_version);
                 let indexB = ordemBases.indexOf(b.dados.game_version);
-                if (indexA === -1) indexA = 999;
-                if (indexB === -1) indexB = 999;
-                return indexA - indexB;
+                return (indexA === -1 ? 999 : indexA) - (indexB === -1 ? 999 : indexB);
             });
         }
 
         if (bases.length === 0) listBaseGames.innerHTML = "<p>Nenhum jogo base encontrado.</p>";
         else bases.forEach(item => criarCheckbox(item, listBaseGames));
 
-        // --- AGRUPAMENTO DAS EXPANSÕES EM MENUS DROPDOWN (VIA JSON) ---
         if (temaEscolhido === 'fantasy' && expansoes.length > 0 && layoutFantasia) {
-            
             let expansoesRestantes = [...expansoes];
-
-            // Lê as Eras descritas no deck_list.json
             layoutFantasia.groups.forEach(grupo => {
                 let itensDoGrupo = [];
-                
                 grupo.items.forEach(nomeLista => {
                     const index = expansoesRestantes.findIndex(ex => ex.dados.game_version === nomeLista);
-                    if (index !== -1) {
-                        itensDoGrupo.push(expansoesRestantes[index]);
-                        expansoesRestantes.splice(index, 1); 
-                    }
+                    if (index !== -1) { itensDoGrupo.push(expansoesRestantes[index]); expansoesRestantes.splice(index, 1); }
                 });
-
-                if (itensDoGrupo.length > 0) {
-                    const details = document.createElement('details');
-                    details.className = 'era-group';
-                    
-                    const summary = document.createElement('summary');
-                    summary.textContent = grupo.title;
-                    details.appendChild(summary);
-                    
-                    const contentDiv = document.createElement('div');
-                    contentDiv.className = 'era-content';
-                    itensDoGrupo.forEach(item => criarCheckbox(item, contentDiv));
-                    details.appendChild(contentDiv);
-                    
-                    listExpansions.appendChild(details);
-                }
+                if (itensDoGrupo.length > 0) montarCaixaColapsavel(grupo.title, itensDoGrupo);
             });
-
-            // Se você comprar uma expansão nova e não atualizar o arquivo, ela cai aqui.
-            if (expansoesRestantes.length > 0) {
-                const details = document.createElement('details');
-                details.className = 'era-group';
-                
-                const summary = document.createElement('summary');
-                summary.textContent = "📦 Outras Expansões";
-                details.appendChild(summary);
-                
-                const contentDiv = document.createElement('div');
-                contentDiv.className = 'era-content';
-                expansoesRestantes.forEach(item => criarCheckbox(item, contentDiv));
-                details.appendChild(contentDiv);
-                
-                listExpansions.appendChild(details);
-            }
-
+            if (expansoesRestantes.length > 0) montarCaixaColapsavel("📦 Outras Expansões", expansoesRestantes);
         } else {
-            // Se for Sci-fi, Velho Oeste, etc, continua carregando a lista solta tradicional
             if (expansoes.length === 0) listExpansions.innerHTML = "<p>Nenhuma expansão encontrada.</p>";
             else expansoes.forEach(item => criarCheckbox(item, listExpansions));
         }
@@ -265,69 +272,60 @@ document.querySelectorAll('.btn-theme').forEach(botao => {
     });
 });
 
-function validarBotaoConfirmar() {
-    const basesMarcadas = listBaseGames.querySelectorAll('input[type="checkbox"]:checked');
-    btnConfirmLoad.disabled = basesMarcadas.length === 0;
+function montarCaixaColapsavel(titulo, itens) {
+    const details = document.createElement('details');
+    details.className = 'era-group';
+    const summary = document.createElement('summary');
+    summary.textContent = titulo;
+    details.appendChild(summary);
+    const contentDiv = document.createElement('div');
+    contentDiv.className = 'era-content';
+    itens.forEach(item => criarCheckbox(item, contentDiv));
+    details.appendChild(contentDiv);
+    listExpansions.appendChild(details);
 }
 
 function criarCheckbox(item, containerAlvo) {
     const label = document.createElement('label');
     label.className = 'checkbox-item';
-    
     const checkbox = document.createElement('input');
     checkbox.type = 'checkbox';
     checkbox.value = item.arquivo; 
     checkbox.setAttribute('data-name', item.dados.game_version); 
-    
-    checkbox.addEventListener('change', validarBotaoConfirmar);
-    
+    checkbox.addEventListener('change', () => {
+        btnConfirmLoad.disabled = listBaseGames.querySelectorAll('input[type="checkbox"]:checked').length === 0;
+    });
     label.appendChild(checkbox);
     label.appendChild(document.createTextNode(item.dados.game_version));
     containerAlvo.appendChild(label);
 }
 
-// --- FUSÃO MATEMÁTICA DOS DECK SELECIONADOS ---
+// Confirmação e Fusão de Arquivos
 btnConfirmLoad.addEventListener('click', () => {
     const marcados = screenExpansion.querySelectorAll('input[type="checkbox"]:checked');
     if (marcados.length === 0) return;
 
     const arquivosMarcados = Array.from(marcados).map(cb => cb.value);
     const nomesMarcados = Array.from(marcados).map(cb => cb.getAttribute('data-name'));
+    temWhiteDeath = arquivosMarcados.includes("white_death.json");
 
-    baralhoZumbis = {
-        special_spawns: { abominations: [], necromancers: [] },
-        spawn_data: { blue: {}, yellow: {}, orange: {}, red: {} }
-    };
+    baralhoZumbis = { special_spawns: { abominations: [], necromancers: [] }, spawn_data: { blue: {}, yellow: {}, orange: {}, red: {} } };
 
-    const jsonsParaMesclar = bancoDeDadosPreCarregado.filter(item => arquivosMarcados.includes(item.arquivo));
-
-    jsonsParaMesclar.forEach(item => {
+    bancoDeDadosPreCarregado.filter(item => arquivosMarcados.includes(item.arquivo)).forEach(item => {
         const jsonAtual = item.dados;
-
         if (jsonAtual.special_spawns?.abominations) {
-            jsonAtual.special_spawns.abominations.forEach(a => {
-                if (!baralhoZumbis.special_spawns.abominations.includes(a)) baralhoZumbis.special_spawns.abominations.push(a);
-            });
+            jsonAtual.special_spawns.abominations.forEach(a => { if (!baralhoZumbis.special_spawns.abominations.includes(a)) baralhoZumbis.special_spawns.abominations.push(a); });
         }
         if (jsonAtual.special_spawns?.necromancers) {
-            jsonAtual.special_spawns.necromancers.forEach(n => {
-                if (!baralhoZumbis.special_spawns.necromancers.includes(n)) baralhoZumbis.special_spawns.necromancers.push(n);
-            });
+            jsonAtual.special_spawns.necromancers.forEach(n => { if (!baralhoZumbis.special_spawns.necromancers.includes(n)) baralhoZumbis.special_spawns.necromancers.push(n); });
         }
 
-        const niveis = ['blue', 'yellow', 'orange', 'red'];
-        niveis.forEach(nivel => {
-            const dadosNivelOrigem = jsonAtual.spawn_data?.[nivel] || {};
-            for (const [monstro, dados] of Object.entries(dadosNivelOrigem)) {
-                if (!baralhoZumbis.spawn_data[nivel][monstro]) {
-                    baralhoZumbis.spawn_data[nivel][monstro] = { total_cards: 0, qty_distribution: {} };
-                }
+        ['blue', 'yellow', 'orange', 'red'].forEach(nivel => {
+            for (const [monstro, dados] of Object.entries(jsonAtual.spawn_data?.[nivel] || {})) {
+                if (!baralhoZumbis.spawn_data[nivel][monstro]) baralhoZumbis.spawn_data[nivel][monstro] = { total_cards: 0, qty_distribution: {} };
                 baralhoZumbis.spawn_data[nivel][monstro].total_cards += dados.total_cards;
-
                 for (const [quantidade, peso] of Object.entries(dados.qty_distribution)) {
-                    if (!baralhoZumbis.spawn_data[nivel][monstro].qty_distribution[quantidade]) {
-                        baralhoZumbis.spawn_data[nivel][monstro].qty_distribution[quantidade] = 0;
-                    }
+                    if (!baralhoZumbis.spawn_data[nivel][monstro].qty_distribution[quantidade]) baralhoZumbis.spawn_data[nivel][monstro].qty_distribution[quantidade] = 0;
                     baralhoZumbis.spawn_data[nivel][monstro].qty_distribution[quantidade] += peso;
                 }
             }
@@ -335,85 +333,242 @@ btnConfirmLoad.addEventListener('click', () => {
     });
 
     currentExpansionTitle.textContent = `${nomesMarcados.join(' + ')}`;
-    activeDecksContent.classList.remove('show');
-    collapsibleContainer.classList.remove('open');
+    document.getElementById('active-decks-content').classList.remove('show');
+    document.getElementById('decks-collapsible').classList.remove('open');
     resultText.textContent = dicionario[idiomaAtual].waiting;
-    document.getElementById('enemy-card').style.display = 'none'; // Reseta o card ao voltar
-    bonusAbom = 0;
-    bonusNecro = 0;
+    document.getElementById('enemy-card').style.display = 'none'; 
+    
+    bonusAbom = 0; bonusNecro = 0; contAbom = 0; contNecro = 0;
+    
+    if (document.getElementById('game-mode-toggle').checked) {
+        gerarTabelaAvancada(); 
+        mostrarTela(screenAdvanced);
+    } else {
+        atualizarVisibilidadeCaixas();
+        mostrarTela(screenSpawner);
+    }
+});
+
+function gerarTabelaAvancada() {
+    const table = document.getElementById('advanced-table');
+    const niveis = ['blue', 'yellow', 'orange', 'red'];
+    
+    // Substituído o "Inimigo / Status" pela tag data-i18n
+    let html = `<thead><tr><th class="col-header" data-i18n="tableEnemy">Inimigo</th><th class="col-header" style="color:#3498db" data-i18n="blue">Azul</th><th class="col-header" style="color:#f1c40f" data-i18n="yellow">Amarelo</th><th class="col-header" style="color:#e67e22" data-i18n="orange">Laranja</th><th class="col-header" style="color:#e74c3c" data-i18n="red">Vermelho</th></tr></thead><tbody>`;
+
+    const lblNecro = tabelaAux['necromancer'] ? (idiomaAtual === 'pt' ? tabelaAux['necromancer'].tags_pt : tabelaAux['necromancer'].tags_en) : 'Necromantes';
+    // Substituídas as palavras soltas pelo Dicionário
+    html += `<tr><td colspan="5" class="group-header">${lblNecro}</td></tr><tr><td class="row-label">${dicionario[idiomaAtual].lblBase} (%)</td>`;
+    niveis.forEach(nv => { html += `<td><input class="adv-input" type="number" id="adv-necro-base-${nv}" value="${configEspeciais[nv].necroBase}" step="0.5" min="0"></td>`; });
+    html += `</tr><tr><td class="row-label">${dicionario[idiomaAtual].lblInc} (%)</td>`;
+    niveis.forEach(nv => { html += `<td><input class="adv-input" type="number" id="adv-necro-inc-${nv}" value="${configEspeciais[nv].necroInc}" step="0.5" min="0"></td>`; });
+    
+    const lblAbom = tabelaAux['abomination'] ? (idiomaAtual === 'pt' ? tabelaAux['abomination'].tags_pt : tabelaAux['abomination'].tags_en) : 'Abominações';
+    html += `</tr><tr><td colspan="5" class="group-header">${lblAbom}</td></tr><tr><td class="row-label">${dicionario[idiomaAtual].lblBase} (%)</td>`;
+    niveis.forEach(nv => { html += `<td><input class="adv-input" type="number" id="adv-abom-base-${nv}" value="${configEspeciais[nv].abomBase}" step="0.5" min="0"></td>`; });
+    html += `</tr><tr><td class="row-label">${dicionario[idiomaAtual].lblInc} (%)</td>`;
+    niveis.forEach(nv => { html += `<td><input class="adv-input" type="number" id="adv-abom-inc-${nv}" value="${configEspeciais[nv].abomInc}" step="0.5" min="0"></td>`; });
+    html += `</tr>`;
+
+    const grupos = {};
+    niveis.forEach(nv => {
+        for (const [monstro, dados] of Object.entries(baralhoZumbis.spawn_data[nv] || {})) {
+            let tipoChave = tabelaInimigos[monstro]?.class || monstro.split('_')[0]; 
+            if(!grupos[tipoChave]) grupos[tipoChave] = {};
+            if(!grupos[tipoChave][monstro]) grupos[tipoChave][monstro] = { blue: 0, yellow: 0, orange: 0, red: 0 };
+            grupos[tipoChave][monstro][nv] = dados.total_cards;
+        }
+    });
+
+    const ordemClasses = ["walker", "runner", "fatty"]; 
+    const chavesOrdenadas = Object.keys(grupos).sort((a, b) => {
+        const indexA = ordemClasses.indexOf(a), indexB = ordemClasses.indexOf(b);
+        if (indexA !== -1 && indexB !== -1) return indexA - indexB; 
+        if (indexA !== -1) return -1; 
+        if (indexB !== -1) return 1;  
+        return a.localeCompare(b);    
+    });
+
+    for (const tipo of chavesOrdenadas) {
+        const tipoNome = tabelaAux[tipo] ? (idiomaAtual === 'pt' ? tabelaAux[tipo].tags_pt : tabelaAux[tipo].tags_en) : (tipo.charAt(0).toUpperCase() + tipo.slice(1));
+        html += `<tr><td colspan="5" class="group-header">${tipoNome}</td></tr>`;
+        for (const [monstro, qts] of Object.entries(grupos[tipo])) {
+            const dadosInimigoObj = tabelaInimigos[monstro];
+            let nomeExibicao = dadosInimigoObj ? (idiomaAtual === 'pt' ? dadosInimigoObj.name_pt : dadosInimigoObj.name_en) : monstro.split('_').map(p => p.charAt(0).toUpperCase() + p.slice(1)).join(' ');
+            html += `<tr><td class="row-label" title="${nomeExibicao}">${nomeExibicao}</td>`;
+            niveis.forEach(nv => { html += `<td><input class="adv-input" type="number" id="adv-peso-${monstro}-${nv}" value="${qts[nv]}" min="0"></td>`; });
+            html += `</tr>`;
+        }
+    }
+
+    html += `</tbody>`;
+    table.innerHTML = html;
+    atualizarTextos(); 
+}
+
+
+/* ==========================================================================
+   5. MOTOR DE SORTEIO E ESTATÍSTICAS
+   ========================================================================== */
+function atualizarEstatisticas() {
+    const painel = document.getElementById('stats-details');
+    if (!painel) return;
+
+    const nivel = perigoSelecionado;
+    let abBase = configEspeciais[nivel].abomBase;
+    let neBase = configEspeciais[nivel].necroBase;
+
+    if (document.getElementById('game-mode-toggle').checked) {
+        abBase = parseFloat(document.getElementById(`adv-abom-base-${nivel}`)?.value) || 0;
+        neBase = parseFloat(document.getElementById(`adv-necro-base-${nivel}`)?.value) || 0;
+    }
+
+    const nomeNecro = tabelaAux['necromancer'] ? (idiomaAtual === 'pt' ? tabelaAux['necromancer'].tags_pt : tabelaAux['necromancer'].tags_en) : 'Necromantes';
+    const nomeAbom = tabelaAux['abomination'] ? (idiomaAtual === 'pt' ? tabelaAux['abomination'].tags_pt : tabelaAux['abomination'].tags_en) : 'Abominações';
+
+    // Puxando as novas traduções de "Sorteados/Spawn" e "Chance"
+    const txtSorteados = dicionario[idiomaAtual].drawn;
+    const txtChance = dicionario[idiomaAtual].currentChance;
+
+    painel.innerHTML = `
+        <p style="margin: 5px 0;"><strong>${nomeNecro}:</strong> ${txtSorteados}: <span style="color:#f1c40f">${contNecro}</span> | ${txtChance}: <span style="color:#e74c3c">${(neBase + bonusNecro).toFixed(1)}%</span></p>
+        <p style="margin: 5px 0;"><strong>${nomeAbom}:</strong> ${txtSorteados}: <span style="color:#f1c40f">${contAbom}</span> | ${txtChance}: <span style="color:#e74c3c">${(abBase + bonusAbom).toFixed(1)}%</span></p>
+    `;
+}
+
+function atualizarVisibilidadeCaixas() {
+    const isAdvanced = document.getElementById('game-mode-toggle').checked;
+    const isAbominafest = isAdvanced && document.getElementById('check-abominafest').checked;
+    const isCabal = isAdvanced && document.getElementById('check-cabal').checked;
+
+    const labelAbom = document.getElementById('check-abom').parentElement;
+    const labelNecro = document.getElementById('check-necro').parentElement;
+
+    if (isAbominafest) {
+        labelAbom.style.display = 'none';
+        document.getElementById('check-abom').checked = false;
+    } else labelAbom.style.display = 'flex';
+
+    if (isCabal && !temWhiteDeath) {
+        labelNecro.style.display = 'none';
+        document.getElementById('check-necro').checked = false;
+    } else {
+        labelNecro.style.display = 'flex';
+        const spanNecro = document.getElementById('label-necro-check');
+        const txtInPlay = dicionario[idiomaAtual].inPlay; // Puxa "em Jogo" ou "in game" dinamicamente
+
+        // Aplica o nome Defiler ou Necromante com base nas regras, concatenando com o idioma correto
+        if (isCabal && temWhiteDeath) {
+            spanNecro.textContent = `Defiler ${txtInPlay}`; 
+        } else {
+            const necroText = tabelaAux['necromancer'] ? (idiomaAtual === 'pt' ? tabelaAux['necromancer'].tags_pt : tabelaAux['necromancer'].tags_en) : 'Necromancer';
+            spanNecro.textContent = `${necroText} ${txtInPlay}`;
+        }
+    }
+}
+
+document.querySelectorAll('.btn-danger').forEach(botao => {
+    botao.addEventListener('click', (e) => {
+        document.querySelectorAll('.btn-danger').forEach(b => b.classList.remove('active'));
+        e.target.classList.add('active');
+        perigoSelecionado = e.target.getAttribute('data-level');
+        atualizarEstatisticas();
+    });
+});
+
+document.getElementById('btn-confirm-advanced').addEventListener('click', () => {
+    atualizarEstatisticas();
+    atualizarVisibilidadeCaixas();
     mostrarTela(screenSpawner);
 });
 
-// Retorna para a tela de Temas
-document.getElementById('btn-back-to-theme').addEventListener('click', () => mostrarTela(screenTheme));
-
-// Botão Home: Recarrega a página inteira para limpar a memória e resetar o jogo
-document.getElementById('btn-home').addEventListener('click', () => {
-    window.location.reload();
-});
-
-// --- MOTOR DE SORTEIO E TIMERS ---
-const configEspeciais = {
-    blue:   { abomBase: 0, abomInc: 0.5,   necroBase: 1, necroInc: 0.5 },
-    yellow: { abomBase: 1, abomInc: 0.5,   necroBase: 2, necroInc: 1 },
-    orange: { abomBase: 2, abomInc: 1,     necroBase: 3, necroInc: 1.5 },
-    red:    { abomBase: 3, abomInc: 1,     necroBase: 4, necroInc: 1.5 }
-};
-
-let bonusAbom = 0;
-let bonusNecro = 0;
-
+// A Lógica do Botão de Sorteio
 btnDraw.addEventListener('click', () => {
     triggerFlash();
     const nivel = perigoSelecionado;
-    const cartasDoNivel = baralhoZumbis.spawn_data[nivel];
-    
-    if (!cartasDoNivel) {
-        resultText.textContent = `Sem dados / No data`;
-        return; 
-    }
+    const isAdvanced = document.getElementById('game-mode-toggle').checked;
+    const isAbominafest = isAdvanced && document.getElementById('check-abominafest').checked;
+    const isCabal = isAdvanced && document.getElementById('check-cabal').checked;
 
     const listaAbom = baralhoZumbis.special_spawns?.abominations || [];
     const listaNecro = baralhoZumbis.special_spawns?.necromancers || [];
     const temAbom = listaAbom.length > 0;
     const temNecro = listaNecro.length > 0;
 
-    const chanceFinalAbom = temAbom ? (configEspeciais[nivel].abomBase + bonusAbom) : 0;
-    const chanceFinalNecro = temNecro ? (configEspeciais[nivel].necroBase + bonusNecro) : 0;
-    const roleta = Math.random() * 100;
+    const isAbomInPlay = document.getElementById('check-abom').checked;
+    const isNecroInPlay = document.getElementById('check-necro').checked;
 
+    const bloqueiaAbom = !isAbominafest && isAbomInPlay;
+    const bloqueiaNecro = !isCabal && isNecroInPlay; 
+
+    let baseAbom = configEspeciais[nivel].abomBase, incAbom = configEspeciais[nivel].abomInc;
+    let baseNecro = configEspeciais[nivel].necroBase, incNecro = configEspeciais[nivel].necroInc;
+
+    if (isAdvanced) {
+        baseAbom = parseFloat(document.getElementById(`adv-abom-base-${nivel}`)?.value) || 0;
+        incAbom = parseFloat(document.getElementById(`adv-abom-inc-${nivel}`)?.value) || 0;
+        baseNecro = parseFloat(document.getElementById(`adv-necro-base-${nivel}`)?.value) || 0;
+        incNecro = parseFloat(document.getElementById(`adv-necro-inc-${nivel}`)?.value) || 0;
+    }
+
+    const chanceFinalAbom = (temAbom && !bloqueiaAbom) ? (baseAbom + bonusAbom) : 0;
+    const chanceFinalNecro = (temNecro && !bloqueiaNecro) ? (baseNecro + bonusNecro) : 0;
+    
+    const roleta = Math.random() * 100;
     let file_name_sorteado = "";
     let quantidadeFinal = 1;
 
-    // Sorteio Especial vs Sorteio Normal
-    if (roleta <= chanceFinalAbom) {
+    // --- SORTEIOS ESPECIAIS ---
+    if (temAbom && !bloqueiaAbom && roleta <= chanceFinalAbom) {
         const sorteado = listaAbom[Math.floor(Math.random() * listaAbom.length)];
         file_name_sorteado = typeof sorteado === 'object' ? sorteado.file_name : sorteado;
-        bonusAbom = 0; 
+        bonusAbom = 0; contAbom++; 
+        if (!isAbominafest) document.getElementById('check-abom').checked = true; 
     }
-    else if (roleta <= (chanceFinalAbom + chanceFinalNecro)) {
-        const sorteado = listaNecro[Math.floor(Math.random() * listaNecro.length)];
+    else if (temNecro && !bloqueiaNecro && roleta <= (chanceFinalAbom + chanceFinalNecro)) {
+        let poolNecro = listaNecro;
+        if (isCabal && temWhiteDeath && !isNecroInPlay) {
+            const defiler = listaNecro.find(n => (typeof n === 'object' ? n.file_name : n) === 'defiler_necromancer');
+            if (defiler) poolNecro = [defiler]; 
+        }
+        const sorteado = poolNecro[Math.floor(Math.random() * poolNecro.length)];
         file_name_sorteado = typeof sorteado === 'object' ? sorteado.file_name : sorteado;
-        bonusNecro = 0; 
+        bonusNecro = 0; contNecro++; 
+        
+        if (!isCabal || (isCabal && temWhiteDeath && file_name_sorteado === 'defiler_necromancer')) {
+            document.getElementById('check-necro').checked = true;
+        }
     }
+    // --- SORTEIO DOS ZUMBIS NORMAIS ---
     else {
-        if (temAbom) bonusAbom += configEspeciais[nivel].abomInc;
-        if (temNecro) bonusNecro += configEspeciais[nivel].necroInc;
+        if (temAbom && !bloqueiaAbom) bonusAbom += incAbom;
+        if (temNecro && !bloqueiaNecro) bonusNecro += incNecro;
 
         const grupos = {};
-        for (const [nomeCarta, dadosDaCarta] of Object.entries(cartasDoNivel)) {
-            const tipo = nomeCarta.split('_')[0]; 
-            if (!grupos[tipo]) {
-                grupos[tipo] = { totalPeso: 0, variantes: {} };
+        for (const [nomeCarta, dadosDaCarta] of Object.entries(baralhoZumbis.spawn_data[nivel] || {})) {
+            let pesoAtual = dadosDaCarta.total_cards;
+            if (isAdvanced) {
+                const inputPeso = document.getElementById(`adv-peso-${nomeCarta}-${nivel}`);
+                if (inputPeso) pesoAtual = parseFloat(inputPeso.value); 
             }
-            grupos[tipo].variantes[nomeCarta] = dadosDaCarta;
-            grupos[tipo].totalPeso += dadosDaCarta.total_cards;
+            if (pesoAtual > 0) {
+                const tipo = tabelaInimigos[nomeCarta]?.class || nomeCarta.split('_')[0]; 
+                if (!grupos[tipo]) grupos[tipo] = { totalPeso: 0, variantes: {} };
+                grupos[tipo].variantes[nomeCarta] = { ...dadosDaCarta, total_cards: pesoAtual };
+                grupos[tipo].totalPeso += pesoAtual;
+            }
+        }
+        
+        let pesoTotalTipos = Object.values(grupos).reduce((soma, grupo) => soma + grupo.totalPeso, 0);
+        if (pesoTotalTipos <= 0) {
+            resultText.textContent = "Sem zumbis válidos!";
+            atualizarEstatisticas();
+            return;
         }
 
-        let pesoTotalTipos = Object.values(grupos).reduce((soma, grupo) => soma + grupo.totalPeso, 0);
+        // REDES DE SEGURANÇA (Fallback) CONTRA O BUG DE MATEMÁTICA JS
         let randTipo = Math.random() * pesoTotalTipos;
-        let tipoSorteado;
-        
+        let tipoSorteado = Object.keys(grupos)[0]; 
         for (const [tipo, dadosGrupo] of Object.entries(grupos)) {
             randTipo -= dadosGrupo.totalPeso;
             if (randTipo <= 0) { tipoSorteado = tipo; break; }
@@ -421,7 +576,8 @@ btnDraw.addEventListener('click', () => {
 
         const grupoEscolhido = grupos[tipoSorteado];
         let randVariante = Math.random() * grupoEscolhido.totalPeso;
-        let varianteSorteada, dadosVariante;
+        let varianteSorteada = Object.keys(grupoEscolhido.variantes)[0]; 
+        let dadosVariante = grupoEscolhido.variantes[varianteSorteada];
         
         for (const [variante, dados] of Object.entries(grupoEscolhido.variantes)) {
             randVariante -= dados.total_cards;
@@ -431,6 +587,7 @@ btnDraw.addEventListener('click', () => {
         const dist = dadosVariante.qty_distribution;
         let pesoTotalQty = Object.values(dist).reduce((soma, peso) => soma + peso, 0);
         let randQty = Math.random() * pesoTotalQty;
+        quantidadeFinal = Object.keys(dist)[0]; 
         
         for (const [quantidade, peso] of Object.entries(dist)) {
             randQty -= peso;
@@ -440,97 +597,52 @@ btnDraw.addEventListener('click', () => {
     }
 
     // --- RENDERIZANDO O RESULTADO E O CARD ---
+    // Prevenção de erro caso não ache o arquivo de forma alguma
+    if (!file_name_sorteado) file_name_sorteado = "inimigo_desconhecido"; 
+    
     const dadosInimigo = tabelaInimigos[file_name_sorteado];
     const enemyCard = document.getElementById('enemy-card');
     const statsDiv = document.querySelector('.enemy-stats');
 
     if (dadosInimigo) {
         enemyCard.style.display = 'block';
-        
-        // Define o NOME usando o idioma atual
         const nomeInimigo = idiomaAtual === 'pt' ? dadosInimigo.name_pt : dadosInimigo.name_en;
-        
-        if (quantidadeFinal === "0" || quantidadeFinal === 0) {
-            resultText.textContent = `${nomeInimigo}`;
-        } else {
-            resultText.textContent = `${quantidadeFinal}x ${nomeInimigo}`;
-        }
+        resultText.textContent = (quantidadeFinal === "0" || quantidadeFinal === 0) ? `${nomeInimigo}` : `${quantidadeFinal}x ${nomeInimigo}`;
 
-        // Define a Imagem
         const imgElement = document.getElementById('enemy-image');
         if (dadosInimigo.image) {
             imgElement.src = dadosInimigo.image;
             imgElement.style.display = 'block';
-        } else {
-            imgElement.style.display = 'none';
-        }
+        } else imgElement.style.display = 'none';
 
-        // --- TRADUÇÃO DA CLASSE (aux.json) ---
-        let classeKey = dadosInimigo.class;
         let badgeElement = document.getElementById('enemy-class');
-        if (classeKey) {
+        if (dadosInimigo.class) {
             badgeElement.style.display = 'inline-block';
-            // Se encontrar a classe no aux.json, traduz. Se não, exibe o nome original capitalizado.
-            if (tabelaAux[classeKey]) {
-                badgeElement.textContent = idiomaAtual === 'pt' ? tabelaAux[classeKey].tags_pt : tabelaAux[classeKey].tags_en;
-            } else {
-                badgeElement.textContent = classeKey.charAt(0).toUpperCase() + classeKey.slice(1);
-            }
-        } else {
-            badgeElement.style.display = 'none'; // Esconde se for um evento que não tem classe
-        }
+            badgeElement.textContent = tabelaAux[dadosInimigo.class] ? (idiomaAtual === 'pt' ? tabelaAux[dadosInimigo.class].tags_pt : tabelaAux[dadosInimigo.class].tags_en) : dadosInimigo.class.charAt(0).toUpperCase() + dadosInimigo.class.slice(1);
+        } else badgeElement.style.display = 'none';
 
-        // Verifica se é um evento ou zumbi de verdade baseado na coluna de Ações
         if (dadosInimigo.actions && String(dadosInimigo.actions).trim() !== '') {
             statsDiv.style.display = 'grid'; 
-            
-            // 1. Traduz e aplica os rótulos de status usando o aux.json
-            document.getElementById('label-actions').textContent = tabelaAux['actions'] ? (idiomaAtual === 'pt' ? tabelaAux['actions'].tags_pt : tabelaAux['actions'].tags_en) : 'Ações';
-            document.getElementById('label-range').textContent = tabelaAux['range'] ? (idiomaAtual === 'pt' ? tabelaAux['range'].tags_pt : tabelaAux['range'].tags_en) : 'Alcance';
-            document.getElementById('label-damage').textContent = tabelaAux['damage'] ? (idiomaAtual === 'pt' ? tabelaAux['damage'].tags_pt : tabelaAux['damage'].tags_en) : 'Dano';
-            document.getElementById('label-move').textContent = tabelaAux['move'] ? (idiomaAtual === 'pt' ? tabelaAux['move'].tags_pt : tabelaAux['move'].tags_en) : 'Movimento';
-            document.getElementById('label-lethal').textContent = tabelaAux['lethal'] ? (idiomaAtual === 'pt' ? tabelaAux['lethal'].tags_pt : tabelaAux['lethal'].tags_en) : 'Letal';
-            document.getElementById('label-ap').textContent = tabelaAux['ap'] ? (idiomaAtual === 'pt' ? tabelaAux['ap'].tags_pt : tabelaAux['ap'].tags_en) : 'PA';
+            ['actions', 'range', 'damage', 'move', 'lethal', 'ap'].forEach(stat => {
+                document.getElementById(`label-${stat}`).textContent = tabelaAux[stat] ? (idiomaAtual === 'pt' ? tabelaAux[stat].tags_pt : tabelaAux[stat].tags_en) : stat.charAt(0).toUpperCase() + stat.slice(1);
+                document.getElementById(`stat-${stat}`).textContent = dadosInimigo[stat] || (stat === 'actions' || stat === 'damage' || stat === 'move' || stat === 'lethal' || stat === 'ap' ? '1' : '0');
+            });
+        } else statsDiv.style.display = 'none';
 
-            // 2. Aplica os valores numéricos dos status
-            document.getElementById('stat-actions').textContent = dadosInimigo.actions;
-            document.getElementById('stat-range').textContent = dadosInimigo.range || '0';
-            document.getElementById('stat-damage').textContent = dadosInimigo.damage || '1';
-            document.getElementById('stat-move').textContent = dadosInimigo.move || '1';
-            document.getElementById('stat-lethal').textContent = dadosInimigo.lethal || '1';
-            document.getElementById('stat-ap').textContent = dadosInimigo.ap || '1';
-        } else {
-            statsDiv.style.display = 'none';
-        }
-
-        // Regras Especiais
         const textElement = document.getElementById('enemy-rules');
-        const regra = idiomaAtual === 'pt' ? dadosInimigo.rules_pt : dadosInimigo.rules_en;
-        textElement.textContent = regra || dicionario[idiomaAtual].noEnemyData;
+        textElement.textContent = (idiomaAtual === 'pt' ? dadosInimigo.rules_pt : dadosInimigo.rules_en) || dicionario[idiomaAtual].noEnemyData;
 
     } else {
-        // Fallback: Se o JSON de inimigos não tiver esse monstro
         enemyCard.style.display = 'none';
         const nomeFormatado = file_name_sorteado.split('_').map(p => p.charAt(0).toUpperCase() + p.slice(1)).join(' ');
-        if (quantidadeFinal === "0" || quantidadeFinal === 0) {
-            resultText.textContent = `${nomeFormatado}`;
-        } else {
-            resultText.textContent = `${quantidadeFinal}x ${nomeFormatado}`;
-        }
+        resultText.textContent = (quantidadeFinal === "0" || quantidadeFinal === 0) ? `${nomeFormatado}` : `${quantidadeFinal}x ${nomeFormatado}`;
     }
+    atualizarEstatisticas();
 });
 
-// --- FUNCIONALIDADE DA CAIXA RETRÁTIL (ACCORDION) ---
+// Comportamento da Caixa Retrátil das Estatísticas e dos Decks
 const btnToggleDecks = document.getElementById('btn-toggle-decks');
-const activeDecksContent = document.getElementById('active-decks-content');
-const collapsibleContainer = document.getElementById('decks-collapsible');
+if(btnToggleDecks) btnToggleDecks.addEventListener('click', () => { document.getElementById('active-decks-content').classList.toggle('show'); document.getElementById('decks-collapsible').classList.toggle('open'); });
 
-btnToggleDecks.addEventListener('click', () => {
-    activeDecksContent.classList.toggle('show');
-    collapsibleContainer.classList.toggle('open');
-});
-
-function triggerFlash() {
-    appContainer.classList.add('flash-effect');
-    setTimeout(() => { appContainer.classList.remove('flash-effect'); }, 150);
-}
+const btnToggleStats = document.getElementById('btn-toggle-stats');
+if(btnToggleStats) btnToggleStats.addEventListener('click', () => { document.getElementById('stats-content').classList.toggle('show'); document.getElementById('stats-collapsible').classList.toggle('open'); });

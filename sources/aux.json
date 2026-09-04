@@ -4,6 +4,21 @@
     "tags_en": "Class",
     "tags_pt": "Classe"
   },
+    {
+    "tags": "special",
+    "tags_en": "Special",
+    "tags_pt": "Especial"
+  },
+    {
+    "tags": "extra",
+    "tags_en": "Extra",
+    "tags_pt": "Extra"
+  },
+  {
+    "tags": "necromancer_cabal",
+    "tags_en": "Necromancer Cabal",
+    "tags_pt": "Cabala dos Necromantes"
+  },
   {
     "tags": "deck",
     "tags_en": "Deck",
