@@ -164,7 +164,10 @@ input:checked + .slider:before { transform: translateX(24px); }
 .adv-input:focus { border-color: #e74c3c; outline: none; }
 .col-header { background-color: #111111 !important; font-size: 12px; position: sticky; top: 0; z-index: 10; }
 .group-header { background-color: #2a2a2a !important; color: #f1c40f !important; font-weight: bold; text-align: left !important; padding-left: 15px !important; letter-spacing: 0.5px; }
-.row-label { text-align: left !important; font-size: 12.5px; color: #cccccc; padding-left: 10px !important; max-width: 140px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.row-label {display: flex; align-items: center; text-align: left !important; font-size: 12.5px; color: #cccccc; padding-left: 10px !important; max-width: 170px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+/* NOVA REGRA: Estilo da caixa de seleção dos inimigos */
+.row-checkbox {margin-right: 8px; transform: scale(1.1); cursor: pointer; accent-color: #e74c3c; flex-shrink: 0;}
 
 /* ==========================================
    7. TELA DO SORTEADOR E CARD DO INIMIGO
@@ -200,3 +203,7 @@ input:checked + .slider:before { transform: translateX(24px); }
 
 .db-link { position: fixed; bottom: 15px; left: 50%; transform: translateX(-50%); color: #666666; text-decoration: none; font-size: 12px; font-weight: bold; padding: 6px 16px; border-radius: 20px; background-color: rgba(0, 0, 0, 0.4); border: 1px solid transparent; transition: all 0.3s ease; z-index: 1000; backdrop-filter: blur(2px); }
 .db-link:hover { color: #cccccc; border-color: #444444; background-color: rgba(20, 20, 20, 0.9); box-shadow: 0 2px 8px rgba(0,0,0,0.8); }
+
+/* NOVA REGRA: Estilo da caixa de seleção dos cabeçalhos de grupo */
+.group-checkbox {margin-right: 8px; transform: scale(1.2); cursor: pointer; accent-color: #f1c40f; /* Cor dourada para combinar com o título */
+}

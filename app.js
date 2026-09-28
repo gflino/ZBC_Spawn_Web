@@ -352,24 +352,51 @@ btnConfirmLoad.addEventListener('click', () => {
 function gerarTabelaAvancada() {
     const table = document.getElementById('advanced-table');
     const niveis = ['blue', 'yellow', 'orange', 'red'];
-    
-    // Substituído o "Inimigo / Status" pela tag data-i18n
     let html = `<thead><tr><th class="col-header" data-i18n="tableEnemy">Inimigo</th><th class="col-header" style="color:#3498db" data-i18n="blue">Azul</th><th class="col-header" style="color:#f1c40f" data-i18n="yellow">Amarelo</th><th class="col-header" style="color:#e67e22" data-i18n="orange">Laranja</th><th class="col-header" style="color:#e74c3c" data-i18n="red">Vermelho</th></tr></thead><tbody>`;
 
+    const listaAbomOrig = baralhoZumbis.special_spawns?.abominations || [];
+    const listaNecroOrig = baralhoZumbis.special_spawns?.necromancers || [];
+    const contarQtd = (arr, name) => arr.filter(x => (typeof x === 'object' ? x.file_name : x) === name).length;
+    const uniqueAboms = [...new Set(listaAbomOrig.map(x => typeof x === 'object' ? x.file_name : x))];
+    const uniqueNecros = [...new Set(listaNecroOrig.map(x => typeof x === 'object' ? x.file_name : x))];
+
+    // --- BLOCO DOS NECROMANTES ---
     const lblNecro = tabelaAux['necromancer'] ? (idiomaAtual === 'pt' ? tabelaAux['necromancer'].tags_pt : tabelaAux['necromancer'].tags_en) : 'Necromantes';
-    // Substituídas as palavras soltas pelo Dicionário
-    html += `<tr><td colspan="5" class="group-header">${lblNecro}</td></tr><tr><td class="row-label">${dicionario[idiomaAtual].lblBase} (%)</td>`;
+    html += `<tr><td colspan="5" class="group-header"><input type="checkbox" class="group-checkbox" data-target="grp-necro" checked> ${lblNecro}</td></tr>`;
+    html += `<tr><td class="row-label">${dicionario[idiomaAtual].lblBase} (%)</td>`;
     niveis.forEach(nv => { html += `<td><input class="adv-input" type="number" id="adv-necro-base-${nv}" value="${configEspeciais[nv].necroBase}" step="0.5" min="0"></td>`; });
     html += `</tr><tr><td class="row-label">${dicionario[idiomaAtual].lblInc} (%)</td>`;
     niveis.forEach(nv => { html += `<td><input class="adv-input" type="number" id="adv-necro-inc-${nv}" value="${configEspeciais[nv].necroInc}" step="0.5" min="0"></td>`; });
+    html += `</tr>`;
     
+    uniqueNecros.forEach(monstro => {
+        const dadosInimigoObj = tabelaInimigos[monstro];
+        let nomeExibicao = dadosInimigoObj ? (idiomaAtual === 'pt' ? dadosInimigoObj.name_pt : dadosInimigoObj.name_en) : monstro.split('_').map(p => p.charAt(0).toUpperCase() + p.slice(1)).join(' ');
+        const pesoOriginal = contarQtd(listaNecroOrig, monstro); 
+        html += `<tr><td class="row-label" title="${nomeExibicao}"><input type="checkbox" class="row-checkbox grp-necro" id="check-enemy-${monstro}" checked> ${nomeExibicao}</td>`;
+        niveis.forEach(nv => { html += `<td><input class="adv-input" type="number" id="adv-peso-${monstro}-${nv}" value="${pesoOriginal}" min="0"></td>`; });
+        html += `</tr>`;
+    });
+
+    // --- BLOCO DAS ABOMINAÇÕES ---
     const lblAbom = tabelaAux['abomination'] ? (idiomaAtual === 'pt' ? tabelaAux['abomination'].tags_pt : tabelaAux['abomination'].tags_en) : 'Abominações';
-    html += `</tr><tr><td colspan="5" class="group-header">${lblAbom}</td></tr><tr><td class="row-label">${dicionario[idiomaAtual].lblBase} (%)</td>`;
+    html += `<tr><td colspan="5" class="group-header"><input type="checkbox" class="group-checkbox" data-target="grp-abom" checked> ${lblAbom}</td></tr>`;
+    html += `<tr><td class="row-label">${dicionario[idiomaAtual].lblBase} (%)</td>`;
     niveis.forEach(nv => { html += `<td><input class="adv-input" type="number" id="adv-abom-base-${nv}" value="${configEspeciais[nv].abomBase}" step="0.5" min="0"></td>`; });
     html += `</tr><tr><td class="row-label">${dicionario[idiomaAtual].lblInc} (%)</td>`;
     niveis.forEach(nv => { html += `<td><input class="adv-input" type="number" id="adv-abom-inc-${nv}" value="${configEspeciais[nv].abomInc}" step="0.5" min="0"></td>`; });
     html += `</tr>`;
 
+    uniqueAboms.forEach(monstro => {
+        const dadosInimigoObj = tabelaInimigos[monstro];
+        let nomeExibicao = dadosInimigoObj ? (idiomaAtual === 'pt' ? dadosInimigoObj.name_pt : dadosInimigoObj.name_en) : monstro.split('_').map(p => p.charAt(0).toUpperCase() + p.slice(1)).join(' ');
+        const pesoOriginal = contarQtd(listaAbomOrig, monstro);
+        html += `<tr><td class="row-label" title="${nomeExibicao}"><input type="checkbox" class="row-checkbox grp-abom" id="check-enemy-${monstro}" checked> ${nomeExibicao}</td>`;
+        niveis.forEach(nv => { html += `<td><input class="adv-input" type="number" id="adv-peso-${monstro}-${nv}" value="${pesoOriginal}" min="0"></td>`; });
+        html += `</tr>`;
+    });
+
+    // --- BLOCO DOS ZUMBIS NORMAIS ---
     const grupos = {};
     niveis.forEach(nv => {
         for (const [monstro, dados] of Object.entries(baralhoZumbis.spawn_data[nv] || {})) {
@@ -391,11 +418,11 @@ function gerarTabelaAvancada() {
 
     for (const tipo of chavesOrdenadas) {
         const tipoNome = tabelaAux[tipo] ? (idiomaAtual === 'pt' ? tabelaAux[tipo].tags_pt : tabelaAux[tipo].tags_en) : (tipo.charAt(0).toUpperCase() + tipo.slice(1));
-        html += `<tr><td colspan="5" class="group-header">${tipoNome}</td></tr>`;
+        html += `<tr><td colspan="5" class="group-header"><input type="checkbox" class="group-checkbox" data-target="grp-${tipo}" checked> ${tipoNome}</td></tr>`;
         for (const [monstro, qts] of Object.entries(grupos[tipo])) {
             const dadosInimigoObj = tabelaInimigos[monstro];
             let nomeExibicao = dadosInimigoObj ? (idiomaAtual === 'pt' ? dadosInimigoObj.name_pt : dadosInimigoObj.name_en) : monstro.split('_').map(p => p.charAt(0).toUpperCase() + p.slice(1)).join(' ');
-            html += `<tr><td class="row-label" title="${nomeExibicao}">${nomeExibicao}</td>`;
+            html += `<tr><td class="row-label" title="${nomeExibicao}"><input type="checkbox" class="row-checkbox grp-${tipo}" id="check-enemy-${monstro}" checked> ${nomeExibicao}</td>`;
             niveis.forEach(nv => { html += `<td><input class="adv-input" type="number" id="adv-peso-${monstro}-${nv}" value="${qts[nv]}" min="0"></td>`; });
             html += `</tr>`;
         }
@@ -404,12 +431,63 @@ function gerarTabelaAvancada() {
     html += `</tbody>`;
     table.innerHTML = html;
     atualizarTextos(); 
+
+    // --- EVENTO: MARCAR/DESMARCAR GRUPO INTEIRO ---
+    document.querySelectorAll('.group-checkbox').forEach(chk => {
+        chk.addEventListener('change', (e) => {
+            const targetClass = e.target.getAttribute('data-target');
+            document.querySelectorAll('.' + targetClass).forEach(box => {
+                box.checked = e.target.checked;
+            });
+        });
+    });
 }
 
 
 /* ==========================================================================
    5. MOTOR DE SORTEIO E ESTATÍSTICAS
    ========================================================================== */
+function atualizarVisibilidadeCaixas() {
+    const isAdvanced = document.getElementById('game-mode-toggle').checked;
+    const isAbominafest = isAdvanced && document.getElementById('check-abominafest').checked;
+    const isCabal = isAdvanced && document.getElementById('check-cabal').checked;
+
+    const labelAbom = document.getElementById('check-abom').parentElement;
+    const labelNecro = document.getElementById('check-necro').parentElement;
+
+    const temAbom = (baralhoZumbis.special_spawns?.abominations || []).length > 0;
+    const temNecro = (baralhoZumbis.special_spawns?.necromancers || []).length > 0;
+
+    const txtInPlay = dicionario[idiomaAtual].inPlay;
+
+    // Controle da Abominação
+    if (isAbominafest || !temAbom) {
+        labelAbom.style.display = 'none';
+        document.getElementById('check-abom').checked = false;
+    } else {
+        labelAbom.style.display = 'flex';
+        const spanAbom = document.getElementById('label-abom-check');
+        const abomText = tabelaAux['abomination'] ? (idiomaAtual === 'pt' ? tabelaAux['abomination'].tags_pt : tabelaAux['abomination'].tags_en) : 'Abomination';
+        if (spanAbom) spanAbom.textContent = `${abomText} ${txtInPlay}`;
+    }
+
+    // Controle do Necromante
+    if ((isCabal && !temWhiteDeath) || !temNecro) {
+        labelNecro.style.display = 'none';
+        document.getElementById('check-necro').checked = false;
+    } else {
+        labelNecro.style.display = 'flex';
+        const spanNecro = document.getElementById('label-necro-check');
+
+        if (isCabal && temWhiteDeath) {
+            if (spanNecro) spanNecro.textContent = `Defiler ${txtInPlay}`; 
+        } else {
+            const necroText = tabelaAux['necromancer'] ? (idiomaAtual === 'pt' ? tabelaAux['necromancer'].tags_pt : tabelaAux['necromancer'].tags_en) : 'Necromancer';
+            if (spanNecro) spanNecro.textContent = `${necroText} ${txtInPlay}`;
+        }
+    }
+}
+
 function atualizarEstatisticas() {
     const painel = document.getElementById('stats-details');
     if (!painel) return;
@@ -425,46 +503,29 @@ function atualizarEstatisticas() {
 
     const nomeNecro = tabelaAux['necromancer'] ? (idiomaAtual === 'pt' ? tabelaAux['necromancer'].tags_pt : tabelaAux['necromancer'].tags_en) : 'Necromantes';
     const nomeAbom = tabelaAux['abomination'] ? (idiomaAtual === 'pt' ? tabelaAux['abomination'].tags_pt : tabelaAux['abomination'].tags_en) : 'Abominações';
-
-    // Puxando as novas traduções de "Sorteados/Spawn" e "Chance"
     const txtSorteados = dicionario[idiomaAtual].drawn;
     const txtChance = dicionario[idiomaAtual].currentChance;
 
-    painel.innerHTML = `
-        <p style="margin: 5px 0;"><strong>${nomeNecro}:</strong> ${txtSorteados}: <span style="color:#f1c40f">${contNecro}</span> | ${txtChance}: <span style="color:#e74c3c">${(neBase + bonusNecro).toFixed(1)}%</span></p>
-        <p style="margin: 5px 0;"><strong>${nomeAbom}:</strong> ${txtSorteados}: <span style="color:#f1c40f">${contAbom}</span> | ${txtChance}: <span style="color:#e74c3c">${(abBase + bonusAbom).toFixed(1)}%</span></p>
-    `;
-}
+    // NOVO: Verifica se os inimigos existem
+    const temAbom = (baralhoZumbis.special_spawns?.abominations || []).length > 0;
+    const temNecro = (baralhoZumbis.special_spawns?.necromancers || []).length > 0;
 
-function atualizarVisibilidadeCaixas() {
-    const isAdvanced = document.getElementById('game-mode-toggle').checked;
-    const isAbominafest = isAdvanced && document.getElementById('check-abominafest').checked;
-    const isCabal = isAdvanced && document.getElementById('check-cabal').checked;
-
-    const labelAbom = document.getElementById('check-abom').parentElement;
-    const labelNecro = document.getElementById('check-necro').parentElement;
-
-    if (isAbominafest) {
-        labelAbom.style.display = 'none';
-        document.getElementById('check-abom').checked = false;
-    } else labelAbom.style.display = 'flex';
-
-    if (isCabal && !temWhiteDeath) {
-        labelNecro.style.display = 'none';
-        document.getElementById('check-necro').checked = false;
-    } else {
-        labelNecro.style.display = 'flex';
-        const spanNecro = document.getElementById('label-necro-check');
-        const txtInPlay = dicionario[idiomaAtual].inPlay; // Puxa "em Jogo" ou "in game" dinamicamente
-
-        // Aplica o nome Defiler ou Necromante com base nas regras, concatenando com o idioma correto
-        if (isCabal && temWhiteDeath) {
-            spanNecro.textContent = `Defiler ${txtInPlay}`; 
-        } else {
-            const necroText = tabelaAux['necromancer'] ? (idiomaAtual === 'pt' ? tabelaAux['necromancer'].tags_pt : tabelaAux['necromancer'].tags_en) : 'Necromancer';
-            spanNecro.textContent = `${necroText} ${txtInPlay}`;
-        }
+    let html = '';
+    
+    // Injeta apenas os textos correspondentes ao que realmente existe no deck
+    if (temNecro) {
+        html += `<p style="margin: 5px 0;"><strong>${nomeNecro}:</strong> ${txtSorteados}: <span style="color:#f1c40f">${contNecro}</span> | ${txtChance}: <span style="color:#e74c3c">${(neBase + bonusNecro).toFixed(1)}%</span></p>`;
     }
+    if (temAbom) {
+        html += `<p style="margin: 5px 0;"><strong>${nomeAbom}:</strong> ${txtSorteados}: <span style="color:#f1c40f">${contAbom}</span> | ${txtChance}: <span style="color:#e74c3c">${(abBase + bonusAbom).toFixed(1)}%</span></p>`;
+    }
+    
+    // Caso o deck não tenha nenhum dos dois especiais
+    if (!temNecro && !temAbom) {
+        html = `<p style="margin: 5px 0; color: #777; font-style: italic;">Nenhum inimigo especial neste cenário.</p>`;
+    }
+
+    painel.innerHTML = html;
 }
 
 document.querySelectorAll('.btn-danger').forEach(botao => {
@@ -490,26 +551,57 @@ btnDraw.addEventListener('click', () => {
     const isAbominafest = isAdvanced && document.getElementById('check-abominafest').checked;
     const isCabal = isAdvanced && document.getElementById('check-cabal').checked;
 
-    const listaAbom = baralhoZumbis.special_spawns?.abominations || [];
-    const listaNecro = baralhoZumbis.special_spawns?.necromancers || [];
-    const temAbom = listaAbom.length > 0;
-    const temNecro = listaNecro.length > 0;
-
     const isAbomInPlay = document.getElementById('check-abom').checked;
     const isNecroInPlay = document.getElementById('check-necro').checked;
-
     const bloqueiaAbom = !isAbominafest && isAbomInPlay;
     const bloqueiaNecro = !isCabal && isNecroInPlay; 
 
     let baseAbom = configEspeciais[nivel].abomBase, incAbom = configEspeciais[nivel].abomInc;
     let baseNecro = configEspeciais[nivel].necroBase, incNecro = configEspeciais[nivel].necroInc;
 
+    // --- NOVA LÓGICA DE PISCINAS COM PESOS (POOLS) ---
+    const listaAbomOriginal = baralhoZumbis.special_spawns?.abominations || [];
+    const listaNecroOriginal = baralhoZumbis.special_spawns?.necromancers || [];
+    let poolAbom = [];
+    let poolNecro = [];
+    let totalPesoAbom = 0;
+    let totalPesoNecro = 0;
+
     if (isAdvanced) {
         baseAbom = parseFloat(document.getElementById(`adv-abom-base-${nivel}`)?.value) || 0;
         incAbom = parseFloat(document.getElementById(`adv-abom-inc-${nivel}`)?.value) || 0;
         baseNecro = parseFloat(document.getElementById(`adv-necro-base-${nivel}`)?.value) || 0;
         incNecro = parseFloat(document.getElementById(`adv-necro-inc-${nivel}`)?.value) || 0;
+
+        // Puxa o peso de cada Abominação da tabela e verifica se o Checkbox está marcado
+        const uniqueAboms = [...new Set(listaAbomOriginal.map(a => typeof a === 'object' ? a.file_name : a))];
+        uniqueAboms.forEach(monstro => {
+            if (document.getElementById(`check-enemy-${monstro}`)?.checked !== false) {
+                const peso = parseFloat(document.getElementById(`adv-peso-${monstro}-${nivel}`)?.value) || 0;
+                if (peso > 0) { poolAbom.push({ nome: monstro, peso: peso }); totalPesoAbom += peso; }
+            }
+        });
+
+        // Puxa o peso de cada Necromante
+        const uniqueNecros = [...new Set(listaNecroOriginal.map(n => typeof n === 'object' ? n.file_name : n))];
+        uniqueNecros.forEach(monstro => {
+            if (document.getElementById(`check-enemy-${monstro}`)?.checked !== false) {
+                const peso = parseFloat(document.getElementById(`adv-peso-${monstro}-${nivel}`)?.value) || 0;
+                if (peso > 0) { poolNecro.push({ nome: monstro, peso: peso }); totalPesoNecro += peso; }
+            }
+        });
+    } else {
+        // Se for o Padrão, usa 1 de peso por carta inserida no deck
+        listaAbomOriginal.forEach(a => {
+            poolAbom.push({ nome: (typeof a === 'object' ? a.file_name : a), peso: 1 }); totalPesoAbom += 1;
+        });
+        listaNecroOriginal.forEach(n => {
+            poolNecro.push({ nome: (typeof n === 'object' ? n.file_name : n), peso: 1 }); totalPesoNecro += 1;
+        });
     }
+
+    const temAbom = poolAbom.length > 0;
+    const temNecro = poolNecro.length > 0;
 
     const chanceFinalAbom = (temAbom && !bloqueiaAbom) ? (baseAbom + bonusAbom) : 0;
     const chanceFinalNecro = (temNecro && !bloqueiaNecro) ? (baseNecro + bonusNecro) : 0;
@@ -518,21 +610,34 @@ btnDraw.addEventListener('click', () => {
     let file_name_sorteado = "";
     let quantidadeFinal = 1;
 
-    // --- SORTEIOS ESPECIAIS ---
+    // --- SORTEIOS ESPECIAIS (AGORA COM MATEMÁTICA DE PESOS) ---
     if (temAbom && !bloqueiaAbom && roleta <= chanceFinalAbom) {
-        const sorteado = listaAbom[Math.floor(Math.random() * listaAbom.length)];
-        file_name_sorteado = typeof sorteado === 'object' ? sorteado.file_name : sorteado;
+        let rand = Math.random() * totalPesoAbom;
+        let sorteado = poolAbom[poolAbom.length - 1].nome;
+        for (let c of poolAbom) {
+            rand -= c.peso;
+            if (rand <= 0) { sorteado = c.nome; break; }
+        }
+        file_name_sorteado = sorteado;
         bonusAbom = 0; contAbom++; 
         if (!isAbominafest) document.getElementById('check-abom').checked = true; 
     }
     else if (temNecro && !bloqueiaNecro && roleta <= (chanceFinalAbom + chanceFinalNecro)) {
-        let poolNecro = listaNecro;
+        let poolSorteio = poolNecro;
+        let pesoTotalSorteio = totalPesoNecro;
+
         if (isCabal && temWhiteDeath && !isNecroInPlay) {
-            const defiler = listaNecro.find(n => (typeof n === 'object' ? n.file_name : n) === 'defiler_necromancer');
-            if (defiler) poolNecro = [defiler]; 
+            const defiler = poolNecro.find(n => n.nome === 'defiler_necromancer');
+            if (defiler) { poolSorteio = [defiler]; pesoTotalSorteio = defiler.peso; }
         }
-        const sorteado = poolNecro[Math.floor(Math.random() * poolNecro.length)];
-        file_name_sorteado = typeof sorteado === 'object' ? sorteado.file_name : sorteado;
+
+        let rand = Math.random() * pesoTotalSorteio;
+        let sorteado = poolSorteio[poolSorteio.length - 1].nome;
+        for (let c of poolSorteio) {
+            rand -= c.peso;
+            if (rand <= 0) { sorteado = c.nome; break; }
+        }
+        file_name_sorteado = sorteado;
         bonusNecro = 0; contNecro++; 
         
         if (!isCabal || (isCabal && temWhiteDeath && file_name_sorteado === 'defiler_necromancer')) {
@@ -548,8 +653,13 @@ btnDraw.addEventListener('click', () => {
         for (const [nomeCarta, dadosDaCarta] of Object.entries(baralhoZumbis.spawn_data[nivel] || {})) {
             let pesoAtual = dadosDaCarta.total_cards;
             if (isAdvanced) {
-                const inputPeso = document.getElementById(`adv-peso-${nomeCarta}-${nivel}`);
-                if (inputPeso) pesoAtual = parseFloat(inputPeso.value); 
+                // EXCLUI SE A CAIXA ESTIVER DESMARCADA
+                if (document.getElementById(`check-enemy-${nomeCarta}`)?.checked === false) {
+                    pesoAtual = 0;
+                } else {
+                    const inputPeso = document.getElementById(`adv-peso-${nomeCarta}-${nivel}`);
+                    if (inputPeso) pesoAtual = parseFloat(inputPeso.value); 
+                }
             }
             if (pesoAtual > 0) {
                 const tipo = tabelaInimigos[nomeCarta]?.class || nomeCarta.split('_')[0]; 
@@ -566,7 +676,6 @@ btnDraw.addEventListener('click', () => {
             return;
         }
 
-        // REDES DE SEGURANÇA (Fallback) CONTRA O BUG DE MATEMÁTICA JS
         let randTipo = Math.random() * pesoTotalTipos;
         let tipoSorteado = Object.keys(grupos)[0]; 
         for (const [tipo, dadosGrupo] of Object.entries(grupos)) {
