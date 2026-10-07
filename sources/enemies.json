@@ -2174,5 +2174,37 @@
     "rules_en": "Extra Activation for Orc Runners.",
     "rules_pt": "Ativação Extra para Orcs Corredores.",
     "image": ""
+  },
+  {
+    "id": "abomination_extra",
+    "name_en": "Extra Activation: Abominations!",
+    "name_pt": "Ativação Extra: Abominações!",
+    "class": "extra",
+    "set": "",
+    "actions": "",
+    "range": "",
+    "damage": "",
+    "move": "",
+    "lethal": "",
+    "ap": "",
+    "rules_en": "Extra Activation for Abominations.",
+    "rules_pt": "Ativação Extra para Abominações.",
+    "image": ""
+  },
+    {
+    "id": "necromancer_extra",
+    "name_en": "Extra Activation: Necromancers!",
+    "name_pt": "Ativação Extra: Necromantes!",
+    "class": "extra",
+    "set": "",
+    "actions": "",
+    "range": "",
+    "damage": "",
+    "move": "",
+    "lethal": "",
+    "ap": "",
+    "rules_en": "Extra Activation for Necromancers.",
+    "rules_pt": "Ativação Extra para Necromantes.",
+    "image": ""
   }
 ]

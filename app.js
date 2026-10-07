@@ -603,51 +603,71 @@ btnDraw.addEventListener('click', () => {
     const temAbom = poolAbom.length > 0;
     const temNecro = poolNecro.length > 0;
 
-    const chanceFinalAbom = (temAbom && !bloqueiaAbom) ? (baseAbom + bonusAbom) : 0;
-    const chanceFinalNecro = (temNecro && !bloqueiaNecro) ? (baseNecro + bonusNecro) : 0;
+    // --- CÁLCULO DE CHANCES (Sem bloqueio, a roleta gira sempre!) ---
+    const chanceFinalAbom = temAbom ? (baseAbom + bonusAbom) : 0;
+    const chanceFinalNecro = temNecro ? (baseNecro + bonusNecro) : 0;
     
     const roleta = Math.random() * 100;
     let file_name_sorteado = "";
     let quantidadeFinal = 1;
 
-    // --- SORTEIOS ESPECIAIS (AGORA COM MATEMÁTICA DE PESOS) ---
-    if (temAbom && !bloqueiaAbom && roleta <= chanceFinalAbom) {
-        let rand = Math.random() * totalPesoAbom;
-        let sorteado = poolAbom[poolAbom.length - 1].nome;
-        for (let c of poolAbom) {
-            rand -= c.peso;
-            if (rand <= 0) { sorteado = c.nome; break; }
-        }
-        file_name_sorteado = sorteado;
-        bonusAbom = 0; contAbom++; 
-        if (!isAbominafest) document.getElementById('check-abom').checked = true; 
-    }
-    else if (temNecro && !bloqueiaNecro && roleta <= (chanceFinalAbom + chanceFinalNecro)) {
-        let poolSorteio = poolNecro;
-        let pesoTotalSorteio = totalPesoNecro;
-
-        if (isCabal && temWhiteDeath && !isNecroInPlay) {
-            const defiler = poolNecro.find(n => n.nome === 'defiler_necromancer');
-            if (defiler) { poolSorteio = [defiler]; pesoTotalSorteio = defiler.peso; }
-        }
-
-        let rand = Math.random() * pesoTotalSorteio;
-        let sorteado = poolSorteio[poolSorteio.length - 1].nome;
-        for (let c of poolSorteio) {
-            rand -= c.peso;
-            if (rand <= 0) { sorteado = c.nome; break; }
-        }
-        file_name_sorteado = sorteado;
-        bonusNecro = 0; contNecro++; 
+    // --- SORTEIOS ESPECIAIS E ATIVAÇÕES EXTRAS ---
+    if (temAbom && roleta <= chanceFinalAbom) {
+        bonusAbom = 0; // A carta foi gasta, reseta o bónus
+        contAbom++; 
         
-        if (!isCabal || (isCabal && temWhiteDeath && file_name_sorteado === 'defiler_necromancer')) {
-            document.getElementById('check-necro').checked = true;
+        if (bloqueiaAbom) {
+            // Se já está em jogo (e não é Abominafest), é uma Ativação Extra!
+            file_name_sorteado = "abomination_extra";
+            quantidadeFinal = 0; 
+        } else {
+            // Sorteio normal de uma nova Abominação
+            let rand = Math.random() * totalPesoAbom;
+            let sorteado = poolAbom[poolAbom.length - 1].nome;
+            for (let c of poolAbom) {
+                rand -= c.peso;
+                if (rand <= 0) { sorteado = c.nome; break; }
+            }
+            file_name_sorteado = sorteado;
+            if (!isAbominafest) document.getElementById('check-abom').checked = true; 
+        }
+    }
+    else if (temNecro && roleta <= (chanceFinalAbom + chanceFinalNecro)) {
+        bonusNecro = 0; // A carta foi gasta, reseta o bónus
+        contNecro++; 
+        
+        if (bloqueiaNecro) {
+            // Se já está em jogo (e não é Cabal), é uma Ativação Extra!
+            file_name_sorteado = "necromancer_extra";
+            quantidadeFinal = 0;
+        } else {
+            // Sorteio normal de um novo Necromante
+            let poolSorteio = poolNecro;
+            let pesoTotalSorteio = totalPesoNecro;
+
+            if (isCabal && temWhiteDeath && !isNecroInPlay) {
+                const defiler = poolNecro.find(n => n.nome === 'defiler_necromancer');
+                if (defiler) { poolSorteio = [defiler]; pesoTotalSorteio = defiler.peso; }
+            }
+
+            let rand = Math.random() * pesoTotalSorteio;
+            let sorteado = poolSorteio[poolSorteio.length - 1].nome;
+            for (let c of poolSorteio) {
+                rand -= c.peso;
+                if (rand <= 0) { sorteado = c.nome; break; }
+            }
+            file_name_sorteado = sorteado;
+            
+            if (!isCabal || (isCabal && temWhiteDeath && file_name_sorteado === 'defiler_necromancer')) {
+                document.getElementById('check-necro').checked = true;
+            }
         }
     }
     // --- SORTEIO DOS ZUMBIS NORMAIS ---
     else {
-        if (temAbom && !bloqueiaAbom) bonusAbom += incAbom;
-        if (temNecro && !bloqueiaNecro) bonusNecro += incNecro;
+        // Incrementa o bónus independentemente de estarem em jogo ou não (pois as cartas continuam no baralho)
+        if (temAbom) bonusAbom += incAbom;
+        if (temNecro) bonusNecro += incNecro;
 
         const grupos = {};
         for (const [nomeCarta, dadosDaCarta] of Object.entries(baralhoZumbis.spawn_data[nivel] || {})) {
@@ -705,7 +725,7 @@ btnDraw.addEventListener('click', () => {
         file_name_sorteado = varianteSorteada;
     }
 
-    // --- RENDERIZANDO O RESULTADO E O CARD ---
+        // --- RENDERIZANDO O RESULTADO E O CARD ---
     // Prevenção de erro caso não ache o arquivo de forma alguma
     if (!file_name_sorteado) file_name_sorteado = "inimigo_desconhecido"; 
     
