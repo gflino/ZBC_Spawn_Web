@@ -1399,7 +1399,7 @@
     "set": "Crossfire Pack",
     "actions": 1,
     "range": "0-3",
-    "damage": 1,
+    "damage": 2,
     "move": 1,
     "lethal": 1,
     "ap": 1,
